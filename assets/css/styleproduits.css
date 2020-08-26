@@ -1,0 +1,2458 @@
+html{
+  width: 100%;
+}
+body{
+  background-color: #2d2d2d;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+ .navbar-nav{
+  margin-top: 0px;
+}
+ul .navbar-nav{
+  margin-top: 10px;
+}
+.navbar-toggler{
+  color:#2d2d2d;
+  background-color: transparent;
+  margin-left: 250px;
+}
+#header .navbar {
+  background-color: #ceb19c;
+  border-bottom:  1px solid black;
+  border-top:1px solid black;
+  padding:0;
+  font-family: 'Playfair Display', serif;
+}
+#header  #btn-connexion,#header #btn-inscription { 
+  color:white;
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 15px;
+}
+#header #btn-rdv{
+  color:white;
+  font-weight: bold;
+}
+#header  .navbar-nav .nav-link i{/* couleur incon panier*/
+  color: black;
+}
+#header .nav-link {
+  font-size: 19px;
+  display: inline-block;
+  padding: 0.5em;
+  background-color: transparent;
+  color: #E7DCBA;
+  border-color: black;
+  margin-left:15px ;
+  border-radius: 6px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#header ul a:hover{
+  background-color: transparent;
+}
+#header li{
+  display:inline-block;
+  min-width:50px;
+  color: black;
+  margin-left:25px;
+}
+#header li a:after {/*css pour faire apparaitre animation sous les catégories du menu*/
+  content: '';
+  color: white;
+  display: block;
+  margin: auto;
+  height: 1px;
+  width: 0;
+  background: transparent;
+  transition: width .5s ease, background-color .5s ease;
+}
+#header li a:hover:after {
+  width: 90%;
+  background: #444;
+}
+#header a{
+  color: black; 
+}
+#header #logo {
+  margin: 5px 0 0 10px;
+}
+.conteneur #logo{/* taille logo assiya coiffure banniére*/
+  width: 300px;
+  height:150px
+}
+.conteneur{/* centre logo dans banniére et colore la banniére*/
+  text-align: center;
+  background-color: white;
+}
+
+@media screen and (max-width: 992px) and (min-width: 550px){
+#header .nav-item {
+  margin: 0;
+}
+#header .navbar-toggler{
+  margin-left:650px ;
+  width: 15%;
+}
+}
+@media screen and (max-width: 550px){
+#header .navbar-toggler{
+  margin-left:250px ;
+  width: 15%;
+}
+#header i .fas{
+  width:15px;
+  height: 15px;
+}
+
+#header .navbar-toggler-icon img {
+  width: 40px;
+}
+#header .navbar-toggler-icon {
+  margin: 5px 10px 0 0;
+}
+}
+/***********************************************************************************************************CSS LIST CLIENT*/
+body#pageListClients{
+  background-color:white;
+}
+/************************************************************************************************************CSS AJOUT PRODUIT*/
+body#pageAjoutProductsAdmin{
+  background-color: rgb(199, 198, 198);
+}
+body#pageAjoutProductsAdmin label{
+  background-color: rgb(199, 198, 198);
+  color:black;
+  font-weight: bold;
+}
+#pageAjoutProductsAdmin li{
+  list-style-type: none;
+  text-align: center;
+}
+#pageAjoutProductsAdmin .boxDescription{
+  text-align: center;
+}
+#pageAjoutProductsAdmin h1{
+text-align:center ;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+/************************************************************************************************************CSS LIST PRODUITS*/
+body#pageListProducts{
+  background-color:white;
+}
+/*-*****************************************************************************************************************CSS PAGE FIDELITE------------*/
+#pagefidelite #fidelityCard1, #fidelityCard2{
+  width:330px ;
+  height:200px ;
+  margin-bottom: 20px;
+}
+#pagefidelite h1{
+  font-family: 'Playfair Display', serif;
+  color: #ceb19c;
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+#pagefidelite .textFidelity p{
+  font-family: 'Playfair Display', serif;
+  color: white;
+  text-align: center;
+  margin-bottom: 35px;
+}
+/***********************************************************************************************************bouton haut de page******/
+#hdp{
+  border-radius:20px;
+  padding:10px;
+  font-size:15px;
+  text-align:center;
+  color:#fff;
+  background:white;
+  position: fixed;
+  right:20px;
+  margin-top: 480px;
+  z-index: 999;
+  scroll-behavior: smooth;
+  transition: 2s;
+}
+#hdp:before{ 
+  content: "\25b2";
+  color: #000;
+} /* :before(enfant de l"élément hdp , content (génère contenu dans l"élément hdp =icon fleche)*/
+#hdp:hover{
+  background:rgb(207, 216, 169)
+}
+/*propriété bouton en haut de page invisible*/
+#hdp.Invisible{
+  bottom:-25px;
+  opacity:0;
+  transition:all ease-in 0.5s;
+}
+/*propriété bouton en haut de page visible*/
+#hdp.Visible{
+  bottom:20px;
+  opacity:1;/*opacity:0 = invisible et opacity:1 = visible*/
+}
+/*-****************************************************************************************************************-CSS BODY=pageProducts ( SECTION, CARD)--*/
+body#pageProducts{
+  background-color: white !important;
+}
+.hidden{
+  display: none;
+}
+#pageProducts #presentation{
+  background-color: #ebebea;
+  padding-bottom: 0px;
+  margin-top: auto;
+}
+#pageProducts .photoProduct{
+  padding-left: 0px;
+  padding-right: 0px;
+  border-bottom:2px solid white;
+}
+#pageProducts #logoSebastian{
+  width:100%;
+  height: 400px;
+}
+#pageProducts #productsSebastian{
+  width:100%;
+  height: 200px;
+}
+#pageProducts .photoProductSebastian{
+  padding-left: 0px;
+  padding-right: 0px;
+  border-left: 2px solid white;
+}
+div.productmenu{
+  background-color: #5d5d65;
+  border-bottom:2px solid white;
+  border-top: 2px solid white;
+  height:45px;
+}
+#pageProducts #btn-cat{
+  list-style-type: none;
+  color:#ceb19c;
+  text-decoration: underline;
+  display: inline;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+#pageProducts #btn-cat:hover{
+  color: #fff;
+}
+#pageProducts #toustypes, #boucles, #colores, #abimes, #secs, #coiffants{
+  margin-top: 50px;
+  padding-top: 50px;
+  margin-bottom: 150px;
+}
+#pageProducts #img1{
+    width:100%;
+    height: 290px;
+    border:none;
+    margin-top: 30px;
+}
+#pageProducts h1{
+  color:#ceb19c;
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold ;  
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-family: 'Playfair Display', serif;
+}
+#pageProducts h2{
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold ;
+  font-family: 'Playfair Display', serif;
+  padding-top: 0px;
+}
+#pageProducts .card-body p{
+  text-align: center;
+}
+#pageProducts .textSebastian{
+  background-color:#ceb19c ;
+}
+#pageProducts .textSebastian1{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  padding-top: 30px;
+  padding-left:40px;
+  padding-right: 40px;
+}
+#pageProducts .textSebastian2{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+#pageProducts .product{
+  float: left;
+  margin-bottom: 20px;
+}
+#pageProducts .card{
+  font-family: 'Playfair Display', serif;
+  margin:40px;
+  width: 250px;
+  text-align:center;
+  word-wrap: none;
+}
+#pageProducts .card-footer{
+    width:150px;
+    background-color: white;
+    margin-left: 90px;
+}
+#pageProducts .details {
+  border-color: black;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+#pageProducts .details:hover {
+  background-color: transparent;
+  color:#ceb19c ;
+}
+#pageProducts hr {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: 5px double #ceb19c;
+  color: #ceb19c;
+  text-align: center;
+  width: 85%;
+}
+/*********************************************************************************************************CSS PAGE FICHE PRODUIT----*/
+body#pageFicheProduct{
+  background-color: #2d2d2d;
+}
+/* #more {display: none;}
+#more1 {display: none;}
+#more2 {display: none;} */
+
+#pageFicheProduct .imgProduct{
+  border-radius: 5px;
+}
+.back{
+  margin-bottom: 30px;
+}
+#pageFicheProduct #img1{
+  width: 500px;
+  height:500px;
+}
+#pageFicheProduct .container-fluid{
+  margin-top: 100px;
+  padding-bottom: 50px;
+  color: #6D6666;
+  font-family: 'Times New Roman', Times, serif;
+}
+#pageFicheProduct .moreInfo{
+  background-color: #2d2d2d;
+  border-top: 1px solid#6D6666;
+  border-bottom: 1px solid#6D6666;
+}
+#pageFicheProduct h4{
+  text-align: center;
+  color:#ceb19c;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#pageFicheProduct h2{
+  padding-top: 30px;
+  text-align: center;
+  color: #000;
+}
+#pageFicheProduct #ref{
+  text-align: center;
+}
+#pageFicheProduct #price{
+  font-size: 30px;
+  text-align: center;
+}
+#pageFicheProduct hr{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+#pageFicheProduct .container-fluid{
+  padding-bottom: 0px;
+}
+#pageFicheProduct .description{
+  padding-top: 30px;
+  background-color: white;
+  height: auto;
+  border-left:1px solid#6D6666; 
+  border-bottom:1px solid#6D6666; ;
+
+}
+/*styliser balise select*/
+#pageFicheProduct select{
+  background : white;
+  border : 1px solid black;
+  padding : 3px;
+  width: 100%;
+  margin-bottom:30px ;
+  }
+/*styliser bouton ajouter au panier*/
+#pageFicheProduct .ajouter {
+  width: 100%;
+  border: 1px solid black;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  background-color: black;
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+}
+
+#pageFicheProduct .ajouter:hover {
+  background-color: #F3FFB6;
+}
+#pageFicheProduct .ajouter:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+#pageFicheProduct .info{
+background-color:#ceb19c ;
+}
+/******avis***/
+#pageFicheProduct li{
+  list-style-type: none;
+}
+#pageFicheProduct #opinion{
+padding-left: 20px;
+padding-right: 20px;
+background-color: #2d2d2d;
+height: 200px;
+}
+#pageFicheProduct label{
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: white;
+  padding-top: 50px;
+}
+#pageFicheProduct h5{
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: white;
+}
+#pageFicheProduct #button{
+  margin-top: 10px;
+}
+#pageFicheProduct textarea{
+  width:100%;
+  border-radius: 5px;
+}
+/******************************************************************************************CSS PAGE PROFIL CLIENT**********/
+body#pageProfilClient{
+  background-color: white;
+}
+/* li .clientInfo {
+  color:#ceb19c;
+} */
+#pageProfilClient #button {
+  background-color: #ceb19c;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 white;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 15px 20px;
+  position: relative;
+  width: 10%;
+  margin-bottom: 100px;
+}
+#pageProfilClient h1{
+  color:black;
+  text-align: center;
+  font-weight: bold;
+}
+#pageProfilClient h2{
+  color:#ceb19c;
+  font-weight: bold;
+  padding-left: 20px;
+}
+#pageProfilClient #welcome{
+  text-align: center;
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#pageProfilClient #infoClient{
+  /* text-align: center; */
+  /* background-color: white; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid #ceb19c;
+}
+#pageProfilClient .infoList{
+  background-color: white;
+  color: rgba(59, 58, 58, 0.979);
+  font-size: 25px;
+}
+#pageProfilClient ul{
+padding-left: 20px;
+}
+#pageProfilClient .infoList ul li{
+  list-style-type: none;
+  line-height: 200%;
+}
+#pageProfilClient #linkOne, #linkTwo{
+margin-top: 20px;
+}
+#pageProfilClient #rdvList, #orderList{
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid #ceb19c;
+  border-radius: 5px;
+  margin-top: 50px;
+}
+#pageProfilClient #rdvDate{
+  font-size: 25px;
+  color:black;
+  margin-top: 30px;
+}
+#pageProfilClient .appointmentSection, .orderSection{
+  background-color: white;
+}
+/******************************************************************************************************************CSS PAGE SALON-*/
+#pageSalon .no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+#pageSalon .presentation{
+  height:auto;
+}
+#pageSalon #hairSalon  {/*taille photo dans la div*/
+  width:100% ;
+  height: 700px;
+  float: left;
+}
+#logoInitial{
+  width: 150px;
+  height: 150px;
+}
+.logoAC{
+  text-align: center;
+  margin-top: 30px;
+}
+#pageSalon .presentationText{/*div de présentation*/
+  background-color: white;
+  font-family: 'Playfair Display', serif;
+  color: black;
+}
+#pageSalon .presentationText h1 {/*titre de présentation*/
+  margin-top: 90px;
+  font-size: 21px;
+  text-align: center;
+  letter-spacing: 3px;
+  text-decoration: underline; 
+  font-family: 'Playfair Display', serif;
+  padding-right: 30px;
+  padding-left:30px ;
+  color: #ceb19c;
+  font-weight: bold;
+}
+#pageSalon .presentationText p{/*texte de présentation*/
+  text-align: center;
+  padding-top: 50px;
+  font-size: 17px;
+  padding-right: 100px;
+  padding-left:100px ;
+}
+#pageSalon .presentationText hr{
+  width: 50%;
+}
+#pageSalon .shedule{
+  text-align: center;
+  background-color: #2d2d2d;
+  height: 650px;
+}
+#pageSalon .shedule h1, .adress h1{
+  font-family: 'Playfair Display', serif;
+  color:white;
+  font-size: 30px;
+  margin-top: 60px;
+}
+#pageSalon .shedule li, .adress li{
+  font-family: 'Playfair Display', serif;
+  margin-top: 20px;
+  font-size: 20px;
+  color:white;
+}
+#pageSalon .shedule p, .adress p{
+  font-family: 'Playfair Display', serif;
+  margin-top: 40px;
+  font-size: 20px;
+  color:white;
+}
+#pageSalon .shedule hr, .adress hr{
+  background-color:white;
+  width: 50%;
+  margin-bottom: 60px;
+}
+#pageSalon .shedule a{
+  background-color: #ceb19c;
+  color: white;
+  font-weight: bold;
+  width: 60%;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+#pageSalon .adress{
+  text-align: center;
+  background-color: #2d2d2d;
+}
+#pageSalon .adress a {
+  background-color: #ceb19c;
+  color: white;
+  font-weight: bold;
+  width: 50%;
+}
+#pageSalon iframe{
+  width:100%;
+  height:100%;
+}
+#pageSalon #roomPhoto, #roomPhoto1{
+  width: 90%;
+  height:250px;
+  margin-top: 20px;
+  border: 5px solid #ceb19c;
+}
+/* zoom sur photo*/
+.photoRoom:hover img {
+  /* L'image est grossie de 25% */
+  transform:scale(1.15);
+  transition: all 2s ease;
+}
+#pageSalon .textRoom {
+  text-align: center;
+  color:#ceb19c;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  padding-top: 60px;
+}
+#pageSalon #photoRoom {
+  background-color: #2d2d2d;
+}
+#pageSalon .blocRoom {
+  background-color: #2d2d2d;
+  height: 290px;
+}
+#pageSalon .room {
+  height: 290px;
+  border-top: 2px solid white;
+  margin-bottom: 5px;
+}
+#pageSalon .hour {
+  border-top: 2px solid white;
+}
+#pageSalon .container-fluid .section2{
+  margin-bottom: 10px;
+}
+#pageSalon a .linkOne{
+  margin-top: 50px;
+}
+/****************************************************************************************************************CSS PAGE GALERIE --------*/
+body#pagegalerie{
+  background-color: #2d2d2d;
+}
+#pagegalerie h1{
+  font-family: 'Playfair Display', serif;
+  color: #ceb19c;
+  text-align: center;
+  margin-top: 3.5rem;
+}
+#pagegalerie #textGalery {
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 70px;
+}
+#pagegalerie .photoGallery {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+#pagegalerie .photoGallery .zoom {
+ width: 100%;
+ height: 500px;
+ z-index: 999;
+}
+#pagegalerie .row{
+  width: 100%;
+  margin-top: 5px;
+ /* margin-left: 230px;*/
+}
+#pagegalerie #containerGalery{
+  padding-right: 0px;
+  padding-left: 25px;
+}
+#pagegalerie .photoGallery:hover img {
+  opacity: 0.5;
+  filter:alpha(opacity=50);
+  border:0;
+}
+#pagegalerie #galeryPresentation{
+  border-bottom:1px solid white
+}
+/* zoom sur image 
+.zoom {
+  transition: transform .5s;  Animation ;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.zoom:hover {
+  transform: scale(1.2);  (150% zoom)
+}*/
+/******************************************************************************************************************CSS PAGE CONNEXION-----*/
+.login{
+  background-color: #EEE8AA;
+  height: 100%;
+}
+#pageconnexion .logoconnexion{
+  text-align: center;
+  background-color: #BDEDE0;
+  border-bottom:2px solid black;
+  margin-bottom: 50px;
+}
+#pageconnexion h1{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 100px;
+  color: #ceb19c;
+}
+.input-box1{
+  margin-left: 100px;
+  margin-top: 50px;
+}
+.input-box2{
+  padding-left: 0px;
+  margin-left: 115px;
+  margin-top: 50px;
+}
+.input-box1 label, .input-box2 label {
+  color: #ceb19c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  list-style-type: none;
+  font-family: 'Playfair Display', serif;
+}
+.input-box1 input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #a9a9a9;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  padding: 10px 0;
+  position: relative;
+  width: 80%;
+}
+.input-box1 ,.input-box2 li{
+  list-style-type: none;
+}
+.input-box1 input:focus, .input-box2 input:focus {
+  font-weight: 700;
+  background-color: transparent;
+  color: white;
+}
+.input-box2 input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #a9a9a9;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  padding: 10px 0;
+  position: relative;
+  width: 40%;
+}
+ input:focus {
+  font-weight: 700;
+  background-color: transparent;
+  color: white;
+}
+.footer-box {
+  color: #9aa4a7;
+  margin: 10px 0;
+  position: relative;
+  text-align: center;
+}
+#pageconnexion .container{
+  padding-top: 20px;
+}
+#pageconnexion #button{
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 70px 0;
+  padding: 15px 20px;
+  position: relative;
+  width: 30%;
+}
+#pageconnexion .buttonConnexion{
+  text-align: center;
+}
+#pageconnexion #button:hover{
+  background-color: #ceb19c;
+  color:black;
+}
+form .box .no-gutter  > [class*='col-'] {
+  margin-right:0;
+  margin-left:0;
+}
+#logo{
+  width: 400px;
+  height: 200px;
+}
+#checkbox{
+  width:10%;
+}
+#eyeMDP, #eye1MDP{
+  width:20px ;
+  height:20px ;
+}
+#eye, #eye1{
+  background-color: white;
+  margin-top: 5px;
+  border-radius: 25px;
+}
+ #eye:hover, #eye1:hover{
+  background-color: #ceb19c;
+  margin-top: 5px;
+}
+#pageconnexion a .mdpForget{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+#pageconnexion #alertError{
+  text-align: center;
+}
+#pageconnexion p{
+text-align: center;
+}
+/******************************************************************************************************************CSS page inscription */
+#pageInscription .no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+#pageInscription .infoForm{
+  margin-bottom: 100px;
+}
+#pageInscription .row{
+  padding-right: 0px;
+}
+#pageInscription h1{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 100px;
+  color:#ceb19c ;
+}
+#pageInscription p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+#pageInscription .container{
+  width:100%;
+  margin:0px;
+  padding: 0px;
+  max-width: 100%;
+}
+#pageInscription .boxName, .boxFirstname, .boxAdress, .boxPostalCode, .boxCity, .boxMail, .boxPhoneNumber, .boxPassword, .boxPasswordConfirm li{
+  list-style-type: none;
+}
+#pageInscription .boxName label, .boxFirstname label, .boxAdress label, .boxPostalCode label, .boxCity label, .boxMail label, .boxPhoneNumber label {
+  color: #ceb19c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  list-style-type: none;
+}
+#pageInscription .inputform input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #a9a9a9;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  position: relative;
+  width: 100%;
+}
+#pageInscription .boxName input:focus, .boxFirstname input:focus, .boxAdress input:focus, .boxPostalCode input:focus, .boxCity input:focus, .boxMail input:focus, .boxPhoneNumber input:focus, .boxPassword input:focus, .boxPasswordConfirm input:focus {
+  font-weight: 700;
+}
+#pageInscription .boxPassword label, .boxPasswordConfirm label {
+  color: #ceb19c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+#pageInscription #button {
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 white;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 15px 20px;
+  position: relative;
+  width: 10%;
+  margin-bottom: 100px;
+}
+.buttonInscription{
+  text-align: center;
+  margin-top: 50px;
+}
+#pageInscription button:hover {
+  background-color:#a9a9a9 ;
+}
+#pageInscription form  {
+  width: auto;
+}
+/***************************************************************************************************************CCS PAGE MODIFIER PROFIL*/
+#pageEditionProfil .no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+body#pageEditionProfil{
+  background-color: #2d2d2d;
+}
+#pageEditionProfil #changeProfil h1{
+  color:#ceb19c;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#pageEditionProfil .infoForm{
+  margin-bottom: 100px;
+}
+#pageEditionProfil .row{
+  padding-right: 0px;
+}
+#pageEditionProfil h1{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 100px;
+  color:#ceb19c ;
+}
+#pageEditionProfil p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: black;
+}
+#pageEditionProfil .container{
+  width:100%;
+  margin:0px;
+  padding: 0px;
+  max-width: 100%;
+}
+#pageEditionProfil .boxName label, .boxFirstname label, .boxAdress label, .boxPostalCode label, .boxCity label, .boxMail label, .boxPhoneNumber label, .boxPassword label, .boxPasswordConfirm label {
+  color: #ceb19c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  list-style-type: none;
+}
+#pageEditionProfil .inputForm input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #a9a9a9;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  position: relative;
+  width: 100%;
+}
+#pageEditionProfil .boxName, .boxFirstname, .boxAdress, .boxPostalCode, .boxCity, .boxMail, .boxPhoneNumber, .boxPassword, .boxPasswordConfirm li{
+  list-style-type: none;
+}
+#pageEditionProfil .boxName, .boxFirstname , .boxPostalCode, .boxAdress, .boxMail, .boxCity, .boxPhoneNumber, .boxPasswordConfirm, .boxPassword input:focus{
+  font-weight: 700;
+  color:rgb(248, 247, 247);
+}
+#pageEditionProfil .boxFirstname input:focus{
+  font-weight: 700;
+}
+#pageEditionProfil .boxPasswordConfirm label {
+  color: #ceb19c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+#pageEditionProfil .boxPassword label {
+  color: #ceb19c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+#pageEditionProfil #button {
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 white;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 15px 20px;
+  position: relative;
+  width: 10%;
+  margin-bottom: 100px;
+}
+.buttonInscription{
+  text-align: center;
+  margin-top: 50px;
+}
+#pageInscription button:hover {
+  background-color:#a9a9a9 ;
+}
+#pageEditionProfil form  {
+  width: auto;
+}
+/******************************************************************************************************************CSS page savoir faire */
+#pageSavoirFaire .no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+img#savoirFaire1{
+  width: 100%;
+  height: 550px;
+}
+img#savoirFaire2, img#savoirFaire3, img#savoirFaire4, img#savoirFaire5, img#savoirFaire6{
+  width: 100%;
+  height: 600px;
+}
+img#savoirFaire7{
+  width: 100%;
+  height: 610px;
+}
+#textSavoirFaire{
+  background-color: white;
+}
+#pageSavoirFaire section{
+  padding:0px;
+}
+#pageSavoirFaire hr{
+  background-color: #2d2d2d ;
+}
+#pageSavoirFaire  .accordion{
+  background-color: white;
+  margin-right: -5px;
+margin-left: -5px;
+}
+#pageSavoirFaire #textSavoirFaire h2{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 30px;
+  margin-top: 90px;
+  color: #ceb19c;
+}
+#pageSavoirFaire #textSavoirFaire p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: black;
+}
+#pageSavoirFaire h3{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 20px;
+  font-size: 50px;
+  color: #ceb19c;
+}
+/*CARD PRICE*/
+#pageSavoirFaire .card{
+  background-color: #2d2d2d; 
+  border-top: 1px solid #ceb19c ;
+}
+#pageSavoirFaire .card-title{
+  font-size: 50px;
+  text-align: center;
+}
+#pageSavoirFaire .card-text{
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-weight: bold;
+}
+#pageSavoirFaire p.card-text-lissage{
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+#pageSavoirFaire .card-body{
+  background-color: #2d2d2d;
+
+  height:auto;
+}
+#pageSavoirFaire .cardLissage{
+  background-color: #2d2d2d;
+  height: 150px;
+}
+#pageSavoirFaire .cardLissage p{
+  background-color: #2d2d2d;
+}
+#pageSavoirFaire .price{
+  font-size: 50px;
+  text-align: center;
+  color:#ceb19c;
+}
+/*section coiffure*/
+#pageSavoirFaire #textHeadDress h3, #textcoloring h3, #textTie h3, #textOmbre h3 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 30px;
+  font-size: 50px;
+  color: #ceb19c;
+}
+#pageSavoirFaire #priceHeadDress{
+  background-color: #2d2d2d;
+}
+#pageSavoirFaire #priceHeadDress h4{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  color: #ceb19c;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+#pageSavoirFaire #priceHeadDress p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: white;
+}
+#pageSavoirFaire #textHeadDress p, #textColoring p, #textWedding p, #textTie p, #textOmbre p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #2d2d2d;
+}
+#pageSavoirFaire #textHeadDress{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  padding-top: 50px;
+  color: #6D6666;
+  background-color: white;
+}
+/*section colorations*/
+#pageSavoirFaire #priceColoring h4, #priceSmoothing h4, #priceWedding h4, #tarifsTie h4, #tarifsOmbre h4{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  color: #ceb19c;
+  padding-bottom: 20px;
+}
+#pageSavoirFaire #priceColoring p, #priceSmoothing p, #textSmoothing p, #priceWedding p, #tarifsTie p, #tarifsOmbre p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #6D6666;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+#pageSavoirFaire #textColoring{
+  color: #6D6666;
+  background-color: white;
+}
+#pageSavoirFaire #priceColoring, #priceSmoothing, #priceWedding, #tarifsTie, #tarifsOmbre{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  padding-top: 50px;
+  color: #6D6666; 
+  background-color: #2d2d2d;
+}
+/*section lissage*/
+#pageSavoirFaire #textSmoothing h3, #textWedding h3{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 70px;
+  font-size: 50px;
+  color: #ceb19c;
+}
+#pageSavoirFaire #textSmoothingOne{
+  background-color: #696968;
+} 
+#pageSavoirFaire #textSmoothingTwo, #textTieTwo, #textOmbreTwo{
+  background-color: #464544;
+} 
+#pageSavoirFaire #textSmoothingThree, #textTieThree, #textOmbreThree{
+  background-color: #0f0f0f;
+}
+#pageSavoirFaire #textSmoothingThree h3, #textSmoothingOne h3, #textLSmoothingTwo h3, #textTieThree h3, #textTieTwo h3, #textOmbreThree h3, #textOmbreTwo h3 {
+  margin-top: 20px;
+  padding-left:15px ;
+  padding-right:15px ;
+}
+#pageSavoirFaire #textSmoothingOne p, #textSmoothingTwo p, #textSmoothingThree p, #textTieOne p, #textTieTwo p, #textTieThree p, #textOmbreTwo p, #textOmbreThree p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: white;
+}
+#pageSavoirFaire #textSmoothing, #textWedding, #textTie, #textOmbre{
+background-color: white;
+}
+/* section ombré hair*/
+#pageSavoirFaire #textOmbreOne p{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: white;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#pageSavoirFaire .tab-head-cont a{
+  width:245px;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  background-color: #2d2d2d;
+  border-radius: 3px;
+}
+#pageSavoirFaire #btn{
+  color:#2d2d2d;
+  text-decoration: underline;
+}
+/* accordion */
+.accordion-tabs {
+	*zoom: 1;
+	width: 100%;
+	margin-left:0;
+  padding-left:0;
+  background-color: #2d2d2d;
+}
+.accordion-tabs:after {
+  clear: both;
+}
+.accordion-tabs li{
+  list-style:none;
+  width:100%;
+}
+.accordion-tabs li.tab-head-cont a {
+  text-decoration:none;
+  color: #ceb19c;
+  display: block;
+  padding: 0.75em 0.809em;
+  font-weight: bold;
+  background-color: transparent;
+  margin-top: 5px;
+}
+.accordion-tabs li.tab-head-cont a:hover {
+  color: white;
+}
+.accordion-tabs li.tab-head-cont a:focus {
+  outline: none;
+}
+.accordion-tabs li.tab-head-cont a.is-active {
+  background-color: white(143, 140, 140);
+  border-bottom: 0;
+  color:#333333;
+}
+#pageSavoirFaire ul{
+  margin-bottom: 0px;
+}
+.accordion-tabs li.tab-head-cont section {
+  padding: 1.5em 1.618em;
+  background-color: #2d2d2d;
+  display: none;
+  overflow: hidden;
+  width: 100%;
+}
+.accordion-tabs  #coiffures {
+  padding: 0px;
+  background: #2d2d2d;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+/* RESPONSIVE */
+@media screen and (min-width: 600px) {
+.accordion-tabs {
+  border: none;
+  position: relative;
+}
+.accordion-tabs li.tab-head-cont {
+  display: inline;
+}
+.accordion-tabs li.tab-head-cont:last-child a {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.accordion-tabs li.tab-head-cont a {
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  border-top: 0;
+}
+.accordion-tabs li.tab-head-cont a.is-active {
+  background-color: white;
+  border-bottom: 1px solid #f7f7f7;
+  margin-bottom: -1px;
+}
+.accordion-tabs li.tab-head-cont section {
+
+  border: 1px solid #dddddd;
+  float: left;
+  left: 0;
+  padding: 0.75em 0.809em;
+}
+}
+/******************************************************************************************************************CSS form ajout produit admin*/
+
+/***********************************************************************************************CSS PAGE DELETE CLIENT****/
+
+/******************************************************************************************************************CSS footer ( body = pagefooter )*/
+.bg-footer {
+  background-color: #5d5d65;
+}
+.footer-heading {
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+.footer-link a {
+  color: #acacac;
+  line-height: 40px;
+  font-size: 14px;
+  transition: all 0.5s;
+}
+.contact-info  p{
+  text-align: left;
+}
+.footer-link a:hover {
+  color: #ceb19c;
+}
+.contact-info a{
+  color: #acacac;
+  font-size: 14px;
+  text-align: left;
+}
+.footer-social-icon {
+  font-size: 15px;
+  height: 34px;
+  width: 34px;
+  line-height: 34px;
+  border-radius: 3px;
+  text-align: center;
+  display: inline-block;
+}
+.footer-alt {
+  color: #acacac;
+}
+.footer-heading {
+  position: relative;
+  padding-bottom: 12px;
+}
+#footerRow{
+  padding-left: 100px;
+}
+.footer-heading:after {
+  content: '';
+  width: 30px;
+  border-bottom: 3px solid #FFF;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  border-bottom: 1px solid #ceb19c;
+}
+/**********************************************************************************************************MEDIA QUERIES ADAPTATION RESPONSIVE FOOTER*/
+@media only screen and (max-width: 950px) and (min-width: 500px){
+
+.section .container-fluid{
+  margin-left: 0px;
+}
+.contact-info p{
+  color: #acacac;
+  font-size: 12px;
+}
+.footer-link a {
+  font-size: 12px;
+  transition: all 0.5s;
+}
+ .contact-info  {
+  text-align: left;
+}
+footer p{
+  color:white;
+}
+.footer-link a:hover {
+  color: #ceb19c;
+}
+img #facebook{
+  width:48px ;
+  height:48px ;
+}
+.contact-info {
+  color: #acacac;
+  font-size: 12px;
+  text-align: left;
+}
+.footer-social-icon {
+  font-size: 15px;
+  height: 34px;
+  width: 34px;
+  line-height: 34px;
+  border-radius: 3px;
+  text-align: center;
+  display: inline-block;
+}
+.footer-alt {
+  color: #acacac;
+}
+.footer-heading {
+  position: relative;
+  padding-bottom: 12px;
+}
+.footer-heading:after {
+  content: '';
+  width: 30px;
+  border-bottom: 3px solid #FFF;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  border-bottom: 1px solid #ceb19c;
+}
+#footerRow{
+  padding-left: 0px;
+}
+}
+@media only screen and (max-width: 500px){
+
+.section .container-fluid{
+  margin-left: 0px;
+}
+#footerRow{
+  padding-left: 0px;
+}
+}
+  /**************************************************************************************************************mediaqueries page produits*/
+@media only screen and (max-width: 950px) and (min-width: 500px){
+#pageProducts #btn-cat{
+  font-size: 18px;
+}
+#pageProducts .productmenu{
+  height: 40px;
+}
+#pageProducts #productsSebastian{
+  width:100%;
+  height: 230px;
+}
+#pageProducts #img1 {
+  width: 100%;
+  height: 150px;
+  border: none;
+  margin-top: 30px;
+}
+#pageProducts .card-footer{
+  width:130px;
+  background-color: white;
+  margin-left: 10px;
+  padding: 0px;
+}
+#pageProducts .textSebastian1{
+  padding-top: 10px;
+  padding-left:40px;
+  padding-right: 40px;
+  font-size: 13px;
+}
+#pageProducts .textSebastian2{
+  font-size: 13px;
+}
+#pageProducts .details:hover {
+  background-color: transparent;
+  color:#ceb19c ;
+}
+}
+@media only screen and (max-width: 500px) {
+#pageProducts #productsSebastian{
+  display: none;
+}
+#pageProducts .details:hover {
+  background-color: transparent;
+  color:#ceb19c ;
+}
+#pageProducts #toustypes{
+  margin-top: 70px;
+  padding-top: 0px;
+}
+#pageProducts #boucles, #colores, #abimes, #secs, #coiffants{
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+#pageProducts #presentation{
+  padding-bottom: 0px;
+}
+#pageProducts #btn-cat{
+  font-size: 13px;
+}
+#pageProducts #logoSebastian{
+  width:100%;
+  height: 200px;
+}
+#pageProducts .card{
+  width:70%;
+  height: 30%;
+}
+#pageProducts .card-footer{
+  margin-left: 30px;
+}
+#pageProducts .productmenu{
+  height: 60px;
+}
+#pageProducts #img1{
+  width: 70%;
+  height: 70%;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+#pageProducts h1{
+  font-size: 30px;
+}
+#pageProducts h2{
+  padding-top: 0px;
+}
+#pageProducts .textSebastian1{
+  padding-top: 10px;
+  padding-left:40px;
+  padding-right: 40px;
+  font-size: 12px;
+}
+#pageProducts .textSebastian2{
+  font-size: 12px;
+}
+#pageProducts #productsSebastian{
+  display: none;
+}
+}
+/**********************************************************************************************************************media queries page salon*/
+@media only screen and (max-width: 500px) {
+#pageSalon hr{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+#pageSalon #hairSalon  {
+  width:100vw ;
+  height: 300px;
+  border-top-color: black;
+  float: left;
+}
+#pageSalon .presentationText p{
+  padding-top: 0px;
+  font-size: 14px;
+  margin-bottom:0px;
+  padding-right: 50px;
+  padding-left:50px ;
+}
+#pageSalon .presentationText h1{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+#pageSalon .container-fluid{
+  margin-bottom: 0px;
+}
+#pageSalon iframe{
+  width:100%;
+  height:300px;
+}
+#pageSalon .adress{
+  height: 500px;
+}
+#pageSalon .room {
+  height: 900px;
+  margin-bottom: 0px;
+}
+#pageSalon .textRoom {
+  text-align: center;
+  color:#ceb19c;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  padding-top: 10px;
+}
+}
+@media only screen and (max-width: 950px) and (min-width: 500px){
+#pageSalon .presentationText h1{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+#pageSalon .presentationText p{
+  padding-top: 10px;
+  padding-left:10px ;
+  padding-right: 10px;
+  font-size: 14px;
+}
+#pageSalon .presentationText{
+  height:350px;
+}
+#pageSalon #hairSalon {
+  width:100%;
+  height: 100%;
+}
+#pageSalon #photdiv1{
+  height:350px;
+}
+#pageSalon #roomPhoto, #roomPhoto1{
+  width:250px;
+  height:250px;
+}
+#pageSalon .hour{
+margin-top: 5px;
+}
+#pageSalon .room {
+  height: 290px;
+  margin-bottom: 0px;
+}
+#pageSalon .textRoom {
+font-size: 15px;
+}
+}
+/**************************************************************************************************************media queries page fiche produits*/
+@media only screen and (max-width: 500px){
+#pageFicheProduct #img1{
+  width: 200px;
+  height: 200px;
+  margin-left: 65px;
+  margin-bottom: 50px;
+}
+#pageFicheProduct .info{
+  text-align: center;
+  height: 320px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 3px;
+}
+#pageFicheProduct h2{
+  font-size:20px ;
+}
+#pageFicheProduct #price{
+  font-size: 20px;
+}
+#pageFicheProduct p{
+  font-size: 15px;
+}
+#pageFicheProduct a{
+  margin-bottom: 10px;
+}
+#pageFicheProduct hr{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+#pageFicheProduct #opinion {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageFicheProduct .row{
+  margin-right: 0px;
+  margin-left: 0px;
+  }
+}
+@media only screen and (min-width: 500px) and (max-width: 950px){
+#pageFicheProduct #img1{
+  width: 270px;
+  height: 300px;
+  margin-left: 50px;
+  border: 2px black;
+}
+#pageFicheProduct .imgProduct{
+  margin-left: 0px;
+}
+#pageFicheProduct .info{
+  margin-left: 185px;
+  width: 300px;
+  border-radius: 3px;
+}
+#pageFicheProduct h2{
+  font-size:18px ;
+  padding-top: 10px;
+}
+#pageFicheProduct p{
+  font-size: 15px;
+}
+#pageFicheProduct #price{
+  font-size: 20px;
+}
+#header .navbar-toggler{
+  margin-left: 260px;
+}
+#pageFicheProduct hr{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+}
+/***************************************************************************************************************media queries page fidelite*/
+@media only screen and (min-width: 950px)  {
+#pagefidelite #fidelityCard1, #fidelityCard2{
+  width:400px ;
+  height:250px ;
+  margin-bottom: 40px;
+  margin-left: 60px;
+}
+#pagefidelite h1{
+  font-size: 50px;
+  margin-bottom: 90px;
+  margin-top: 30px;
+}
+#pagefidelite .textFidelity p{
+  margin-bottom: 50px;
+  font-size: 25px;
+}
+}
+@media only screen and (max-width: 550px)  {
+#pagefidelite h1{
+  margin-bottom: 20px;
+}
+}
+@media only screen and (max-width: 950px)  {
+#pagefidelite h1{
+  margin-bottom: 30px;
+}
+}
+/***********************************************************************************************media queries page galerie---------*/
+@media only screen and (min-width: 550px) and (max-width: 950px){ 
+#pagegalerie h1{
+  font-family: 'Times New Roman', Times, serif;
+  color: #ceb19c;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 30px;
+}
+#pagegalerie p{
+  font-family: 'Times New Roman', Times, serif;
+  color: #6D6666;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+#pagegalerie .row{
+  margin-left: 100px;
+  width:70%;
+}
+#pagegalerie .photoGallery .zoom {
+  width: 100%;
+height: 200px;
+}
+}
+@media only screen and (max-width: 550px){ 
+#pagegalerie .row{
+  margin-left: 0px;
+  width:100%;
+  padding-right: 15px;
+}
+#pagegalerie .photoGallery{
+  margin-top: 15px;
+}
+#pagegalerie .row{
+  margin-top: 0px;
+}
+#pagegalerie #containerGalery{
+  padding-left: 10px;
+}
+#pagegalerie .photoGallery .zoom {
+  width: 100%;
+  height: 250px;
+}
+}
+/*************************************************************************************************************MEDIA QUERIES PAGE CONNEXION-----*/
+@media only screen and (max-width: 500px) {
+#pageconnexion .input-box1, .input-box2 {
+  margin-left: 0px;
+  margin-top: 50px;
+  text-align: center;
+}
+#pageconnexion .input-box1 li{
+  height:20px
+}
+#pageconnexion .input-box1 input,  .input-box2 input {
+  width:100%;
+  text-align: center;
+}
+#pageconnexion  #button{
+  width:40%;
+}
+#pageconnexion  #logo{
+  width:300px;
+  height:200px;
+}
+#pageconnexion label{
+  font-size: 15px;
+}
+}
+@media only screen and (min-width: 500px) and (max-width: 950px) {
+#pageconnexion     .input-box1 {
+  margin-left: 0px;
+  margin-top: 50px;
+}
+#pageconnexion  .input-box2 {
+  margin-left: 13px;
+  margin-top: 50px;
+}
+#pageconnexion  .box{
+  text-align: center;
+}
+#pageconnexion .input-box1 input, .input-box2 input {
+  width:100%;
+}
+#pageconnexion #button{
+  width:40%  ;
+}
+#pageconnexion  #logo{
+  width:50%;
+}
+}
+/**************************************************************************************************MEDIA QUERIES PAGE SAVOIR FAIRE--------*/
+@media only screen and (max-width: 550px) {
+#pageSavoirFaire .no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+#pageSavoirFaire .no-gutter p{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+/*CARD PRICE*/
+#pageSavoirFaire .cardLissage{
+  width:100%;
+  margin-left: 15px;
+  margin-bottom: 3px;
+  margin-top: 5px;
+  height:200px;
+}
+#pageSavoirFaire .card{
+  width:9rem;
+  margin-left: 29px;
+  margin-bottom: 3px;
+  margin-top: 5px;
+  border: 1px solid #ceb19c;
+}
+#pageSavoirFaire .card-body{
+  width: 100%;
+  margin-left: 0px;
+}
+#pageSavoirFaire .card-title{
+  font-size: 25px;
+  text-align: center;
+}
+#pageSavoirFaire .card-text{
+  font-size: 12px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+#pageSavoirFaire .price{
+  font-size: 25px;
+  text-align: center;
+}
+
+#pageSavoirFaire .tab-head-cont a{
+  width:100%;
+  text-align: center;
+  font-size: 20px;
+}
+img#savoirFaire1{
+  width: 100%;
+  height: 200px;
+}
+img#savoirFaire2, img#savoirFaire3, img#savoirFaire4, img#savoirFaire5{
+  width: 100%;
+  height: 250px;
+}
+img#savoirFaire6{
+  width: 100%;
+  height: 310px;
+}
+img#savoirFaire7{
+  width: 100%;
+  height: 250px;
+}
+.accordion-tabs li.tab-head-cont a {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+#pageSavoirFaire #textSavoirFaire h2{
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+#pageSavoirFaire #textSavoirFaire p{
+  text-align: center;
+  font-size: 13px;
+}
+#pageSavoirFaire #textSavoirFaire p{
+  font-size: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/*section coiffure*/
+#pageSavoirFaire #textHeadDress h3{
+  margin-top: 0px;
+  font-size: 25px;
+  color: #ceb19c;
+}
+#pageSavoirFaire #priceHeadDress h4{
+  font-size: 25px;
+  padding-top: 0px;
+  margin-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+#pageSavoirFaire #textHeadDress h3{
+  font-size: 35px;
+}
+#pageSavoirFaire #priceHeadDress p{
+  font-size: 15px;
+}
+#pageSavoirFaire #textHeadDress p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right:0px ;
+}
+#pageSavoirFaire #textHeadDress, #priceColoring{
+  font-size: 25px;
+  padding-top: 0px;
+}
+/*section colorations*/
+#pageSavoirFaire #textColoring h3, #textSmoothing h3{
+  margin-top: 30px;
+  font-size: 35px;
+}
+#pageSavoirFaire #textColoring h3, #textSmoothing h3{
+  font-size: 30px;
+}
+#pageSavoirFaire #priceColoring h4, #priceSmoothing h4, #priceWedding h4{
+  font-size: 25px;
+  padding-top: 0px;
+  margin-top: 20px;
+  padding-bottom: 0px;
+}
+#pageSavoirFaire #priceColoring p, #priceSmoothing p, #priceWedding p, #tarifsTie p, #tarifsOmbre p{
+  font-size: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageSavoirFaire #textColoring p, #textSmoothing p, #textWedding p, #textTieTwo p, #textTieThree p, #textOmbre p, #textOmbreOne p, #textOmbreTwo p, #textOmbreThree p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/*section lissage*/
+#pageSavoirFaire #priceSmoothing{
+  font-size: 15px;
+  padding-top: 0px;
+}
+#pageSavoirFaire #textSmoothingThree h3, #textSmoothingOne h3, #textSmoothingTwo h3{
+  font-size: 20px;
+  margin-top: 5px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textSmoothingOne p, #textSmoothingTwo p, #textSmoothingThree p{
+  font-size: 13px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/*section mariages*/
+#pageSavoirFaire #textWedding h3, #textTie h3, #textOmbre h3{
+  margin-top: 30px;
+  font-size: 30px;
+}
+#pageSavoirFaire #textWedding h3, #textTie h3{
+  font-size: 30px;
+}
+#pageSavoirFaire #priceWedding, #tarifsTie, #tarifsOmbre, #tarifsOmbre{
+  font-size: 20px;
+  padding-top: 0px;
+}
+/* section tie and dye*/
+#pageSavoirFaire #tarifsTie h4{
+  font-size: 25px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#pageSavoirFaire #textTie p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#pageSavoirFaire #textTieTwo{
+  background-color: #464544;
+}
+#pageSavoirFaire #textTieThree{
+  background-color: #0f0f0f;
+}
+#pageSavoirFaire #textTieThree h3, #textTieTwo h3, #textOmbreThree h3, #textOmbreTwo h3{
+  font-size: 30px;
+  margin-top: 15px;
+  padding-left:0px ;
+  padding-right:0px ;
+}
+/* section ombré hair*/
+#pageSavoirFaire #tarifsOmbre h4{
+  font-size: 25px;
+  padding-top: 0px;
+  margin-top: 20px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#pageSavoirFaire .logoAC{
+  display:none;
+}
+}
+@media only screen and (min-width: 550px) and (max-width: 980px) {
+#pageSavoirFaire .no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+#pageSavoirFaire section{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/*CARD PRICE*/
+#pageSavoirFaire hr{
+  width:50%;
+  }    
+#pageSavoirFaire .cardLissage{
+  width:100%;
+  margin-left: 22px;
+  height: 150px;
+}
+#pageSavoirFaire .cardLissage p{
+  padding-top: 10px;
+}
+#pageSavoirFaire .card{
+  width:9rem;
+  margin-left: 0px;
+  margin-bottom: 3px;
+  margin-top: 5px;
+}
+#pageSavoirFaire .card-body{
+  width: 100%;
+  padding:0px;
+}
+#pageSavoirFaire .card-title{
+  font-size: 25px;
+  text-align: center;
+}
+#pageSavoirFaire .card-text{
+  font-size: 12px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+#pageSavoirFaire p.card-text-lissage{
+  padding-right: 50px;
+}
+#pageSavoirFaire .price{
+  font-size: 25px;
+  text-align: center;
+}
+#pageSavoirFaire .tab-head-cont a{
+  width:100%;
+  text-align: center;
+  font-size: 20px;
+}
+img#savoirFaire1{
+  width: 100%;
+  height: 332px;
+}
+img#savoirFaire2{
+  width: 100%;
+  height: 270px;
+}
+img#savoirFaire3{
+  width: 100%;
+  height: 270px;
+}
+img#savoirFaire4{
+  width: 100%;
+  height: 270px;
+}
+img#savoirFaire5{
+  width: 100%;
+  height: 270px;
+}
+img#savoirFaire6{
+  width: 100%;
+  height: 310px;
+}
+img#savoirFaire7{
+  width: 100%;
+  height: 335px;
+}
+.accordion-tabs li.tab-head-cont a {
+  margin-top: 0px;
+  padding-left: 0px;
+}
+#pageSavoirFaire #textSavoirFaire h2{
+  text-align: center;
+  padding-top:10px ;
+  margin-bottom: 10px;
+  font-size: 15px;
+  margin-top: 0px;
+}
+#pageSavoirFaire #textSavoirFaire p{
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/*section coiffure*/
+#pageSavoirFaire #textHeadDress h3{
+  margin-top: 0px;
+  font-size: 25px;
+  color: white;
+}
+#pageSavoirFaire #priceHeadDress h4{
+  font-size: 25px;
+  padding-top: 0px;
+}
+#pageSavoirFaire #textHeadDress h3{
+  font-size: 35px;
+}
+#pageSavoirFaire #priceHeadDress p{
+  font-size: 15px;
+}
+#pageSavoirFaire #textHeadDress p{
+  font-size: 15px;
+  margin-top: 0px;
+  padding-left: 20px;
+  padding-right:10px ;
+}
+#pageSavoirFaire #textHeadDress{
+  font-size: 25px;
+  padding-top: 0px;
+}
+/*section colorations*/
+#pageSavoirFaire #textColoring h3{
+  margin-top: 10px;
+  font-size: 30px;
+}
+#pageSavoirFaire #priceColoring h4{
+  font-size: 25px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+}
+#pageSavoirFaire #priceColoring p{
+  font-size: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageSavoirFaire #textColoring p{
+  font-size: 15px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+#pageSavoirFaire #priceColoring{
+  font-size: 25px;
+  padding-top: 0px;
+}
+/*section lissage*/
+#pageSavoirFaire #textSmoothing h3{
+  margin-top:30px;
+  font-size: 35px;
+}
+#pageSavoirFaire #textSmoothing h3{
+  font-size: 30px;
+}
+#pageSavoirFaire #priceSmoothing h4{
+  font-size: 25px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+}
+#pageSavoirFaire #priceSmoothing p{
+  font-size: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageSavoirFaire #textSmoothing p{
+  font-size: 15px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+#pageSavoirFaire #priceSmoothing{
+  font-size: 15px;
+  padding-top: 0px;
+}
+#pageSavoirFaire #textSmoothingThree h3{
+  font-size: 20px;
+  margin-top: 5px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textSmoothingOne h3{
+  font-size: 20px;
+  margin-top: 5px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textSmoothingTwo h3{
+  font-size: 20px;
+  margin-top: 5px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textSmoothingOne p{
+  font-size: 13px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 7px;
+}
+#pageSavoirFaire #textSmoothingTwo p{
+  font-size: 13px;
+  margin-top: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+#pageSavoirFaire #textSmoothingThree p{
+  font-size: 13px;
+  margin-top: 5px;
+  padding-left: 7px;
+  padding-right: 27px;
+}
+/*section mariages*/
+#pageSavoirFaire #textWedding h3{
+  margin-top: 30px;
+  font-size: 30px;
+}
+#pageSavoirFaire #textWedding h3{
+  font-size: 30px;  
+}
+#pageSavoirFaire #priceWedding h4{
+  font-size: 25px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+}
+#pageSavoirFaire #priceWedding p{
+  font-size: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageSavoirFaire #textWedding p{
+  font-size: 15px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+#pageSavoirFaire #priceWedding{
+  font-size: 20px;
+  padding-top: 0px;
+}
+/* section tie and dye*/
+#pageSavoirFaire #textTie h3{
+  margin-top: 30px;
+  font-size: 30px;
+}
+#pageSavoirFaire #textTie h3{
+  font-size: 30px;
+}
+#pageSavoirFaire #tarifsTie h4{
+  font-size: 25px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+}
+#pageSavoirFaire #tarifsTie p{
+  font-size: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageSavoirFaire #textTie p{
+  font-size: 15px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+#pageSavoirFaire #tarifsTie{
+  font-size: 20px;
+  padding-top: 0px;
+}
+#pageSavoirFaire #textTieTwo{
+  background-color: #464544;
+} 
+#pageSavoirFaire #textTieThree{
+  background-color: #0f0f0f;
+}
+#pageSavoirFaire #textTieThree h3{
+  font-size: 30px;
+  margin-top: 15px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textTieTwo h3{
+  font-size: 30px;
+  margin-top: 15px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textTieTwo p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 20px;
+  padding-right: 7px;
+}
+#pageSavoirFaire #textTieThree p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 7px;
+  padding-right: 27px;
+}
+/* section ombré hair*/
+#pageSavoirFaire #textOmbre h3{
+  margin-top: 10px;
+  font-size: 30px;
+}
+#pageSavoirFaire #tarifsOmbre h4{
+  font-size: 25px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+}
+#pageSavoirFaire #tarifsOmbre p{
+  font-size: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#pageSavoirFaire #textOmbre p{
+  font-size: 15px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+#pageSavoirFaire #tarifsOmbre{
+  font-size: 20px;
+  padding-top: 0px;
+}
+#pageSavoirFaire #tarifsOmbre{
+  font-size: 20px;
+  padding-top: 0px;
+}
+#pageSavoirFaire #textOmbreThree h3{
+  font-size: 30px;
+  margin-top: 15px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textOmbreTwo h3{
+  font-size: 30px;
+  margin-top: 15px;
+  padding-left:5px ;
+  padding-right:5px ;
+}
+#pageSavoirFaire #textOmbreOne p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+#pageSavoirFaire #textOmbreTwo p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 20px;
+  padding-right: 7px;
+}
+#pageSavoirFaire #textOmbreThree p{
+  font-size: 13px;
+  margin-top: 0px;
+  padding-left: 7px;
+  padding-right: 27px;
+}
+#pageSavoirFaire .logoAC{
+  display:none;
+}
+#pageSavoirFaire .container-fluid{
+padding-right: 5px;
+padding-left: 5px;
+}
+}
+/**************************************************************************************************MEDIA QUERIES PAGE INSCRIPTION----*/
+@media only screen and (min-width: 550px) and (max-width: 980px) {
+#pageInscription #button{
+  width: 15%;
+}
+#pageInscription .row{
+  padding-right: 0px;
+}
+}
+@media only screen and (max-width: 550px){
+#pageInscription form{
+  text-align: center;
+  margin-left: 15px;
+}
+#pageInscription #button{
+  width: 50%;
+}
+#pageInscription #logo{
+  width: 300px;
+  height: 100px;
+}
+#pageInscription .row{
+  padding-right: 0px;
+}
+
+}
+/**************************************************************************************************MEDIA QUERIES PAGE PROFIL CLIENT----*/
+@media only screen and (min-width: 550px) and (max-width: 980px) {
+  #pageEditionProfil #button{
+    width: 20%;
+  }
+}
+  @media only screen and (max-width: 550px){
+  #pageEditionProfil #button{
+    width: 40%;
+  }
+}
+
