@@ -5,13 +5,10 @@ class appointments{
     public $choice = '';
     public $id_kgtp_userClients = 'NULL';
     private $db = NULL;
-    public function __construct()
-    {
-        try {
-            $this->db = new PDO('mysql:host=localhost;dbname=assiyacoiffure;charset=utf8', 'root', '');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+    public function __construct(){
+    
+    $this->db = dataBase::getInstance();
+
     }
     public function checkAppointmentExist(){
         $checkAppointmentExistQuery = $this->db->prepare(

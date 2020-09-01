@@ -7,7 +7,7 @@ class products
 {
     public $id = 0;
     public $name = '';
-    public $photo = NULL;
+    public $photo = '';
     public $quantity = '';
     public $price = '';
     public $weight = '';
@@ -16,11 +16,8 @@ class products
     private $db = NULL;
     public function __construct()
     {
-        try {
-            $this->db = new PDO('mysql:host=localhost;dbname=assiyacoiffure;charset=utf8', 'root', '');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+        $this->db = dataBase::getInstance();
+
     }
 
 
@@ -75,17 +72,17 @@ class products
         return $data->isProductExist; 
     } 
 
-    public function addProductsAdmin(){/****************************************ajoute un client ds bdd************* */
+    public function addProductsAdmin(){/****************************************ajoute un produit ds bdd************* */
         $addProductsAdminQuery = $this->db->prepare(
             'INSERT INTO 
-                    `kgtp_products` (`name`,`price`, `quantity`, `weight`, `description`, `id_kgtp_categories`)
+                    `kgtp_products` (`name`,`price`, `photo`, `quantity`, `weight`, `description`, `id_kgtp_categories`)
             VALUES
-                (:name, :price, :quantity, :weight, :description, :id_kgtp_categories )
+                (:name, :price, :photo, :quantity, :weight, :description, :id_kgtp_categories )
             -- INNER JOIN `kgtp_categories` AS `cat` ON `cat`.`id` = `id_kgtp_categories`
                 ');
         $addProductsAdminQuery->bindvalue(':name', $this->name, PDO::PARAM_STR);
         $addProductsAdminQuery->bindvalue(':price', $this->price, PDO::PARAM_STR);
-        // $addProductsAdminQuery->bindvalue(':photo', $this->photo, PDO::PARAM_STR);
+        $addProductsAdminQuery->bindvalue(':photo', $this->photo, PDO::PARAM_STR);
         $addProductsAdminQuery->bindvalue(':quantity', $this->quantity, PDO::PARAM_INT);
         $addProductsAdminQuery->bindvalue(':weight', $this->weight, PDO::PARAM_STR);
         $addProductsAdminQuery->bindvalue(':description', $this->description, PDO::PARAM_STR);

@@ -1,18 +1,19 @@
 <?php 
 $title = 'Assiya Coiffure® - Ajout Produit';
+include_once '../models/database.php';
 include '../models/products.php';
 include '../models/categories.php';
-
 include '../controllers/modifyProductsAdminController.php';
 include 'menu.php' 
 ?>
 <body id="pageAjoutProductsAdmin">
         <div class="container-fluid justify-content-center">
             <div class="row no-gutter justify-content-center ">
+            <?php if(isset($productInfo)){ ?>
                 <form class="col-md-12 text-white" method="POST" action="modifyProductsAdmin.php?id=<?= $product->id ?>" >
-                    <div>
-                    <h1 class="text-secondary">MODIFIER UN PRODUIT</h1>
-                        <p clas="text-center" style="color: green;"><?= isset($modifytProductMessage) ? $modifytProductMessage : '' ?></p> 
+                    <div class="justify-content-center">
+                    <h1 class="text-dark">MODIFIER UN PRODUIT</h1>
+                    <p class="text-center" style="color: green;"><?= isset($modifytProductMessage) ? $modifytProductMessage : '' ?></p> 
                     </div>
                         <div class=" boxName col-md-6 offset-md-3 <?= count($formErrors) > 0 ? (isset($formErrors['name']) ? 'has-danger' : 'has-success') : '' ?>" >
                             <li><label for="name">Nom du produit :</label></li>
@@ -32,22 +33,23 @@ include 'menu.php'
                         <div class=" boxWeight col-md-6 offset-md-3 <?= count($formErrors) > 0 ? (isset($formErrors['weight']) ? 'has-danger' : 'has-success') : '' ?>" >
                             <li><label for="weight">Poids :</label></li>
                             <li><input id="weight" name="weight" type="weight" placeholder="Entrez le poids" class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['weight']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['weight']) ? $_POST['weight'] : $productInfo->weight ?>" /></li>
-                            <p style="color: red;"><?= isset($formErrors['weight']) ? $formErrors['weight'] : '' ?></p>
+                            <p class="text-center" style="color: red;"><?= isset($formErrors['weight']) ? $formErrors['weight'] : '' ?></p>
                         </div>
                         <p></p>
-                        <div class=" boxCategory text-center col-md-6 offset-md-3 <?= count($formErrors) > 0 ? (isset($formErrors['id_kgtp_categories']) ? 'has-danger' : 'has-success') : '' ?> " >
-                            <li><label for="id_kgtp_categories">Catégories :</label></li>
+                        <div class=" boxCategory text-center col-md-6 offset-md-3 <?= count($formErrors) > 0 ? (isset($formErrors['category']) ? 'has-danger' : 'has-success') : '' ?> " >
+                            <li><label for="category">Catégories :</label></li>
                             <select id="category" name="category">
                             <option selected disabled>Choisissez la catégorie :</option><?php
                             foreach($categoriesList as $category){ ?>
-                                <option value="<?= $category->id ?>"><?= $category->name ?></option><?php
+                                <option value="<?= $category->id ?>" ><?= $category->name ?></option><?php
                             } ?>
                             </select>
-                            <p style="color: red;"></p>
+                            <p style="color: red;"><?= isset($formErrors['category']) ? $formErrors['category'] : '' ?></p>
                         </div>
                         <div class="boxDescription col-md-6 offset-md-3 ">
                         <label for="description">Description du produit :</label>
                         <textarea id="description" name="description" class="md-textarea form-control" rows="3"><?= isset($_POST['description']) ? $_POST['description'] : $productInfo->description ?></textarea>
+                        <p style="color: red;"><?= isset($formErrors['description']) ? $formErrors['description'] : '' ?></p>
                         </div>
                         <div class="boxPhoto col-md-6 offset-md-3 text-center mt-5">
                             <li>
@@ -60,4 +62,6 @@ include 'menu.php'
                         <div class="col-md-6 offset-md-3 mb-5 buttonInscription">
                             <input type="submit" id="button" name="modifyProductAdmin" value="Modifier le produit"></input>
                         </div>
+                        <?php
+                } ?>
                 </form>

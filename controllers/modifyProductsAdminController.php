@@ -50,11 +50,11 @@ if(isset($_POST['modifyProductAdmin'])){
         $formErrors['weight'] = 'Veuillez entrer le poids';
     }
 /*----------------------------------------------------------verification CATEGORIE*/
-    if(!empty($_POST['id_kgtp_categories'])){
-            $product->id_kgtp_categories = htmlspecialchars($_POST['id_kgtp_categories']);
+    if(!empty($_POST['category'])){
+            $product->id_kgtp_categories = htmlspecialchars($_POST['category']);
         
     }else{
-        $formErrors['id_kgtp_categories'] = 'Veuillez entrer une catégorie (1 à 6)';
+        $formErrors['category'] = 'Veuillez choisir une catégorie';
     }
 /*----------------------------------------------------------verification DESCRIPTION*/
 
@@ -68,10 +68,12 @@ if(isset($_POST['modifyProductAdmin'])){
         //on appelle la methode de notre addPatient pour creer un nouveau patient dans la base de données
         if($product->modifyProductInfo()){
             $modifytProductMessage = 'LA MODIFICATION A BIEN ETE PRISE EN COMPTE'; 
-        }else{
+        }
+    }else{
             $modifytProductMessage = 'UNE ERREUR EST SURVENUE PENDANT L \'ENREGISTREMENT.';    
         }
         
     }
+    var_dump($formErrors);
+    var_dump($product);
 
-}

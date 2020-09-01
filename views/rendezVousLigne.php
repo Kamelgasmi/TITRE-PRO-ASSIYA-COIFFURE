@@ -1,11 +1,11 @@
 <?php 
 session_start();
 $title = 'Assiya Coiffure® - RDV en ligne';
-
-include 'menu.php';
+include_once '../models/database.php';
 include_once '../models/appointments.php';
 include_once '../models/clients.php';
 include '../controllers/rendezVousLigneController.php'; 
+include 'menu.php';
 ?>
 <div class="content" id="ajoutRdv">
     <form class="offset-4 col-4" action="rendezVousLigne.php" method="POST">

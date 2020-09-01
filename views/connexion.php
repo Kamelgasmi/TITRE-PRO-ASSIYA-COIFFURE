@@ -1,8 +1,9 @@
 <?php 
-$title = 'Assiya Coiffure® - Mon compte'; 
-include 'menu.php' ;
+$title = 'Assiya Coiffure® - Mon compte';
+include_once '../models/database.php';
 include '../models/clients.php';
 include '../controllers/connexioncontroller.php'; 
+include 'menu.php' ;
 // include_once '../controllers/cookieConnexionController.php'; 
 
 ?>

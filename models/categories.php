@@ -5,13 +5,9 @@ class categories
     public $name = '';
     public $simplifiedName = '';
     private $db = NULL;
-    public function __construct()
-    {
-        try {
-            $this->db = new PDO('mysql:host=localhost;dbname=assiyacoiffure;charset=utf8', 'root', '');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+    public function __construct(){
+        $this->db = dataBase::getInstance();
+
     }
 
     public function getCategoriesName() {

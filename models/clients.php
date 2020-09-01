@@ -16,11 +16,8 @@ class client{
     public $id_kgtp_roles = 2;
     private $db = NULL;
     public function __construct(){
-        try {
-            $this->db = new PDO('mysql:host=localhost;dbname=assiyacoiffure;charset=utf8', 'root', '');
-        } catch (Exception $error) {
-            die($error->getMessage());
-        }
+        $this->db = dataBase::getInstance();
+
     }
 
 
@@ -128,7 +125,7 @@ class client{
     }
     public function getClientsList() {
         $getClientsListQuery = $this->db->query(
-            'SELECT `id`, `lastname`, `firstname`, `mail` 
+            'SELECT `id`, `lastname`, `firstname`, `mail`, `address`, `postalCode`, `city`, `phoneNumber`, `mail`, `password`
             FROM `kgtp_userClients`
             ORDER BY `lastname` AND `firstname`');
         return $getClientsListQuery->fetchAll(PDO::FETCH_OBJ);

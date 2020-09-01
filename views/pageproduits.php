@@ -1,5 +1,6 @@
 <?php 
 $title = 'Assiya Coiffure® - Boutique';
+include_once '../models/database.php';
 include '../models/categories.php';
 include '../models/products.php';
 include '../controllers/pageproduitsController.php';

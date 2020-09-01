@@ -116,10 +116,10 @@ if(isset($_POST['modifyClientProfilAdmin'])){
     if(empty($formErrors)){
         //on appelle la methode de notre addPatient pour creer un nouveau patient dans la base de données
         if($client->modifyClientInfo()){
-            $modifyProductMessage = 'LA MODIFICATION A BIEN ETE PRISE EN COMPTE'; 
-        }else{
-            $modifyProductMessage = 'UNE ERREUR EST SURVENUE PENDANT L \'ENREGISTREMENT.';    
+            $modifyClientMessage = 'LA MODIFICATION A BIEN ETE PRISE EN COMPTE'; 
+        }
+    }else{
+            $modifyClientMessage = 'UNE ERREUR EST SURVENUE PENDANT L \'ENREGISTREMENT.';    
         }
         
     }
-}

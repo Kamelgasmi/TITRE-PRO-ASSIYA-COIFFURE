@@ -56,4 +56,6 @@
             <p class="footer-alt mb-0 f-14">2020 © ASSIYA COIFFURE, Tous droits réservés</p>
         </div>
     </footer>
+   
+
 

@@ -18,6 +18,6 @@ function goTop() {
 /***********************************FONCTION APPARITION BOUTON HAUT DE PAGE******************************************* */
 document.addEventListener('DOMContentLoaded',function() { /* s'assure que la page soit chargée*/
     window.onscroll = function() { /*détecte quand la page défile*/
-        document.getElementById("hdp").className/* cible la classe du bouton "hdp"*/ = (window.pageYOffset > 600) ? "Visible" : "Invisible";/*interchange la classe selon la position dans la page, visible dès qu'elle est à plus de 100 pixels du haut*/
+        document.getElementById("hdp").className/* cible la classe du bouton "hdp"*/ = (window.pageYOffset > 400) ? "Visible" : "Invisible";/*interchange la classe selon la position dans la page, visible dès qu'elle est à plus de 100 pixels du haut*/
     };
 });

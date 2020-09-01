@@ -70,18 +70,13 @@ include 'views/menu.php' ?>
     <div class="modal-content">
       <div class="modal-body">
         <div class="row d-flex justify-content-center align-items-center">
-
-          <h2>
-            <span class="badge">INFORMATIONS</span>
-          </h2>
-          <p class="pt-3 pr-2"><strong>   En créant votre compte</strong>, vous avez la possibilité :</p>
+            <h2>
+                <span class="badge">INFORMATIONS</span>
+            </h2>
+            <p class="pt-3 pr-2"><strong>   En créant votre compte</strong>, vous avez la possibilité :</p>
             <p class="pt-3 pr-2">- des passer des <strong>commandes</strong> et de les consulter</p></br>
             <p class="pt-3 pr-2">- de prendre des <strong>rendez-vous</strong> et de les consulter</p>
-
-          <a type="button" mdbBtn color="success" class="waves-light" mdbWavesEffect>Créer mon compte
-            <mdb-icon fas icon="book" class="ml-1"></mdb-icon>
-          </a>
-          <a type="button" mdbBtn color="success" outline="true" class="waves-light" mdbWavesEffect
+            <a type="button" mdbBtn color="success" outline="true" class="waves-light" mdbWavesEffect
             data-dismiss="modal" (click)="frame.hide()">Ok</a>
         </div>
       </div>

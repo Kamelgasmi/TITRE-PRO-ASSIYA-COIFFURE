@@ -1,5 +1,6 @@
 <?php 
 $title = 'Assiya Coiffure® - Inscription';
+include_once '../models/database.php';
 include '../models/clients.php';
 include '../controllers/ajoutClientInscriptionController.php';
 include 'menu.php' 

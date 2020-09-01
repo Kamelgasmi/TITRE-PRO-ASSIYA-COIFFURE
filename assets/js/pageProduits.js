@@ -30,69 +30,69 @@ $(document).ready(function () {
 });
 
 
-function reveal(action) {
-    var types = document.getElementById('toustypes');// variables définissant les id des sections
-    var boucles = document.getElementById('boucles');
-    var colores = document.getElementById('colores');
-    var abimes = document.getElementById('abimes');
-    var secs = document.getElementById('secs');
-    var coiffants = document.getElementById('coiffants');
-    switch(action) {
-    case 'clickTypes' : //au clic sur l'ancre 
-    types.classList.remove('hidden');// la section tous types apparait (la classe hidden est insérée dans les balises section)
-    boucles.classList.add('hidden');//les autres sections sont cachées
-    colores.classList.add('hidden');
-    abimes.classList.add('hidden');
-    secs.classList.add('hidden');
-    coiffants.classList.add('hidden');
-    break;
-    case 'clickBoucles' : 
-    types.classList.add('hidden');
-    boucles.classList.remove('hidden');
-    colores.classList.add('hidden');
-    abimes.classList.add('hidden');
-    secs.classList.add('hidden');
-    coiffants.classList.add('hidden');
-    break;
-    case 'clickColores' : 
-    types.classList.add('hidden');
-    boucles.classList.add('hidden');
-    colores.classList.remove('hidden');
-    abimes.classList.add('hidden');
-    secs.classList.add('hidden');
-    coiffants.classList.add('hidden');
-    break;
-    case 'clickAbimes' : 
-    types.classList.add('hidden');
-    boucles.classList.add('hidden');
-    colores.classList.add('hidden');
-    abimes.classList.remove('hidden');
-    secs.classList.add('hidden');
-    coiffants.classList.add('hidden');
-    break;
-    case 'clickSecs' : 
-    types.classList.add('hidden');
-    boucles.classList.add('hidden');
-    colores.classList.add('hidden');
-    abimes.classList.add('hidden');
-    secs.classList.remove('hidden');
-    coiffants.classList.add('hidden');
-    break;
-    case 'clickCoiffants' : 
-    types.classList.add('hidden');
-    boucles.classList.add('hidden');
-    colores.classList.add('hidden');
-    abimes.classList.add('hidden');
-    secs.classList.add('hidden');
-    coiffants.classList.remove('hidden');
-    break;
-    default :
-    types.classList.remove('hidden');// par défaut la section tous types apparait
-    boucles.classList.add('hidden');
-    colores.classList.add('hidden');
-    abimes.classList.add('hidden');
-    secs.classList.add('hidden');
-    coiffants.classList.add('hidden');
-    break;
-    }
-}
+// function reveal(action) {
+//     var types = document.getElementById('toustypes');// variables définissant les id des sections
+//     var boucles = document.getElementById('boucles');
+//     var colores = document.getElementById('colores');
+//     var abimes = document.getElementById('abimes');
+//     var secs = document.getElementById('secs');
+//     var coiffants = document.getElementById('coiffants');
+//     switch(action) {
+//     case 'clickTypes' : //au clic sur l'ancre 
+//     types.classList.remove('hidden');// la section tous types apparait (la classe hidden est insérée dans les balises section)
+//     boucles.classList.add('hidden');//les autres sections sont cachées
+//     colores.classList.add('hidden');
+//     abimes.classList.add('hidden');
+//     secs.classList.add('hidden');
+//     coiffants.classList.add('hidden');
+//     break;
+//     case 'clickBoucles' : 
+//     types.classList.add('hidden');
+//     boucles.classList.remove('hidden');
+//     colores.classList.add('hidden');
+//     abimes.classList.add('hidden');
+//     secs.classList.add('hidden');
+//     coiffants.classList.add('hidden');
+//     break;
+//     case 'clickColores' : 
+//     types.classList.add('hidden');
+//     boucles.classList.add('hidden');
+//     colores.classList.remove('hidden');
+//     abimes.classList.add('hidden');
+//     secs.classList.add('hidden');
+//     coiffants.classList.add('hidden');
+//     break;
+//     case 'clickAbimes' : 
+//     types.classList.add('hidden');
+//     boucles.classList.add('hidden');
+//     colores.classList.add('hidden');
+//     abimes.classList.remove('hidden');
+//     secs.classList.add('hidden');
+//     coiffants.classList.add('hidden');
+//     break;
+//     case 'clickSecs' : 
+//     types.classList.add('hidden');
+//     boucles.classList.add('hidden');
+//     colores.classList.add('hidden');
+//     abimes.classList.add('hidden');
+//     secs.classList.remove('hidden');
+//     coiffants.classList.add('hidden');
+//     break;
+//     case 'clickCoiffants' : 
+//     types.classList.add('hidden');
+//     boucles.classList.add('hidden');
+//     colores.classList.add('hidden');
+//     abimes.classList.add('hidden');
+//     secs.classList.add('hidden');
+//     coiffants.classList.remove('hidden');
+//     break;
+//     default :
+//     types.classList.remove('hidden');// par défaut la section tous types apparait
+//     boucles.classList.add('hidden');
+//     colores.classList.add('hidden');
+//     abimes.classList.add('hidden');
+//     secs.classList.add('hidden');
+//     coiffants.classList.add('hidden');
+//     break;
+//     }
+// }

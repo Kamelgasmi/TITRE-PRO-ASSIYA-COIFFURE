@@ -1,9 +1,11 @@
 <?php 
 
 $title = 'Assiya Coiffure® - Mon profil';
-include 'menu.php' ;
+include_once '../models/database.php';
 include '../models/clients.php';
 include '../controllers/editionProfilController.php';
+include 'menu.php' ;
+
 // include_once '../controllers/cookieConnexionController.php'; 
 ?>
 <body id="pageEditionProfil">

@@ -111,14 +111,15 @@ if(isset($_POST['addClient'])){
 
     if(empty($formErrors)){
         if (!$client->checkClientExist()){ //la méthode va être exécutée car le "if" est verifié au traitement 
-            $client->addClientInfo();
-            $addClientMessage = 'VOTRE COMPTE A ETE CREE AVEC SUCCES <a href=\"connexion.php\"> Me connecter </a>';// lien vers page connexion
-            }else {
+            if($client->addClientInfo()){ 
+            $addClientMessage = 'VOTRE COMPTE A ETE CREE AVEC SUCCES <a href="http://testprojetpro/views/connexion.php"> Me connecter </a>';// lien vers page connexion
+            } 
+        }else {
              $addClientMessage = 'VOUS AVEZ DEJA UN COMPTE';
              }
-                // var_dump($client);
-                // var_dump($client->checkClientExist());
-                // var_dump($formErrors);
+                var_dump($client);
+                var_dump($client->checkClientExist());
+                var_dump($formErrors);
 
     }
     

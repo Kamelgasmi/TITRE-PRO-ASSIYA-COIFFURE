@@ -1,13 +1,13 @@
 <?php 
-session_start();
-
 $title = 'Assiya Coiffure® - Mon profil';
+include_once '../models/database.php';
 include '../models/appointments.php';
 include '../models/clients.php';
 // include '../models/rendezVousLigneController.php';
 include '../controllers/profilClientController.php';
 // include_once '../controllers/cookieConnexionController.php'; 
 include 'menu.php' ;
+session_start();
 
 ?>
 <body id="pageProfilClient">

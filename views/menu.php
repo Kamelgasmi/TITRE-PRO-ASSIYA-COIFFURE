@@ -5,10 +5,16 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initialscale=1.0">
         <title><?= $title ?></title>
+        <!-- Font Awesome -->
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+       <!-- Google Fonts Roboto -->
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+       <!-- Bootstrap core CSS -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+       <!-- Material Design Bootstrap -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? '' : '../' ?>assets/css/styleproduits.css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
     <div class="conteneur col-12">
@@ -66,9 +72,6 @@
             <li class="nav-item3">
                 <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>listProductsAdmin.php" >LP</a>
             </li>
-
-
-            
             <li class="nav-item mx-auto">
             <a class="nav-link" href="panier.php"><i class="fas fa-shopping-cart"></i></a>
             </li>

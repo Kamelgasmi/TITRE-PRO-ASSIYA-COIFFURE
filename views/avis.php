@@ -1,4 +1,5 @@
 <?php 
+include_once '../models/database.php';
 include '../controllers/aviscontroller.php';
 ?>
         <form method="post" action="indexficheproduit1.php">
