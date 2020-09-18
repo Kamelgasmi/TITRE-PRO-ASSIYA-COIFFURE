@@ -2,9 +2,8 @@
 $title = 'Assiya Coiffure® - Mon profil';
 $idBody ='pageEditionProfil';
 include 'menu.php';
-include_once '../models/database.php';
 include '../models/clients.php';
-include '../controllers/editionProfilController.php'
+include '../controllers/edition_profil_controller.php'
 ?>
     <div id="changeProfil" class="justify-content-center">
         <h1>MODIFIER MON PROFIL</h1>
@@ -13,7 +12,7 @@ include '../controllers/editionProfilController.php'
     <div class="container-fluid">
             <div class="row no-gutter">
             <?php if(isset($clientInfo)){ ?>
-                <form class="col-md-12" method="POST" action="editionProfil.php?&id=<?= $client->id ?>" >
+                <form class="col-md-12" method="POST" action="edition_profil.php?&id=<?= $client->id ?>" >
                     <p style="color: green;"><?= isset($addClientMessage) ? $addClientMessage : '' ?></p> 
                     <div class="row col-md-12">
                         <div class=" boxName col-md-4 offset-md-2 <?= count($formErrors) > 0 ? (isset($formErrors['lastname']) ? 'has-danger' : 'has-success') : '' ?>" >

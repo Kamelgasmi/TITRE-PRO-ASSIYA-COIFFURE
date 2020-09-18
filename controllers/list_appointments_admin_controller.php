@@ -9,7 +9,7 @@ if(isset($_POST['deleteClient'])){
     //et on exécute la requéte de la methode
     $appointments->deleteAppointment();
     //redirection
-    header('Location: listAppointmentsAdmin.php');
+    header('Location: list_appointments_admin.php');
 
 }
 // var_dump($appointments);

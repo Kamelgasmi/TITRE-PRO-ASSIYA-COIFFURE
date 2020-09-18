@@ -6,13 +6,13 @@ if(isset($_POST['deleteProduct'])){
     //j'hydrate
     $product->id = htmlspecialchars($_POST['recipient-name']);
     $product->deleteProduct();
-    header('Location: listProductsAdmin.php');
+    header('Location: list_products_admin.php');
 }
 
 if(isset($_GET['sendSearch'])){
     $product->search = htmlspecialchars($_GET['search']);
     $product->resultNumber = count($product->searchProductsListByName());
-    $link = 'listProductsAdmin.php?search=' . $_GET['search'] . '&sendSearch=';
+    $link = 'list_products_admin.php?search=' . $_GET['search'] . '&sendSearch=';
     if($product->resultNumber == 0){
         $searchMessage = 'Aucun resultat ne correspond à votre recherche';
     }else{
@@ -23,7 +23,7 @@ if(isset($_GET['sendSearch'])){
     $productsList = $product->getProductsList();
     $product->resultNumber = count($productsList);
     $searchMessage = 'Il y a ' . $product->resultNumber . ' produits';
-    $link = 'listProductsAdmin.php?';
+    $link = 'list_products_admin.php?';
 }
 
 $resultLimit = 10;

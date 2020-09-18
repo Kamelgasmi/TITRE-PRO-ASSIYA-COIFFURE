@@ -58,7 +58,7 @@ if(isset($_POST['send'])){
                     $_SESSION['profile']['id_kgtp_roles'] = $clientProfil->id_kgtp_roles;
 
                     // // On redirige vers la page profil.
-                    header('Location:../views/profilClient.php?id='.$_SESSION['profile']['id']);
+                    header('Location:../views/profil_client.php?id='.$_SESSION['profile']['id']);
                     exit();
             }else{
                 $formErrors['password'] = $formErrors['mail'] = 'Le mot de passe et/ou l\'adresse mail est incorrecte';

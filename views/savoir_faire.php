@@ -1,7 +1,7 @@
 <?php 
 $title = 'Assiya Coiffure® - Le Salon';
 $idBody = 'pageSavoirFaire';
-$script = '../assets/js/savoirFaire.js';
+$script = '../assets/js/savoir_faire.js';
 include 'menu.php' ?>
 
 <!--bouton hdp--><button type="button" id="hdp" onClick="goTop()"></button>
@@ -22,7 +22,7 @@ include 'menu.php' ?>
                                     <p>Nos coiffeurs sont spécialisés en coupe pour les femmes. Dans un esprit ”tendances”, nos coiffeurs vous proposeront des coupes adaptées à votre morphologie et selon vos envies.</p>
                                     <p>Rendez-vous dans notre salon de coiffure ASSIYA COIFFURE, expert en coupe pour les femmes, au centre de Compiègne.</p>
                                     <div class="logoAC">
-                                        <img src="../assets\img\logoInitial.png" id="logoInitial">
+                                        <img src="../assets/img/logoInitial.png" id="logoInitial">
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ include 'menu.php' ?>
                                 <p>Chez ASSIYA COIFFURE, vous aurez une sélection parmi des formules 100% végétales, à base de henné, de pigments naturels et même d’épices. Le résultat ? Des reflets naturels, de la brillance et des cheveux ultra-gainés.</p>
                                 <p>Que ce soit pour une coloration permanente, semi-permanente, ton-ton, naturel, henné, vous pouvez compter sur nos compétences.</p>
                                 <div class="logoAC">
-                                    <img src="../assets\img\logoInitial.png" id="logoInitial">
+                                    <img src="../assets/img/logoInitial.png" id="logoInitial">
                                 </div>
                             </div>
                             <div class="row no-gutter">
@@ -236,7 +236,7 @@ include 'menu.php' ?>
                                 <h3>MARIAGES</h3>
                                 <p>Chez ASSIYA COIFFURE, les coiffeurs héritent d’une compétence sans faille pour faire de vous la plus belle femme le jour de votre mariage. Ils sont à votre écoute afin de répondre à tous vos besoins sans négliger votre personnalité. Les coiffures pour votre mariage dépendent ainsi de vos envies, avec le choix entre les cheveux détachés, les chignons bohèmes et les tresses romantiques.</p>
                                 <div class="logoAC">
-                                    <img src="../assets\img\logoInitial.png" id="logoInitial">
+                                    <img src="../assets/img/logoInitial.png" id="logoInitial">
                                 </div>
                             </div>
                             <div class="row no-gutter">
@@ -253,7 +253,7 @@ include 'menu.php' ?>
                                     <p class=" pl-5 pr-5 ">Vous avez d’autres questions concernant votre coiffure de mariage ? Venez nous rencontrer dans un de nos salons ! Nous vous apporterons idées et conseils sur mesure.</p>
                                 </div>
                             </div>
-                            <img src="../assets\img\mariage2.jpg" height="800px" width="100%">
+                            <img src="../assets/img/mariage2.jpg" height="800px" width="100%">
 
                             <div></div>
                             <div class="col-md-12 col-sm-12" id="priceWedding">
@@ -320,7 +320,7 @@ include 'menu.php' ?>
                                 <p>Le tie and dye est une tendance capillaire très appréciée par les stars et les mannequins depuis quelques années. S’il a beaucoup évolué depuis, il ne s’est toujours pas démodé.</p>
                                 <p>Tie and dye brun, blond ou roux, on peut toutes en profiter. Le principe de ce type de coloration consiste à garder sa couleur naturelle au niveau des racines jusqu’à mi-longueur environ, puis à laisser une autre couleur sur le reste du cheveu et jusqu’aux pointes.</p>
                                 <div class="logoAC">
-                                    <img src="../assets\img\logoInitial.png" id="logoInitial">
+                                    <img src="../assets/img/logoInitial.png" id="logoInitial">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12" id="textTieTwo">
@@ -391,7 +391,7 @@ include 'menu.php' ?>
                                 <p>Depuis quelques saisons déjà, ce dégradé coloré a séduit plus de “coloration addict”. Cette coloration est un équilibre parfait pour sublimer votre look. Pour avoir ce beau résultat fondu, le professionnel de la coloration applique peu de produits au niveau des mi-longueurs et beaucoup de produits au niveau des pointes.</p>
                                 <p>Dans son application, l’important reste l’estompage. L’évolution des tons se fait naturellement, tout en nuances. Avec un Ombré Hair, il n’y a pas de démarcation et le résultat est très naturel.</p>
                                 <div class="logoAC">
-                                    <img src="../assets\img\logoInitial.png" id="logoInitial">
+                                    <img src="../assets/img/logoInitial.png" id="logoInitial">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12" id="textOmbreTwo">

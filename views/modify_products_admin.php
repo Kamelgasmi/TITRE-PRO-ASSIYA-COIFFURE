@@ -2,15 +2,14 @@
 $title = 'Assiya Coiffure® - Ajout Produit';
 $idBody = 'pageAjoutProductsAdmin';
 include 'menu.php';
-include_once '../models/database.php';
 include '../models/products.php';
 include '../models/categories.php';
-include '../controllers/modifyProductsAdminController.php';
+include '../controllers/modify_products_admin_controller.php';
 ?>
         <div class="container-fluid justify-content-center">
             <div class="row no-gutter justify-content-center ">
             <?php if(isset($productInfo)){ ?>
-                <form class="col-md-12 text-white" method="POST" action="modifyProductsAdmin.php?id=<?= $product->id ?>" enctype="multipart/form-data" >
+                <form class="col-md-12 text-white" method="POST" action="modify_products_admin.php?id=<?= $product->id ?>" enctype="multipart/form-data" >
                     <div class="justify-content-center">
                     <h1 class="text-dark">MODIFIER UN PRODUIT</h1>
                     <p class="text-center" style="color: green;"><?= isset($modifytProductMessage) ? $modifytProductMessage : '' ?></p> 

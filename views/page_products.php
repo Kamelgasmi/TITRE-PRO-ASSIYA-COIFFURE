@@ -2,10 +2,9 @@
 $title = 'Assiya Coiffure® - Boutique';
 $idBody = 'pageProducts';
 include 'menu.php';
-include '../models/database.php';
 include '../models/categories.php';
 include '../models/products.php';
-include '../controllers/pageproduitsController.php';
+include '../controllers/page_products_controller.php';
 $script = '../assets/js/pageProduits.js';
 ?>
 
@@ -27,12 +26,12 @@ $script = '../assets/js/pageProduits.js';
         </div>
         <div class="row">
             <div class="productmenu col-md-12 col-sm-12 text-center" >
-                <a class="nav-link  js-scrollTo" onclick="reveal('clickTypes');" id="btn-cat" href="/views/pageproduits.php?categorie=tous-types-de-cheveux">TOUS TYPES</a>
-                <a class="nav-link  js-scrollTo" onclick="reveal('clickBoucles');" id="btn-cat" href="/views/pageproduits.php?categorie=cheveux-boucles">BOUCLES</a>
-                <a class="nav-link  js-scrollTo" onclick="reveal('clickColores');" id="btn-cat" href="/views/pageproduits.php?categorie=cheveux-colores">COLORES</a>
-                <a class="nav-link  js-scrollTo" onclick="reveal('clickAbimes');" id="btn-cat" href="/views/pageproduits.php?categorie=cheveux-abimes">ABIMES</a>
-                <a class="nav-link  js-scrollTo" onclick="reveal('clickSecs');" id="btn-cat" href="/views/pageproduits.php?categorie=cheveux-secs">SECS</a>
-                <a class="nav-link  js-scrollTo" onclick="reveal('clickCoiffants');" id="btn-cat" href="/views/pageproduits.php?categorie=coiffants">COIFFANTS</a>
+                <a class="nav-link  js-scrollTo" onclick="reveal('clickTypes');" id="btn-cat" href="/views/page_products.php?categorie=tous-types-de-cheveux">TOUS TYPES</a>
+                <a class="nav-link  js-scrollTo" onclick="reveal('clickBoucles');" id="btn-cat" href="/views/page_products.php?categorie=cheveux-boucles">BOUCLES</a>
+                <a class="nav-link  js-scrollTo" onclick="reveal('clickColores');" id="btn-cat" href="/views/page_products.php?categorie=cheveux-colores">COLORES</a>
+                <a class="nav-link  js-scrollTo" onclick="reveal('clickAbimes');" id="btn-cat" href="/views/page_products.php?categorie=cheveux-abimes">ABIMES</a>
+                <a class="nav-link  js-scrollTo" onclick="reveal('clickSecs');" id="btn-cat" href="/views/page_products.php?categorie=cheveux-secs">SECS</a>
+                <a class="nav-link  js-scrollTo" onclick="reveal('clickCoiffants');" id="btn-cat" href="/views/page_products.php?categorie=coiffants">COIFFANTS</a>
             </div>
         </div>
     </div>
@@ -56,7 +55,7 @@ $script = '../assets/js/pageProduits.js';
                     </div>
                     <div class="card-footer">
                     <!-- bouton qui dirige vers la page du produit selon l'id -->
-                        <a href="indexficheproduit1?id=<?= $productsDetail->id ?>" class="details js-scrollTo" type="button">Détails</a>
+                        <a href="file_product?id=<?= $productsDetail->id ?>" class="details js-scrollTo" type="button">Détails</a>
                     </div>
             </div>
         <?php } ?>

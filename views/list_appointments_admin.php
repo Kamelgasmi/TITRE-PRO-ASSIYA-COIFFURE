@@ -1,11 +1,10 @@
 <?php 
 $title = 'Assiya Coiffure® - Suppression RDV';
 $idBody = 'pageListClients';
-$script = '../assets/js/listProductsAdmin.js';
-include_once '../models/database.php';
-include_once '../models/appointments.php';
-include '../controllers/listAppointmentsAdminController.php'; 
+$script = '../assets/js/list_products_admin.js';
 include 'menu.php';
+include_once '../models/appointments.php';
+include '../controllers/list_appointments_admin_controller.php'; 
 ?>
     <div>
         <h1 class="text-center bg-light font-weight-bold mt-5 mb-5">LISTE DES RENDEZ-VOUS</h1>

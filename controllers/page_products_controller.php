@@ -1,4 +1,5 @@
 <?php
+
 //j'instancie un nouvel objet products
 $products = new products();
 //j'instancie un nouvel objet categories

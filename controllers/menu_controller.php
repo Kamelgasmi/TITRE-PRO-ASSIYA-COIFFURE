@@ -1,8 +1,4 @@
 <?php
-// if(isset($_GET['id'])){ 
-//     $clients = new client();
-//     $clients->id = $_GET['id'];
-// }
     //Gestion des actions
 if(isset($_GET['action'])){
     if($_GET['action'] == 'disconnect'){

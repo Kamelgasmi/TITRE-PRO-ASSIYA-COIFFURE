@@ -22,7 +22,7 @@ function checkUnavailability(input){
     //Instanciation de l'objet XMLHttpRequest permettant de faire de l'AJAX
     var request = new XMLHttpRequest();
     //Les données sont envoyés en POST et c'est le controlleur qui va les traiter
-    request.open('POST', '../controllers/ajoutClientInscriptionController.php', true);
+    request.open('POST', '../controllers/add_client_inscription_controller.php', true);
     //Au changement d'état de la demande d'AJAX
     request.onreadystatechange = function () {
         //Si on a bien fini de recevoir la réponse de PHP (4) et que le code retour HTTP est ok (200)

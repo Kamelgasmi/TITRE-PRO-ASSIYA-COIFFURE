@@ -1,27 +1,27 @@
 <?php
+$formErrors = array();
 $regexPhone = '/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/';
 $regexPostal = '/^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/';
 $regexCity = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
 $regexName = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
 $regexPassword = '/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/';
 $regexMail = '/^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/';
+$isPasswordOk = true;
 
-//$showOrderInfo =  $client->orderInfo();
-//Traitement de la demande AJAX
-    //On vérifie que l'on a bien envoyé des données en POST
-if(isset($_POST['fieldName'])){
-    //On inclut les bons fichiers car dans ce contexte ils ne sont pas connu.
-    include_once '../config.php';
-    include_once '../models/database.php';
-    include_once '../models/clients.php';
-}
-$formErrors = array();
 
-if(isset($_POST['addClient'])){
+if(isset($_SESSION['profile']['id'])){
+    $client = new client();
+    $client->id = $_SESSION['profile']['id'];
+    if($client->getClientInfo()){
+        $clientInfo = $client->getClientInfo();
+    }else {
+        $message = 'Ce client n\'éxiste pas';
+    }
+    // var_dump($_GET);
+}$message = 'une erreur est survenue';
+
+if(isset($_POST['modifyProfil'])){
      //ajouté/////////
-     $client = new client();
-     $isPasswordOk = true;
-     $showClientInfo = $client->getClientInfo();
 /*-----------------------------------------------------------verification nom*/
     if(!empty($_POST['lastname'])){
         if(filter_var($_POST['lastname'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexName)))){ 
@@ -46,7 +46,7 @@ if(isset($_POST['addClient'])){
     if(!empty($_POST['address'])){
         $client->address = htmlspecialchars($_POST['address']);
     }else{
-    $formErrors['address'] = 'Veuillez entrer votre adresse';
+    $formErrors['address'] = 'Veuillez entrer votre code postal';
     }
 /*----------------------------------------------------------verification code postal*/
     if(!empty($_POST['postalCode'])){
@@ -92,52 +92,23 @@ if(isset($_POST['addClient'])){
     }else{
         $formErrors['phoneNumber'] = 'Veuillez entrer votre numéro de téléphone';
     }
-
-/*-------------------------------------------------------verification mot de passe*/
-    if(!empty($_POST['password'])){
-        if(strlen($_POST['password']) < 8){ 
-        $formErrors['password'] = 'Le mot de passe doit avoir 8 caractéres minimum.';
-        }
-    }else{
-        $formErrors['password'] = 'Le mot de passe ne doit pas être vide.';
-        $isPasswordOk = false;
-    }
-
-    if(empty($_POST['passwordConfirm'])){
-        $formErrors['passwordConfirm'] = 'Le mot de passe (confirmation) ne doit pas être vide.';
-        $isPasswordOk = false;
-    }
-
-/*-------------------------------------------------------verification mot de passe /*/
-    if($isPasswordOk){
-        if($_POST['passwordConfirm'] == $_POST['password']){
-            //On hash le mot de passe avec la méthode de PHP
-            $client->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        }else{
-            $formErrors['password'] = $formErrors['passwordConfirm'] = 'Les mots de passe ne sont pas identiques';
-        }
-    }
-/*************************************************************verification si client existe et création du compte */
-    //si il n'y a pas d'erreurs
+//*****************************************************TRAITEMENT****************************************************** */
     if(empty($formErrors)){
-        //si le client n'existe pas
-        if (!$client->checkClientExist()){ //la méthode va être exécutée car le "if" est verifié au traitement 
-            //il est ajouté à la base de données
-            $client->addClientInfo(); 
-            $addClientMessage = 'VOTRE COMPTE A ETE CREE AVEC SUCCES <a href="http://testprojetpro/views/connexion.php"> Me connecter </a>';// lien vers page connexion 
-        }else {
-             $addClientMessage = 'VOUS AVEZ DEJA UN COMPTE';
-             }
-                // var_dump($client);
-                // var_dump($client->checkClientExist());
-                // var_dump($formErrors);
-
-    }
-}
-
-
-if(isset($_POST['fieldName'])){
-    if(isset( $formErrors[$_POST['fieldName']])){ 
-        echo $formErrors[$_POST['fieldName']];
+//on appelle la methode de notre modifyClientInfo pour mettre à jour dans la base de données
+        if($client->modifyClientInfo()){
+            $modifyClientMessage = 'LA MODIFICATION A BIEN ETE PRISE EN COMPTE'; 
+            //on recupére dans la session les nouveaux champs
+            $_SESSION['profile']['phoneNumber'] = $client->phoneNumber;
+            $_SESSION['profile']['lastname'] = $client->lastname;
+            $_SESSION['profile']['firstname'] = $client->firstname;
+            $_SESSION['profile']['mail'] = $client->mail;
+            $_SESSION['profile']['postalCode'] = $client->postalCode;
+            $_SESSION['profile']['city'] = $client->city;
+            $_SESSION['profile']['address'] = $client->address;
+            header('Location:../views/profil_client.php?id='.$_SESSION['profile']['id']);
+        }else{
+            $modifyClientMessage = 'UNE ERREUR EST SURVENUE PENDANT L \'ENREGISTREMENT.VEUILLEZ CONATCER LE SERVICE INFORMATIQUE.';    
+        }
+        
     }
 }

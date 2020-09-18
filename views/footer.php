@@ -16,10 +16,10 @@
                         <h6 class="footer-heading text-uppercase text-white">Menu</h6>
                         <ul class="list-unstyled footer-link mt-4">
                         <li><a href="">Le salon </a></li>
-                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>savoirfaire.php">Savoir-faire / Tarifs</a></li>
-                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>galerie.php">Galerie</a></li>
-                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>pageproduits.php">Boutique</a></li>
-                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>fidelite.php">Fidélité</a></li>
+                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>savoir_faire.php">Savoir-faire / Tarifs</a></li>
+                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>galery.php">Galerie</a></li>
+                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>page_products.php">Boutique</a></li>
+                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>fidelity.php">Fidélité</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         <h6 class="footer-heading text-uppercase text-white">Aide</h6>
                         <ul class="list-unstyled footer-link mt-4">
                             <li><a href="">Mon compte </a></li>
-                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>ajoutClientInscription">Inscription </a></li>
+                            <li><a href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>add_client_inscription">Inscription </a></li>
                             <li><a href="">RDV en ligne</a></li>
                         </ul>
                     </div>

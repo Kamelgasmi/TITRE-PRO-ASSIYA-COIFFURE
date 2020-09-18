@@ -4,9 +4,8 @@ $title = 'Assiya Coiffure® - Mon profil';
 $idBdoy = 'pageEditionProfil';
 
 include 'menu.php';
-include_once '../models/database.php';
 include '../models/clients.php';
-include '../controllers/modifyClientProfilAdminController.php';
+include '../controllers/modify_client_profil_admin_controller.php';
 // include_once '../controllers/cookieConnexionController.php'; 
 ?>
     <div id="changeProfil" class="justify-content-center">
@@ -16,7 +15,7 @@ include '../controllers/modifyClientProfilAdminController.php';
     <div class="container-fluid">
             <div class="row no-gutter">
             <?php if(isset($clientInfo)){ ?>
-                <form class="col-md-12" method="POST" action="modifyClientProfilAdmin.php?&id=<?= $client->id ?>" >
+                <form class="col-md-12" method="POST" action="modify_client_profil_admin.php?&id=<?= $client->id ?>" >
                     <div class="row col-md-12">
                         <div class="inputForm boxName col-md-4 offset-md-2 <?= count($formErrors) > 0 ? (isset($formErrors['lastname']) ? 'has-danger' : 'has-success') : '' ?>" >
                             <li><label for="lastname">Nom :</label></li>

@@ -1,11 +1,10 @@
 <?php 
 $title = 'Assiya Coiffure® - Suppression produit';
-$script = '../assets/js/listProductsAdmin.js';
+$script = '../assets/js/list_products_admin.js';
 $idBody = 'pageListProducts';
 include 'menu.php';
-include_once '../models/database.php';
 include_once '../models/products.php';
-include '../controllers/listProductsAdminController.php'
+include '../controllers/list_products_admin_controller.php'
 ?>
 <?php if(isset($_SESSION['profile']) && $_SESSION['profile']['id_kgtp_roles'] == 1){ ?>     
     <div>
@@ -14,7 +13,7 @@ include '../controllers/listProductsAdminController.php'
 
     </div>
     <div class="text-center btn-outline-dark rounded text-dark col-md-2 offset-md-5 mt-5 mb-5">
-        <a class="text-danger font-weight-bold" href="ajoutProductsAdmin.php">AJOUTER UN PRODUIT</a>
+        <a class="text-danger font-weight-bold" href="add_products_admin.php">AJOUTER UN PRODUIT</a>
     </div>
     <form method="GET" action="listProductsAdmin.php" class="form-inline justify-content-center">
     <div class="md-form">
@@ -52,7 +51,7 @@ include '../controllers/listProductsAdminController.php'
                     <!-- <td><?= $product->description ?></td> -->
                     <td>
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $product->id ?>">Supprimer</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm"><a class="text-dark" href="modifyProductsAdmin.php?&id=<?= $product->id ?>">Modifier le produit</a></button>
+                    <button type="button" class="btn btn-outline-dark btn-sm"><a class="text-dark" href="modify_products_admin.php?&id=<?= $product->id ?>">Modifier le produit</a></button>
                     </td>
                 </tr>
             </tbody><?php }} ?>

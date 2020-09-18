@@ -11,10 +11,10 @@ include 'menu.php' ?>
                         <p class="textFidelity">* Cette offre ne s'applique pas sur la vente de produits</p>
                 </div>
                 <div class="col-md-6  text-center col-sm-12">
-                    <img id="fidelityCard1" src="../assets\img\cartefidelite1.jpg"  alt="photo" title="cartefidelite1"/>
+                    <img id="fidelityCard1" src="../assets/img/cartefidelite1.jpg"  alt="photo" title="cartefidelite1"/>
                 </div>
                 <div class="col-md-6 text-center  col-sm-12">
-                    <img id="fidelityCard2" src="../assets\img\cartefidelite2.jpg"  alt="photo" title="cartefidelite2"/>
+                    <img id="fidelityCard2" src="../assets/img/cartefidelite2.jpg"  alt="photo" title="cartefidelite2"/>
                 </div>
             </div>
         </div>

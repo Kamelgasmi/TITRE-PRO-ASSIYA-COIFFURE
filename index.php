@@ -3,7 +3,6 @@ $title = 'Assiya Coiffure® - Le Salon';
 $idBody = 'pageSalon';
 $script = ' ../assets/js/index.js';
 include 'views/menu.php';
-include 'controllers/indexController.php';
 ?>
 <!--bouton hdp--><button type="button" id="hdp" onClick="goTop()"></button>
         <div class="container-fluid section1">

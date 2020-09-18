@@ -2,9 +2,8 @@
 $title = 'Assiya Coiffure® - Produit Tous types de coiffure';
 $idBody = 'pageFicheProduct';
 include 'menu.php' ;
-include_once '../models/database.php';
 include '../models/products.php';
-include '../controllers/indexficheproduitController.php';
+include '../controllers/file_product_controller.php';
 
 // include '../controllers/aviscontroller.php';
 ?>
@@ -38,5 +37,5 @@ include '../controllers/indexficheproduitController.php';
             <?= $product->description ?>
 
         </section>
-        <?php include 'avis.php' ?> 
+        <?php include 'opinion.php' ?> 
         <?php include 'footer.php' ?>

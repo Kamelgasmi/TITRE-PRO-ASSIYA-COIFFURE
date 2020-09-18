@@ -2,12 +2,11 @@
 $title = 'Assiya Coiffure® - Mon profil';
 $idBody ='pageProfilClient';
 include 'menu.php' ;
-include_once '../models/database.php';
 include '../models/clients.php';
 include '../models/appointments.php';
-include '../models/choicesName.php';
+include '../models/choices_name.php';
 
-include '../controllers/profilClientController.php'
+include '../controllers/profil_client_controller.php'
 ?>
 <?php if(isset($_SESSION['profile'])){ ?>     
     <div id="welcome" class="justify-content-center">
@@ -51,8 +50,8 @@ include '../controllers/profilClientController.php'
             ?>
         </div>
         <div class="col-md-5 offset-md-7 ">
-        <button type="button" class="btn btn-light btn-outline-dark btn-sm "><a class="text-dark" href="editionProfil.php?&id=<?= $_SESSION['profile']['id'] ?>">Modifier le profil</a></button>
-        <button type="button" class="btn btn-light btn-outline-dark btn-sm "><a class="text-dark" href="modifyPassword.php?&id=<?= $_SESSION['profile']['id'] ?>">Modifier le mot de passe</a></button>
+        <button type="button" class="btn btn-light btn-outline-dark btn-sm "><a class="text-dark" href="edition_profil.php?&id=<?= $_SESSION['profile']['id'] ?>">Modifier le profil</a></button>
+        <button type="button" class="btn btn-light btn-outline-dark btn-sm "><a class="text-dark" href="modify_password.php?&id=<?= $_SESSION['profile']['id'] ?>">Modifier le mot de passe</a></button>
         <button type="button" class="btn btn-light btn-outline-danger btn-sm " data-toggle="modal" data-target="#exampleModal" >Supprimer mon compte</button>
         </div>
     </div>
@@ -75,7 +74,7 @@ include '../controllers/profilClientController.php'
             <p>03 44 44 16 12</p>
         </div>
     <div class="content" id="ajoutRdv">
-        <form class="offset-md-3 col-md-6 col-sm-12 border rounded mb-5" action="profilClient.php" method="POST">
+        <form class="offset-md-3 col-md-6 col-sm-12 border rounded mb-5" action="profil_client.php" method="POST">
             <h2 class="text-center font-weight-bold  mt-3">PRENDRE UN RENDEZ-VOUS</h2>
             <div class="form-group text-dark font-weight-bold text-center pt-4">
                 <label for="date">Date du rendez-vous :</label>

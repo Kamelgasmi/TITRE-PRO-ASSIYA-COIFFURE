@@ -1,15 +1,14 @@
 <?php 
 $title = 'Assiya Coiffure® - Inscription';
 $idBody = 'pageInscription';
-$script = '../assets/js/ajoutClientInscription.js';
+$script = '../assets/js/add_client_inscription.js';
 include 'menu.php';
-include_once '../models/database.php';
 include '../models/clients.php';
-include '../controllers/ajoutClientInscriptionController.php'
+include '../controllers/add_client_inscription_controller.php'
 ?>
         <div class="container-fluid">
             <div class="row no-gutter">
-                <form class="col-md-12" method="POST" action="ajoutClientInscription.php" >
+                <form class="col-md-12" method="POST" action="add_client_inscription.php" >
                     <h1>CREER MON COMPTE</h1>
                     <p clas="text-center text-white">En créant votre compte, vous avez la possibilité de prendre des rendez-vous via votre profil, d'effectuer des commandes et de les consulter.</p>
 

@@ -1,4 +1,5 @@
 <?php
+
 //SINGLETON
 //création de la classe database
 class database{
@@ -8,7 +9,7 @@ class database{
     //création de notre constructeur
     public function __construct(){//methode magique, on la reconnait au double underscore (il ya aussi destruct, getter setter)
         try {
-            $this->db = new PDO('mysql:host=localhost;dbname=assiyacoiffure;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $this->db = new PDO('mysql:host=54.37.71.12;dbname=c61assiyacoiffure;charset=utf8', 'c61kamelg' , 'vuwxwnHGHUA#6' ,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         } catch (Exception $error) {
             die($error->getMessage());
         }

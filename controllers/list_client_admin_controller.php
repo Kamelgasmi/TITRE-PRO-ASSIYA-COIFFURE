@@ -10,25 +10,10 @@ if(isset($_POST['deleteClient'])){
     $client->id = htmlspecialchars($_POST['recipient-name']);
     //et on exécute la requéte de la methode
     $client->deleteClient();
-    header('Location: listClientAdmin.php');
+    header('Location: list_client_admin.php');
 
 }
-// $appointments = new appointments();
-// $clientsList = $client->getClientsList();
-// if(!empty($_GET['idDelete'])){
-//     $client->id = htmlspecialchars($_GET['idDelete']);
-// }else if(!empty($_POST['idDelete'])){
-//     $client->id = htmlspecialchars($_POST['idDelete']);
-// }else {
-//     $message = 'Aucun client n\'a été sélectionné';
-// }
-// if(isset($_POST['confirmDelete'])){
-//     if($client->checkClientExistById()){
-//         $client->deleteClient();
-//         header('Location: listClientAdmin.php');
-//     }else {
-//         $message = 'erreur';
-//     }   
+
 // }
 // if(isset($_GET['sendSearch'])){
 //     $clients->search = htmlspecialchars($_GET['search']);

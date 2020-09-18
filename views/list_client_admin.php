@@ -1,12 +1,10 @@
 <?php 
 $title = 'Assiya Coiffure® - Suppression client';
 $idBody = 'pageListClients';
-$script = '../assets/js/listProductsAdmin.js';
-
-include_once '../models/database.php';
-include_once '../models/clients.php';
-include '../controllers/listClientAdminController.php'; 
+$script = '../assets/js/list_products_admin.js';
 include 'menu.php';
+include_once '../models/clients.php';
+include '../controllers/list_client_admin_controller.php'; 
 ?>
     <div>
         <h1 class="text-center bg-light font-weight-bold mt-5 mb-5">LISTE DES CLIENTS</h1>
@@ -39,7 +37,7 @@ include 'menu.php';
            <td><?= $client->password ?></td>
            <td>
                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $client->id ?>">Supprimer</button>
-                <button type="button" class="btn btn-info btn-outline-dark  btn-sm"><a class="text-dark" href="modifyClientProfilAdmin.php?&id=<?= $client->id ?>">Modifier le profil</a></button>
+                <button type="button" class="btn btn-info btn-outline-dark  btn-sm"><a class="text-dark" href="modify_client_profil_admin.php?&id=<?= $client->id ?>">Modifier le profil</a></button>
            </td>
         </tr>
     </tbody><?php } ?>

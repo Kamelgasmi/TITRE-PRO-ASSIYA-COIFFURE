@@ -2,11 +2,9 @@
 $title = 'Assiya Coiffure® - Mon compte';
 $idBody ='pageconnexion';
 $script = '../assets/js/connexion.js';
-
 include 'menu.php';
-include_once '../models/database.php';
 include '../models/clients.php';
-include '../controllers/connexioncontroller.php'
+include '../controllers/connexion_controller.php'
 ?>
         <div class="container-fluid">
             <div class="row">

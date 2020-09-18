@@ -1,15 +1,14 @@
 <?php 
 $title = 'Assiya Coiffure® - Ajout Produit';
 $idBody ='pageAjoutProductsAdmin';
-include_once '../models/database.php';
 include '../models/products.php';
 include '../models/categories.php';
-include '../controllers/ajoutProductAdminController.php';
+include '../controllers/add_product_admin_controller.php';
 include 'menu.php' 
 ?>
         <div class="container-fluid justify-content-center">
             <div class="row no-gutter justify-content-center ">
-                <form class="col-md-12 text-white justify-content-center" method="POST" action="ajoutProductsAdmin.php" enctype="multipart/form-data" >
+                <form class="col-md-12 text-white justify-content-center" method="POST" action="add_products_admin.php" enctype="multipart/form-data" >
                     <div>
                     <h1 class="text-dark text-center mb-5 mt-5">AJOUTER UN PRODUIT</h1>
                         <p class="text-center" style="color: green;"><?= isset($addProductMessage) ? $addProductMessage : '' ?></p> 

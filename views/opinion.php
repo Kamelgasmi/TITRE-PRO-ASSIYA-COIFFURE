@@ -1,11 +1,11 @@
 <?php 
-include '../models/avisModel.php';
-include '../controllers/aviscontroller.php';
+include '../models/opinion_model.php';
+include '../controllers/opinion_controller.php';
 
 if(isset($_SESSION['profile']['id'])){ 
 ?>
 <div class="row justify-content-center col-md-8  offset-md-2 border" >
-    <form method="post" action="indexficheproduit1.php?id=<?= $_GET['id'] ?>">
+    <form method="post" action="file_product.php?id=<?= $_GET['id'] ?>">
         <div class="form-group green-border-focus">
             <label for="textarea" class="text-center">Donnez votre avis sur ce produit :</label>
             <textarea class="form-control" name="text" id="textarea" rows="3"></textarea>
