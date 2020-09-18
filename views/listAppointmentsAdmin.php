@@ -1,45 +1,37 @@
 <?php 
-$title = 'Assiya Coiffure® - Suppression client';
+$title = 'Assiya Coiffure® - Suppression RDV';
 $idBody = 'pageListClients';
 $script = '../assets/js/listProductsAdmin.js';
-
 include_once '../models/database.php';
-include_once '../models/clients.php';
-include '../controllers/listClientAdminController.php'; 
+include_once '../models/appointments.php';
+include '../controllers/listAppointmentsAdminController.php'; 
 include 'menu.php';
 ?>
     <div>
-        <h1 class="text-center bg-light font-weight-bold mt-5 mb-5">LISTE DES CLIENTS</h1>
+        <h1 class="text-center bg-light font-weight-bold mt-5 mb-5">LISTE DES RENDEZ-VOUS</h1>
     </div>
 <table class="table table-striped text-center container-fluid">
    <thead>
        <tr>
            <th scope="col" >Nom :</th>
            <th scope="col">Prénom :</th>
-           <th scope="col">Mail :</th>
-           <th scope="col">Adresse :</th>
-           <th scope="col">Code postal :</th>
-           <th scope="col">Ville :</th>
-           <th scope="col">Tel. :</th>
-           <th scope="col">Mot de passe :</th>
+           <th scope="col">Date :</th>
+           <th scope="col">heure :</th>
+           <th scope="col">Prestation :</th>
            <th scope="col"></th>
 
        </tr>
    </thead>
    <tbody><?php 
-    foreach($clientsList as $client){ ?>
+    foreach($appointmentList as $appointment){ ?>
        <tr>
-           <td><?= $client->lastname ?></td>
-           <td><?= $client->firstname ?></td>
-           <td><?= $client->mail ?></td>
-           <td><?= $client->address ?></td>
-           <td><?= $client->postalCode ?></td>
-           <td><?= $client->city ?></td>
-           <td><?= $client->phoneNumber ?></td>
-           <td><?= $client->password ?></td>
+           <td><?= $appointment->lastname ?></td>
+           <td><?= $appointment->firstname ?></td>
+           <td><?= $appointment->dateFr ?></td>
+           <td><?= $appointment->hour ?></td>
+           <td><?= $appointment->choice ?></td>
            <td>
-                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $client->id ?>">Supprimer</button>
-                <button type="button" class="btn btn-info btn-outline-dark  btn-sm"><a class="text-dark" href="modifyClientProfilAdmin.php?&id=<?= $client->id ?>">Modifier le profil</a></button>
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $appointment->id ?>">Supprimer</button>
            </td>
         </tr>
     </tbody><?php } ?>
@@ -59,7 +51,7 @@ include 'menu.php';
                             <input type="hidden" class="form-control" name="recipient-name" id="recipient-name" value="">
                         </div>
                         <div class="text-center">
-                        <input type="submit" name="deleteClient" value="Supprimer" class="btn btn-danger " />
+                        <input type="submit" name="deleteClient" value="Supprimer" class="btn btn-danger" />
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                         </div>
                         </form>

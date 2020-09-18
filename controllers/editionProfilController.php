@@ -1,15 +1,4 @@
 <?php
-if(isset($_GET['id'])){
-    $client = new client();
-    $client->id = $_GET['id'];
-    if($client->getClientInfo()){
-        $clientInfo = $client->getClientInfo();
-    }else {
-        $message = 'Ce client n\'éxiste pas';
-    }
-    // var_dump($_GET);
-}
-$message = 'une erreur est survenue';
 $formErrors = array();
 $regexPhone = '/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/';
 $regexPostal = '/^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$/';
@@ -17,7 +6,19 @@ $regexCity = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
 $regexName = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
 $regexPassword = '/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/';
 $regexMail = '/^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/';
-//$showOrderInfo =  $client->orderInfo();
+$isPasswordOk = true;
+
+
+if(isset($_SESSION['profile']['id'])){
+    $client = new client();
+    $client->id = $_SESSION['profile']['id'];
+    if($client->getClientInfo()){
+        $clientInfo = $client->getClientInfo();
+    }else {
+        $message = 'Ce client n\'éxiste pas';
+    }
+    // var_dump($_GET);
+}$message = 'une erreur est survenue';
 
 if(isset($_POST['modifyProfil'])){
      //ajouté/////////
@@ -91,38 +92,51 @@ if(isset($_POST['modifyProfil'])){
     }else{
         $formErrors['phoneNumber'] = 'Veuillez entrer votre numéro de téléphone';
     }
-
-/*-------------------------------------------------------verification mot de passe*/
-    if(!empty($_POST['password'])){
-        if(filter_var($_POST['password'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexPassword)))){ 
-            $client->password = htmlspecialchars($_POST['password']);
-        }else{
-            $formErrors['password'] = 'Le mot de passe doit contenir: 8 caractéres minimum, au moins 1 majuscule et 1 chiffre';
-        }
-    }else{
-        $formErrors['password'] = 'Veuillez entrer votre mot de passe';
-    }
-/*-------------------------------------------------------verification mot de passe*/
-    if(!empty($_POST['passwordConfirm'])){
-        if($_POST['passwordConfirm'] == $_POST['password']){ 
-            $passwordConfirm = htmlspecialchars($_POST['passwordConfirm']);
-        }else{
-            $formErrors['passwordConfirm'] = 'Les mots de passe doivent être identiques';
-        }
-    }else{
-        $formErrors['passwordConfirm'] = 'Veuillez confirmer votre mot de passe';
-    }
-
+//*****************************************************TRAITEMENT****************************************************** */
     if(empty($formErrors)){
-        //on appelle la methode de notre addPatient pour creer un nouveau patient dans la base de données
+//on appelle la methode de notre modifyClientInfo pour mettre à jour dans la base de données
         if($client->modifyClientInfo()){
             $modifyClientMessage = 'LA MODIFICATION A BIEN ETE PRISE EN COMPTE'; 
+            //on recupére dans la session les nouveaux champs
+            $_SESSION['profile']['phoneNumber'] = $client->phoneNumber;
+            $_SESSION['profile']['lastname'] = $client->lastname;
+            $_SESSION['profile']['firstname'] = $client->firstname;
+            $_SESSION['profile']['mail'] = $client->mail;
+            $_SESSION['profile']['postalCode'] = $client->postalCode;
+            $_SESSION['profile']['city'] = $client->city;
+            $_SESSION['profile']['address'] = $client->address;
+            header('Location:../views/profilClient.php?id='.$_SESSION['profile']['id']);
         }else{
             $modifyClientMessage = 'UNE ERREUR EST SURVENUE PENDANT L \'ENREGISTREMENT.VEUILLEZ CONATCER LE SERVICE INFORMATIQUE.';    
         }
         
     }
-var_dump($client);
-
 }
-    ?>
+
+/*-------------------------------------------------------verification mot de passe*/
+    // if(!empty($_POST['password'])){
+    //     if(filter_var($_POST['password'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexPassword)))){ 
+    //         $client->password = htmlspecialchars($_POST['password']);
+    //     }else{
+    //         $formErrors['password'] = 'Le mot de passe doit contenir: 8 caractéres minimum, au moins 1 majuscule et 1 chiffre';
+    //     }
+    // }else{
+    //     $formErrors['password'] = 'Veuillez entrer votre mot de passe';
+    // }
+//     if(empty($_POST['password'])){
+//         $formErrors['password'] = 'Le mot de passe ne doit pas être vide.';
+//         $isPasswordOk = false;
+//     }
+//     if(empty($_POST['passwordConfirm'])){
+//         $formErrors['passwordConfirm'] = 'Le mot de passe (confirmation) ne doit pas être vide.';
+//         $isPasswordOk = false;
+//     }
+// /*-------------------------------------------------------verification mot de passe*/
+// if($isPasswordOk){
+//     if($_POST['passwordConfirm'] == $_POST['password']){
+//         //On hash le mot de passe avec la méthode de PHP
+//         $client->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+//     }else{
+//         $formErrors['password'] = $formErrors['passwordConfirm'] = 'Les mots de passe ne sont pas identiques';
+//     }
+// }

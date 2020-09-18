@@ -1,16 +1,16 @@
 <?php 
 $title = 'Assiya Coiffure® - Ajout Produit';
+$idBody = 'pageAjoutProductsAdmin';
+include 'menu.php';
 include_once '../models/database.php';
 include '../models/products.php';
 include '../models/categories.php';
 include '../controllers/modifyProductsAdminController.php';
-include 'menu.php' 
 ?>
-<body id="pageAjoutProductsAdmin">
         <div class="container-fluid justify-content-center">
             <div class="row no-gutter justify-content-center ">
             <?php if(isset($productInfo)){ ?>
-                <form class="col-md-12 text-white" method="POST" action="modifyProductsAdmin.php?id=<?= $product->id ?>" >
+                <form class="col-md-12 text-white" method="POST" action="modifyProductsAdmin.php?id=<?= $product->id ?>" enctype="multipart/form-data" >
                     <div class="justify-content-center">
                     <h1 class="text-dark">MODIFIER UN PRODUIT</h1>
                     <p class="text-center" style="color: green;"><?= isset($modifytProductMessage) ? $modifytProductMessage : '' ?></p> 
@@ -38,10 +38,11 @@ include 'menu.php'
                         <p></p>
                         <div class=" boxCategory text-center col-md-6 offset-md-3 <?= count($formErrors) > 0 ? (isset($formErrors['category']) ? 'has-danger' : 'has-success') : '' ?> " >
                             <li><label for="category">Catégories :</label></li>
-                            <select id="category" name="category">
+                            <select id="category" name="category" class="browser-default custom-select" value="<?= isset($_POST['category']) ? $_POST['category'] : $productInfo->category ?>">
                             <option selected disabled>Choisissez la catégorie :</option><?php
                             foreach($categoriesList as $category){ ?>
-                                <option value="<?= $category->id ?>" ><?= $category->name ?></option><?php
+                                <!-- ternaire = afficher la catégorie du produit indiquée dans la bdd            value = affiche les nom de catégories grâce à l'id -->
+                                <option <?= ($productInfo->id_kgtp_categories == $category->id) ? 'selected' : '' ?> value="<?= $category->id ?>" ><?= $category->name ?></option><?php
                             } ?>
                             </select>
                             <p style="color: red;"><?= isset($formErrors['category']) ? $formErrors['category'] : '' ?></p>
@@ -55,8 +56,9 @@ include 'menu.php'
                             <li>
                                 <div class="btn btn-primary btn-sm ">
                                 <span>Choisir le fichier</span>
-                                <input type="file" value="" />
+                                <input type="file" value="" name="file"/>
                                 </div>
+                                <p style="color: red;"><?= isset($formErrors['file']) ? $formErrors['file'] : '' ?></p>
                             </li>
                         </div>
                         <div class="col-md-6 offset-md-3 mb-5 buttonInscription">
@@ -65,3 +67,5 @@ include 'menu.php'
                         <?php
                 } ?>
                 </form>
+            </div>
+        </div>    

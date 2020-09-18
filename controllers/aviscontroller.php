@@ -1,32 +1,30 @@
 <?php
+$regexName = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
+$formErrors = array();
+$opinion = new opinions;
+$opinion->id_kgtp_products = $_GET['id'];
 
-// if(isset($_GET['id']) AND !empty($_GET['id'] > 0)){
-//     $getId = htmlspecialchars($_GET['id']);
-//     $product = $bdd->prepare(//requete
-//         'SELECT 
-//         * 
-//         FROM 
-//             kgtp_products
-//         WHERE  
-//             id = ? 
-//         ');
-//         $products->execute(array($getid ));//execution de requete
-//         $products = $product->fetch();//affichage
+// $showOpinionInfo = $opinion->getOpinionsByProduct();
+if(isset($_SESSION['profile']['id'])){ 
+    if(isset($_POST['submitAvis'])){
+        if(!empty($_POST['text'])){
+            $opinion->text = htmlspecialchars($_POST['text']);
+        }else{
+            $formErrors['text'] = 'Veuillez entrer votre avis';
+        }
+        $opinion->id_kgtp_userClients = $_SESSION['profile']['id'];
 
-//     if(isset($_POST['submitAvis'])){
-//         if(isset($_POST['opinionText'], $_POST['firstname']) AND !empty($_POST['opinionText']) AND !empty($_POST['firstanme'])){
-//             $firstnameAvis = htmlspecialchars($_POST['firstname']);
-//             $textAvis = htmlspecialchars($_POST['opinionText']);
-//             $insertAvis = $bdd->prepare(
-//                 'INSERT INTO
-//                 `opinions` (`text`, `pseudo`, `id_kgtp_products`, `id_kgtp_userClients`)
-//                 VALUES (,)/*********mettre valeur */
-//                 ');
-//             $insertAvis->execute(array($firstnameAvis, $textAvis, $getId));//on éxécute la requete
-//             $avisError = '<span style=\'color:green\'>Votre commentaire a bien été posté</span>';
-//         }else{
-//             $avisError = 'Tous les champs doivent être complétés';
-//         }
-//     }
-// }
+        if(empty($formErrors)){
+            if($opinion->addOpinion()){
+                $addOpinionMessage = 'VOTRE AVIS EST BIEN PUBLIÉ ';
+            }else {
+                $addOpinionMessage = 'UNE ERREUR EST SURVENUE';
+            }
+        }
+    }
+    
+}
+$opinionsList = $opinion->getOpinionsByProduct();
+
+// var_dump($opinionsList);
  ?>

@@ -1,4 +1,9 @@
+<?php
+session_start();
+include_once $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'controllers/menuController.php' : '../controllers/menuController.php' ;
+// include '../models/clients.php';
 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,65 +22,75 @@
         <link type="text/css" rel="stylesheet" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? '' : '../' ?>assets/css/styleproduits.css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     </head>
+    <body id="<?= $idBody ?>">
     <div class="conteneur col-12">
-        <img id="logo" src="../assets\img\logo.png"  alt="photo" title="photo"/>
+        <img id="logo" src="../assets/img/logo.png"  alt="photo" title="photo"/>
     </div>
-    <div id="header" >
-    <nav class="navbar sticky-top navbar-expand-lg">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link text-dark" href="../index.php" >LE SALON</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>savoirfaire.php" >SAVOIR-FAIRE / TARIFS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>galerie.php" >GALERIE</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>pageproduits.php" >BOUTIQUE</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>fidelite.php" >FIDELITE</a>
-            </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" id="btn-rdv" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>rdv.php" >PRENDRE RDV</a>
-            </li> -->
-            <li class="nav-item3">
-                <a class="nav-link" id="btn-rdv" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>ajoutClientInscription.php" >INSCRIPTION</a>
-            </li>
-            <li class="nav-item1">
-                <a class="nav-link" id="btn-connexion" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>connexion.php" >CONNEXION</a>
-            </li>
-            <li class="nav-item2">
-                <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>profilClient.php?id=" >MON PROFIL</a> <!--ne dirige pas correctement vers profil -->
-            </li>
-            <li class="nav-item3">
-                <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>deconnexion.php" >DECONNEXION</a>
-            </li>
-
-
-
-            <li class="nav-item3">
-                <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>ajoutProductsAdmin.php" >AJ</a>
-            </li>
-            <li class="nav-item3">
-                <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>listClientAdmin.php" >lc</a>
-            </li>
-            <li class="nav-item3">
-                <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>rendezVousLigne.php" >rdv</a>
-            </li>
-            <li class="nav-item3">
-                <a class="nav-link" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>listProductsAdmin.php" >LP</a>
-            </li>
-            <li class="nav-item mx-auto">
-            <a class="nav-link" href="panier.php"><i class="fas fa-shopping-cart"></i></a>
-            </li>
-        </ul>
-    </div>
-    </nav>
-    </div>
+    <div id="header" class="" >
+        <nav class="navbar sticky-top navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link text-dark" href="../index.php" >LE SALON</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>savoirfaire.php" >SAVOIR-FAIRE / TARIFS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>galerie.php" >GALERIE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>pageproduits.php" >BOUTIQUE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>fidelite.php" >FIDELITE</a>
+                        </li>
+        <!-- **********************************************************************partie client *************************************** -->
+                        <?php if(!isset($_SESSION['profile'])){ //Si l'utilisateur n'est pas connecté ?>
+                        <li class="nav-item3">
+                            <a class="nav-link" id="btn-rdv" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>ajoutClientInscription.php" >INSCRIPTION</a>
+                        </li>
+                    </ul>
+                <!-- </div> -->
+                <!-- <div class="mr-5"> -->
+                    <ul class="navbar-nav mr-auto ">
+                        <li>
+                            <a  class="text-white font-weight-bold" href="../views/connexion.php"><i class="fas fa-user-circle text-dark"></i>
+                            CONNEXION A MON COMPTE
+                            </a>
+                        </li>
+                    </ul>
+                <!-- </div> -->
+        <!-- **********************************************************Si l'utilisateur est connectée *******************************-->
+                <?php }else if(isset($_SESSION['profile']) && $_SESSION['profile']['id_kgtp_roles'] == 2){ ?>
+                <!-- <div class=" text-center" id="itemConnexion"> -->
+                    <ul class="itemConnexion mt-0 ">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?= isset($_SESSION['profile']) ? 'Bienvenue ' . strtoupper($_SESSION['profile']['firstname']): ''; ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>profilClient.php?id=<?= $_SESSION['profile']['id'] ?>">MON PROFIL</a>
+                                <a class="dropdown-item " href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>connexion.php?action=disconnect">DECONNEXION</a> 
+                            </div>
+                        </li>
+                        <a class="nav-link" href="panier.php"><i class="fas fa-shopping-cart"></i></a>
+                    <?php } ?>
+                    </ul>
+                </div>
+        </nav>
+<!-- *********************************************************************partie administarteur -->
+        <?php if(isset($_SESSION['profile']) && $_SESSION['profile']['id_kgtp_roles'] == 1){ ?>     
+        <div class="bg-info ">
+            <nav class="navbar sticky-top navbar-expand-lg justify-content-center">
+                <a class="nav-link text-dark" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>listClientAdmin.php" >LISTE DES CLIENTS</a>
+                <a class="nav-link text-dark" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>listProductsAdmin.php" >LISTE DES PRODUITS</a>
+                <a class="nav-link text-dark" id="btn-inscription" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>listAppointmentsAdmin.php" >LISTE DES RDV</a>
+                <a class="nav-link text-danger" id="btn-inscription" href="connexion.php?action=disconnect" >DECONNEXION</a>
+            <?php } ?>
+            </nav>
+        </div>
+    </div>    

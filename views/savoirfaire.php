@@ -1,25 +1,11 @@
 <?php 
-$title = 'Assiya Coiffure® - Le Salon'; 
+$title = 'Assiya Coiffure® - Le Salon';
+$idBody = 'pageSavoirFaire';
+$script = '../assets/js/savoirFaire.js';
 include 'menu.php' ?>
 
-    <body id="pageSavoirFaire">
 <!--bouton hdp--><button type="button" id="hdp" onClick="goTop()"></button>
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-md-6  col-sm-12 ">
-                 <img src="../assets/img/savoirfaire.jpg" id="savoirFaire1">
-                </div>
-                <div class="col-md-6 col-sm-12" id="textSavoirFaire">
-                    <h2>Découvrez nos prestations coiffure</h2>
-                    <p>Poussez les portes de notre salon de coiffure et profitez pleinement d’un moment de détente et bien être. Nos coiffeurs professionnels sauront mettre en valeur votre visage et vous apporter une entière satisfaction.</p>
-                    <p></p>
-                    <p>Pour une coupe de cheveux , un brushing, un lissage ou une coloration, notre salon de coiffure réalise la prestation la plus adaptée à votre style, à la forme de votre visage.</p>
-                    <div class="text-center">
-                    <a id="btn" href="#secondMenu" class="js-scrollTo text-center page-scroll" role="button"><strong>Cliquez sur les catégories ci-dessous pour découvrir notre savoir-faire et nos tarifs</strong></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div class = "container-fluid" >
             <div class="row accordion no-gutter">
                 <ul class="accordion-tabs ">
@@ -41,6 +27,20 @@ include 'menu.php' ?>
                                 </div>
                             </div>
                         </div>
+                        <div class="row no-gutter  bg-white border">
+                            <div class="col-md-3  mt-5 mb-5 ">
+                                <img src="../assets/img/coupe1.jpg" class="hairstyle " width="400px" height="400px">
+                            </div>
+                            <div class="col-md-3 1 mt-5 mb-5 ">
+                                <img src="../assets/img/coupe2.jpg" class="hairstyle " width="400px" height="400px">
+                            </div>
+                            <div class="col-md-3  mt-5 mb-5">
+                                <img src="../assets/img/coupe3.jpg" class="hairstyle " width="400px" height="400px">
+                            </div>
+                            <div class="col-md-3  mt-5 mb-5">
+                                <img src="../assets/img/coupe4.jpg" class="hairstyle " width="400px" height="400px">
+                            </div>
+                        </div>          
                         <div class="row no-gutter">
                             <div class="col-md-12 col-sm-12" id="priceHeadDress">
                                 <h4>NOS TARIFS COUPE / COIFFAGE<h4>
@@ -102,6 +102,40 @@ include 'menu.php' ?>
                                 <p>Que ce soit pour une coloration permanente, semi-permanente, ton-ton, naturel, henné, vous pouvez compter sur nos compétences.</p>
                                 <div class="logoAC">
                                     <img src="../assets\img\logoInitial.png" id="logoInitial">
+                                </div>
+                            </div>
+                            <div class="row no-gutter">
+                                <div class="colorOne col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Coloration semi-permanente</h1>
+                                    <p> La coloration semi-permanente sert à modifier une nuance naturelle.</p>
+                                </div>
+                                <div class="colorTwo col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Coloration Permanente</h1>
+                                    <p>La coloration permanente est la technique de coloration des cheveux la plus répandue</p>
+                                </div>
+                                <div class="colorOne col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Coloration Végétale</h1>
+                                    <p>Assiya Coiffure dispose d’une large gamme de couleurs végétale qui contribuera à sublimer vos cheveux et à leur donner un second souffle.</p>
+                                </div>
+                                <div class="colorTwo col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Vernis pour cheveux</h1>
+                                    <p>Cette technique est utilisée pour redonner un nouveau souffle à la couleur de la chevelure</p>
+                                </div>
+                                <div class="colorTwo col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Démaquillage cheveux</h1>
+                                    <p>Que vous ayez fait un mauvais choix de couleur ou que vous vouliez retrouver votre couleur naturelle.</p>
+                                </div>
+                                <div class="colorOne col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Coloration Ton sur Ton</h1>
+                                    <p>Vous trouverez la couleur idéale qui réunira brillance et légèreté avec la couleur ton sur ton.</p>
+                                </div>
+                                <div class="colorTwo col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Vernis Gloss</h1>
+                                    <p>Le vernis gloss est un réel « gloss capillaire », car il contient des pigments réflecteurs de lumière.</p>
+                                </div>
+                                <div class="colorOne col-md-3 col-sm-6 text-white text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Estompe Base</h1>
+                                    <p>Si vous ne souhaitez pas décolorer en totalité vos cheveux avant d’appliquer une coloration semi-permanente.</p>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12" id="priceColoring">
@@ -205,6 +239,23 @@ include 'menu.php' ?>
                                     <img src="../assets\img\logoInitial.png" id="logoInitial">
                                 </div>
                             </div>
+                            <div class="row no-gutter">
+                                <div class="weddingBloc col-md-6 col-sm-12 text-dark text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>L’éssai & le jour J</h1>
+                                    <p class=" pl-5 pr-5 pb-2 pt-5">Spécialiste de la coiffure de mariage, l’équipe Valessio vous propose ses services de coiffure de mariage en 2 temps:</p>
+                                    <li class=" pl-5 pr-5 pb-2"><strong>L’essai</strong> : L’essai, c’est un peu comme une esquisse, d’abord on prend un peu de temps pour se comprendre, pour connaître l’aspiration de « la » future mariée, romantique, élégante, sexy ou originale. Nous proposons ensuite une réalisation et on avance ensemble.</li>
+                                    <li class=" pl-5 pr-5 "><strong>Le jour J</strong> : Le jour de votre mariage est un jour exceptionnel, et notre équipe beauté est fin prête pour vous accompagner dans l’organisation de cet évènement. C’est Room service : nos coiffeurs, maquilleurs professionnels s’occuperont de votre mise en beauté.</li>
+                                </div>
+                                <div class="weddingBloc col-md-6 col-sm-12 text-dark text-center pl-5 pr-5 pt-5 pb-5">
+                                    <h1>Que dois-je apporter ?</h1>
+                                    <p class=" pl-5 pr-5 pb-2 pt-5">Afin que l’expert puisse vous faire une proposition de coiffure en accord avec votre style, n’hésitez pas à lui dévoiler votre tenue: la robe, les bijoux, si vous porterez un voile ou non et les accessoires de cheveux. Si vous avez repéré des idées de coiffage sur internet ou dans des magazines, apportées les aussi le jour de l’essai.</p> 
+                                    <p class=" pl-5 pr-5 pb-2">Un look réussi passe par une harmonie de l’ensemble des éléments qui le composent !</p>
+                                    <p class=" pl-5 pr-5 ">Vous avez d’autres questions concernant votre coiffure de mariage ? Venez nous rencontrer dans un de nos salons ! Nous vous apporterons idées et conseils sur mesure.</p>
+                                </div>
+                            </div>
+                            <img src="../assets\img\mariage2.jpg" height="800px" width="100%">
+
+                            <div></div>
                             <div class="col-md-12 col-sm-12" id="priceWedding">
                                 <h4>NOS TARIFS MARIAGES<h4>
                             </div>
@@ -401,13 +452,24 @@ include 'menu.php' ?>
                 </ul>
             </div>
         </div>
-<?php include 'footer.php' ?>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <script src="../assets/js/savoirFaire.js"></script>
-        
-    </body>
-</html>
+        <div class="container-fluid" id="intro" >
+            <div class="row no-gutter">
+                <div class="col-md-6  col-sm-12 ">
+                 <img src="../assets/img/savoirfaire.jpg" id="savoirFaire1">
+                </div>
+                <div class="col-md-6 col-sm-12" id="textSavoirFaire">
+                    <h2>Découvrez nos prestations coiffure</h2>
+                    <p>Poussez les portes de notre salon de coiffure et profitez pleinement d’un moment de détente et bien être. Nos coiffeurs professionnels sauront mettre en valeur votre visage et vous apporter une entière satisfaction.</p>
+                    <p></p>
+                    <p>Pour une coupe de cheveux , un brushing, un lissage ou une coloration, notre salon de coiffure réalise la prestation la plus adaptée à votre style, à la forme de votre visage.</p>
+                    <div class="text-center">
+                    <a id="btn" href="#secondMenu" class="js-scrollTo text-center page-scroll" role="button"><strong>Cliquez sur les catégories ci-dessus pour découvrir notre savoir-faire et nos tarifs</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        $(\'#headDress\').section({show:true})
+        </script>
+        <?php include 'footer.php' ?>
+

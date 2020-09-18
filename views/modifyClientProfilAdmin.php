@@ -1,13 +1,14 @@
 <?php 
 
 $title = 'Assiya Coiffure® - Mon profil';
+$idBdoy = 'pageEditionProfil';
+
+include 'menu.php';
 include_once '../models/database.php';
 include '../models/clients.php';
 include '../controllers/modifyClientProfilAdminController.php';
-include 'menu.php' ;
 // include_once '../controllers/cookieConnexionController.php'; 
 ?>
-<body id="pageEditionProfil">
     <div id="changeProfil" class="justify-content-center">
         <h1>MODIFIER LE PROFIL</h1>
         <p class="formOk" style="color: green;"><?= isset($modifyClientMessage) ? $modifyClientMessage : '' ?></p>
@@ -65,11 +66,11 @@ include 'menu.php' ;
                             <li><input id="password" name="password" type="password" placeholder="Entrez votre mot de passe" class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['password']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['password']) ? $_POST['password'] : $clientInfo->password ?>" /><button type="button" id="eye"><img src="../assets/img/eye1.png" alt="eye" id="eyeMDP"/></button></li>
                             <p style="color: red;"><?= isset($formErrors['password']) ? $formErrors['password'] : '' ?></p>
                         </div>
-                        <div class="inputForm boxPasswordConfirm col-md-3 col-sm-6<?= count($formErrors) > 0 ? (isset($formErrors['passwordConfirm']) ? 'has-danger' : 'has-success') : '' ?>">
+                        <!-- <div class="inputForm boxPasswordConfirm col-md-3 col-sm-6<?= count($formErrors) > 0 ? (isset($formErrors['passwordConfirm']) ? 'has-danger' : 'has-success') : '' ?>">
                             <li><label for="passwordConfirm">Confirmer le MDP :</label></li>
                             <li><input id="passwordConfirm" name="passwordConfirm" type="password" placeholder="Confirmez votre mot de passe" class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['passwordConfirm']) ? 'is-invalid' : 'is-valid') : '' ?>" /><button type="button" id="eye1"><img src="../assets/img/eye1.png" alt="eye" id="eye1MDP"/></button></li>
                             <p style="color: red;"><?= isset($formErrors['passwordConfirm']) ? $formErrors['passwordConfirm'] : '' ?></p>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row col-md-12">
                         <div class="col-md-12 buttonInscription">
@@ -78,7 +79,6 @@ include 'menu.php' ;
                     </div>
                     <?php
                 } ?>
-                
                 </form>
             </div>
-            <script src="../assets/js/ajoutClientInscription.js"></script>
+        </div>

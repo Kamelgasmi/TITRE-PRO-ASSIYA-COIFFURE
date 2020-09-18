@@ -1,11 +1,15 @@
 <?php
+//création d'un tableau des catégories
 $categoriesArray = array('Tous types de cheveux', 'Cheveux bouclés', 'cheveux abimés', 'Cheveux colorés', 'Cheveux secs', 'Cheveux coiffants');
-
+//j'instancie un nouvel objet categories
 $categories = new categories();
+//j'appelle la methode pour stocker la liste des catégories dans une variable
 $categoriesList = $categories->getCategoriesList();
-
+//création d'un tableau d'erreurs
 $formErrors = array();
+//j'instancie un nouvel objet products
 $product = new products();
+
 if(isset($_POST['addProductAdmin'])){
      //ajouté/////////
 /*-----------------------------------------------------------verification nom*/
@@ -27,12 +31,6 @@ if(isset($_POST['addProductAdmin'])){
     $formErrors['price'] = 'Veuillez entrer le prix';
     }
 /*----------------------------------------------------------verification FICHIER PHOTO*/
-    // if(!empty($_POST['photo'])){
-    //         $product->photo = htmlspecialchars($_POST['photo']);
-        
-    // }else{
-    //     $formErrors['photo'] = 'Veuillez choisir un fichier';
-    // }
       // On verifie que le fichier a bien été envoyé.
   if (!empty($_FILES['file']) && $_FILES['file']['error'] == 0) {
     // On stock dans $fileInfos les informations concernant le chemin du fichier.
@@ -54,9 +52,6 @@ if(isset($_POST['addProductAdmin'])){
         //On définit les droits du fichiers uploadé (Ici : écriture et lecture pour l'utilisateur apache, lecture uniquement pour le groupe et tout le monde)
         chmod($productPhoto, 0644);
         $product->photo = $productPhoto;
-
-        
-
       } else {
         $formErrors['file'] = 'Votre fichier ne s\'est pas téléversé correctement';
       }
@@ -92,14 +87,18 @@ if(isset($_POST['addProductAdmin'])){
 
 
     if(empty($formErrors)){
+        //si le produit n'existe pas
         if (!$product->checkProductExist()){ //la méthode va être exécutée car le "if" est verifié au traitement 
+            //il est ajouté à la base de données
             $product->addProductsAdmin();
+            //et affiche ce message
             $addProductMessage = 'VOTRE PRODUIT A ETE AJOUTE';// lien vers page connexion
             }else {
+            //sinon affiche ce message
              $addProductMessage = 'UN PROBLEME EST SURVENU';
             }
     }
-    var_dump($formErrors);
-    var_dump($product);
+    // var_dump($formErrors);
+    // var_dump($product);
 
 }

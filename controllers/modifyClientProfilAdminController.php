@@ -1,7 +1,11 @@
 <?php
+//si on recupére l'id grâce à la methode GET
 if(isset($_GET['id'])){
+    /*j'instancie un nouvel objet*/
     $client = new client();
+    //je donne la valeur à l'attribut HYDRATATION
     $client->id = $_GET['id'];
+    //si la méthode 
     if($client->getClientInfo()){
         $clientInfo = $client->getClientInfo();
     }else {
@@ -102,17 +106,19 @@ if(isset($_POST['modifyClientProfilAdmin'])){
     }else{
         $formErrors['password'] = 'Veuillez entrer votre mot de passe';
     }
-/*-------------------------------------------------------verification mot de passe*/
-    if(!empty($_POST['passwordConfirm'])){
-        if($_POST['passwordConfirm'] == $_POST['password']){ 
-            $passwordConfirm = password_hash(htmlspecialchars($_POST['passwordConfirm']),PASSWORD_DEFAULT);
-        }else{
-            $formErrors['passwordConfirm'] = 'Les mots de passe doivent être identiques';
-        }
-    }else{
-        $formErrors['passwordConfirm'] = 'Veuillez confirmer votre mot de passe';
-    }
+// /*-------------------------------------------------------verification mot de passe*/
+//     if(!empty($_POST['passwordConfirm'])){
+//         if($_POST['passwordConfirm'] == $_POST['password']){ 
+//             $passwordConfirm = password_hash(htmlspecialchars($_POST['passwordConfirm']),PASSWORD_DEFAULT);
+//         }else{
+//             $formErrors['passwordConfirm'] = 'Les mots de passe doivent être identiques';
+//         }
+//     }else{
+//         $formErrors['passwordConfirm'] = 'Veuillez confirmer votre mot de passe';
+//     }
 
+
+    //si il n'y a pas d'erreur
     if(empty($formErrors)){
         //on appelle la methode de notre addPatient pour creer un nouveau patient dans la base de données
         if($client->modifyClientInfo()){

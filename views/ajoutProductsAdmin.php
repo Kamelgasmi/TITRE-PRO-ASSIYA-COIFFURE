@@ -1,12 +1,12 @@
 <?php 
 $title = 'Assiya Coiffure® - Ajout Produit';
+$idBody ='pageAjoutProductsAdmin';
 include_once '../models/database.php';
 include '../models/products.php';
 include '../models/categories.php';
 include '../controllers/ajoutProductAdminController.php';
 include 'menu.php' 
 ?>
-<body id="pageAjoutProductsAdmin">
         <div class="container-fluid justify-content-center">
             <div class="row no-gutter justify-content-center ">
                 <form class="col-md-12 text-white justify-content-center" method="POST" action="ajoutProductsAdmin.php" enctype="multipart/form-data" >

@@ -1,17 +1,31 @@
 <?php 
 $title = 'Assiya Coiffure® - Suppression produit';
+$script = '../assets/js/listProductsAdmin.js';
+$idBody = 'pageListProducts';
+include 'menu.php';
 include_once '../models/database.php';
 include_once '../models/products.php';
-include '../controllers/listProductsAdminController.php'; 
-include 'menu.php';
-
+include '../controllers/listProductsAdminController.php'
 ?>
-<body id="pageListProducts">
+<?php if(isset($_SESSION['profile']) && $_SESSION['profile']['id_kgtp_roles'] == 1){ ?>     
     <div>
-        <h1 class="text-center bg-info">LISTE DES PRODUITS</h1>
+        <h1 class="text-center bg-light font-weight-bold mt-5 mb-5">LISTE DES PRODUITS</h1>
         <p style="color: green;"><?= isset($deleteProductMessage) ? $deleteProductMessage : '' ?></p> 
 
     </div>
+    <div class="text-center btn-outline-dark rounded text-dark col-md-2 offset-md-5 mt-5 mb-5">
+        <a class="text-danger font-weight-bold" href="ajoutProductsAdmin.php">AJOUTER UN PRODUIT</a>
+    </div>
+    <form method="GET" action="listProductsAdmin.php" class="form-inline justify-content-center">
+    <div class="md-form">
+    <input id="search" class="form-control" name="search" type="text" placeholder="Rechercher un produit" />
+</div>
+    <button type="submit" class="btn btn-sm btn-primary" name="sendSearch">Rechercher</button>
+    </form><?php
+    if($product->resultNumber == 0){ ?>
+            <p class="text-center m-5"><?= $searchMessage ?></p><?php
+    }else { ?>
+        <p class="text-center m-5"><?= $searchMessage ?></p>
         <table class="table table-striped text-center container">
             <thead>
                 <tr>
@@ -25,25 +39,32 @@ include 'menu.php';
                     <th scope="col">Lien :</th>
                 </tr>
             </thead>
-    <tbody><?php 
-    foreach($productList as $product){ ?>
-       <tr>
-           <td><?= $product->name ?></td>
-           <td><?= $product->price ?></td>
-           <td><?= $product->photo ?></td>
-           <td><?= $product->weight ?></td>
-           <td><?= $product->quantity ?></td>
-           <td><?= $product->id_kgtp_categories ?></td>
-           <!-- <td><?= $product->description ?></td> -->
-
-           <td>
-           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $product->id ?>">Supprimer</button>
-
-           <button type="button" class="btn btn-info btn-sm"><a class="text-white" href="modifyProductsAdmin.php?&id=<?= $product->id ?>">Modifier le produit</a></button>
-            <!-- <button type="button" class="btn btn-danger btn-sm"><a class="text-white" href="listProductsAdmin.php?&idDelete=<?= $product->id ?>">Supprimer</a></button> -->
-           </td>
-    </tr>
-    </tbody><?php } ?>
+            <tbody><?php 
+        for($i = 0 + $page ; $i < ($resultLimit + $page); $i++){ 
+            if($i < $product->resultNumber){ ?>
+                <tr>
+                    <td><?= $productsList[$i]->name ?></td>
+                    <td><?= $productsList[$i]->price ?></td>
+                    <td><?= $productsList[$i]->photo ?></td>
+                    <td><?= $productsList[$i]->weight ?></td>
+                    <td><?= $productsList[$i]->quantity ?></td>
+                    <td><?= $productsList[$i]->id_kgtp_categories ?></td>
+                    <!-- <td><?= $product->description ?></td> -->
+                    <td>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $product->id ?>">Supprimer</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm"><a class="text-dark" href="modifyProductsAdmin.php?&id=<?= $product->id ?>">Modifier le produit</a></button>
+                    </td>
+                </tr>
+            </tbody><?php }} ?>
+        </table>
+    </form>
+        <?php
+    for($i = 0; $i < $pageLimit; $i++){ ?>
+        <a href="<?= $link ?>&page=<?= $i ?>"><?= $i + 1 ?></a>
+        <?php
+    }
+}
+ ?>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -68,37 +89,16 @@ include 'menu.php';
                 </div>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <?php }else{ ?>
+            <div class="mt-5 bg-warning text-center">
+                <p>VOUS N'AVEZ PAS ACCES A CETTE PAGE</p>
+            </div>
+            <div class="text-center mt-5 mb-5">
+            <img src="../assets/img/forbidden.webp"  width="300px" height="300px" alt="">
+            </div>
+       <?php }
+    ?>
 
-<script>
-    $('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('#recipient-name').val(recipient)
-})
-</script>
-</body>
-</html>
+        <?php include 'footer.php' ?>
 
 
-        <!-- <?php
-       // if(isset($_GET['idDelete']) && $product->id == $_GET['idDelete']){ ?>
-            <div class="alert text-center alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <h1 class="h4 text-white">Voulez-vous supprimer ce produit?</h1>
-                <form class="text-center" method="POST" action="listProductsAdmin.php">
-                    <input type="hidden" name="idDelete" value="<?= $product->id ?>" />
-                    <button type="submit" class="btn btn-primary btn-sm" name="confirmDelete">OUI</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="alert">NON</button>
-                <form>
-            </div><?php
-       // }
-   // } //?> -->
-   </tbody>
-</table>

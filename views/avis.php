@@ -1,21 +1,30 @@
 <?php 
-include_once '../models/database.php';
+include '../models/avisModel.php';
 include '../controllers/aviscontroller.php';
-?>
-        <form method="post" action="indexficheproduit1.php">
-            <div class="row" id="opinion">
-                <div class="col-md-6 offset-md-3 col-sm-10 text-center">
-                    
-                    <li><label for="opinionText">Donnez votre avis sur ce produit : </label></li>
 
-                    <li><input type="text" id="firstname" name="pseudo" placeholder="Entrez votre prénom"></input></li>
-                    <li><textarea name="opinionText" id="opinionText" rows="5" placeholder="Votre avis.... " ></textarea></li>
-                    <li style="color: red;"><?php if(isset($avisError)){
-                        echo $avisError;
-                    }?></li>
-                    <input type="submit" id="button" name="submitAvis" value="Postez votre avis"></input>
-                </div>
-            </div>
-         </form>
+if(isset($_SESSION['profile']['id'])){ 
+?>
+<div class="row justify-content-center col-md-8  offset-md-2 border" >
+    <form method="post" action="indexficheproduit1.php?id=<?= $_GET['id'] ?>">
+        <div class="form-group green-border-focus">
+            <label for="textarea" class="text-center">Donnez votre avis sur ce produit :</label>
+            <textarea class="form-control" name="text" id="textarea" rows="3"></textarea>
+        </div>
+        <div class="justify-content-center text-center">
+            <button class="btn btn-white btn-outline-dark text-white rounded mb-5" type="submit" id="button" name="submitAvis" value="Postez votre avis">Postez votre avis</button>
+        </div> 
+    </form>
+</div>
+<?php } ?>
+<div class="row text-white justify-content-center col-md-12">
+<h1 class="text-center">AVIS SUR LE PRODUIT</h1>
+</div>
+<div class="comments col-md-8  offset-md-2 col-sm-4 ">
+<?php 
+    foreach($opinionsList as $opinion){ ?>
+    <p id="commentary">Posté par : <?= strtoupper($opinion->firstname) ?></br><?= $opinion->text ?></p>
+  <?php } ?>
+</div>
+        
 
          <!-- mettre action sur tous les indexficheproduit-->

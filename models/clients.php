@@ -1,8 +1,4 @@
 <?php
-// la class est la définition de l'objet.
-// private: accessible uniquement dans la class.
-// protected: accessible dans la class et les enfants.
-// public: dispo dans class, enfant et dans les instances.
 class client{
     public $id = 0;
     public $lastname = '';
@@ -19,9 +15,8 @@ class client{
         $this->db = dataBase::getInstance();
 
     }
-
-
-    public function checkClientExist(){/*************************************verifie si client existe********* */
+/**********************************************************VERIFIE SI LE CLIENT EXISTE*************************************************** */
+    public function checkClientExist(){
         $addClientSameQuery = $this->db->prepare(
             'SELECT COUNT(`id`) AS `isClientExist`
             FROM 
@@ -36,8 +31,8 @@ class client{
         $data = $addClientSameQuery->fetch(PDO::FETCH_OBJ);
         return $data->isClientExist; 
     } 
-
-    public function addClientInfo(){/****************************************ajoute un client ds bdd************* */
+/***********************************************************AJOUTE UN CLIENT DANS LA BDD************************************************ */
+    public function addClientInfo(){
         //$db devient une instance de l'objet PDO
         // on fait une requête préparée
         $addClientQuery = $this->db->prepare(
@@ -58,12 +53,20 @@ class client{
         $addClientQuery->bindvalue(':mail', $this->mail, PDO::PARAM_STR);
         $addClientQuery->bindvalue(':password', $this->password, PDO::PARAM_STR);  
         return $addClientQuery->execute();
-        //id_kgtp_roles valeur par défaut sur NULL pour que ca fonctionne
     }
-
+/***************************************************************RECUPERE LE PROFIL DU CLIENT******************************************************/
     public function getProfilCient() {
         $getProfilClientQuery = $this->db->prepare(
-            'SELECT`lastname`, `firstname`, `mail`, `address`, `postalCode`, `city`, `phoneNumber`, `mail`, `password`
+            'SELECT 
+                `lastname`
+                , `firstname`
+                , `mail`
+                , `address`
+                , `postalCode`
+                , `city`
+                , `phoneNumber`
+                , `mail`
+                , `password`
             FROM `kgtp_userclients`
             WHERE `id` = :id'
         );
@@ -72,9 +75,8 @@ class client{
         $data = $getProfilClientQuery->fetch(PDO::FETCH_OBJ);
         return $data;
     }
-
-
-    public function getClientInfo(){/*******************affiche info du client */
+/**************************************************************AFFICHE LES INFOS DU CLIENT ************************************************/
+    public function getClientInfo(){
         $clientQuery = $this->db->prepare(
         'SELECT
             `lastname`
@@ -93,12 +95,53 @@ class client{
         $clientQuery->execute();
         return $clientQuery->fetch(PDO::FETCH_OBJ);
     }
-
-
+/********************************************************AFFICHE LES INFOS DU CLIENT CONNECTE**********************************************/
+    public function getClientInfoSession(){
+        $clientQuery = $this->db->prepare(
+        'SELECT
+            `id`
+            ,`lastname`
+            ,`firstname`
+            ,`address`
+            ,`postalCode`
+            ,`city`
+            ,`phoneNumber`
+            ,`mail`
+            ,`password`
+            ,`id_kgtp_roles`
+        FROM
+            `kgtp_userclients`
+        WHERE `mail` = :mail;
+        ');
+        $clientQuery->bindValue(':mail', $this->mail, PDO::PARAM_STR); //<------ C est ici le problème !!!!!!!!!!!
+        $clientQuery->execute();
+        return $clientQuery->fetch(PDO::FETCH_OBJ);
+    }
+/************************************************************RECUPERE LE MOT DE PASSE DU CLIENT***************************************** */
+    public function getPasswordInfo(){
+        $clientQuery = $this->db->prepare(
+        'SELECT
+            `password`
+        FROM
+            `kgtp_userclients`
+        WHERE `id` = :id;
+        ');
+        $clientQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $clientQuery->execute();
+        return $clientQuery->fetch(PDO::FETCH_OBJ);
+    }
+/***********************************************************MODIFIE LE PROFIL DU CLIENT****************************************************/
     public function modifyClientInfo(){
         $modifyclientInfoQuery = $this->db->prepare(
             'UPDATE `kgtp_userClients` 
-            SET `lastname` = :lastname, `firstname` = :firstname, `mail` = :mail, `address` = :address, `postalCode` = :postalCode, `city` = :city, `phoneNumber` = :phoneNumber, `password` = :password
+            SET 
+                `lastname` = :lastname
+                , `firstname` = :firstname
+                , `mail` = :mail
+                , `address` = :address
+                , `postalCode` = :postalCode
+                , `city` = :city
+                , `phoneNumber` = :phoneNumber
             WHERE `id` = :id'
         );
         $modifyclientInfoQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
@@ -109,38 +152,38 @@ class client{
         $modifyclientInfoQuery->bindvalue(':city', $this->city, PDO::PARAM_STR);
         $modifyclientInfoQuery->bindvalue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
         $modifyclientInfoQuery->bindvalue(':mail', $this->mail, PDO::PARAM_STR);
-        $modifyclientInfoQuery->bindvalue(':password', $this->password, PDO::PARAM_STR);
         return $modifyclientInfoQuery->execute();
     }
-    public function connexionClients(){
-        $connexionClientQuery = $bdd->prepare(//on fait une requete préparée
-            'SELECT `mail`, `password`
-            FROM kgtp_userClients 
-            WHERE  `mail` = :mail AND `password` = :password
-        ');// on selectionne ces 2 champs
-        $connexionClientQuery->bindValue(':mail', $this->mail, PDO::PARAM_INT);
-        $connexionClientQuery->bindvalue(':password', $this->password, PDO::PARAM_STR);
-        $connexionClientQuery->execute();//on éxécute la requete
-        $userExist = $connexionClientQuery->rowCount();//retourne le nombre de lignes affectées par la dernière requête
+/************************************************************MODIFIE LE MOT DE PASSE**************************************************** */
+    public function modifyPassword(){
+        $modifyPasswordQuery = $this->db->prepare(
+            'UPDATE `kgtp_userClients` 
+            SET `password` = :password
+            WHERE `id` = :id'
+        );
+        $modifyPasswordQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $modifyPasswordQuery->bindvalue(':password', $this->password, PDO::PARAM_STR);
+        return $modifyPasswordQuery->execute();
     }
+    /*****************************************************RECUPERE LA LISTE DES CLIENTS************************************************** */
     public function getClientsList() {
         $getClientsListQuery = $this->db->query(
-            'SELECT `id`, `lastname`, `firstname`, `mail`, `address`, `postalCode`, `city`, `phoneNumber`, `mail`, `password`
+            'SELECT 
+                `id`
+                , `lastname`
+                , `firstname`
+                , `mail`
+                , `address`
+                , `postalCode`
+                , `city`
+                , `phoneNumber`
+                , `mail`
+                , `password`
             FROM `kgtp_userClients`
             ORDER BY `lastname` AND `firstname`');
         return $getClientsListQuery->fetchAll(PDO::FETCH_OBJ);
     }
-    // public function searchClientsListByName() {
-    //     $searchClientsListByNameQuery = $this->db->prepare(
-    //         'SELECT `id`, `lastname`, `firstname`, `mail`
-    //         FROM `kgtp_userClients`
-    //         WHERE `lastname` LIKE :search
-    //         ORDER BY `lastname` AND `firstname`');
-    //     $searchClientsListByNameQuery->bindValue(':search', $this->search . '%', PDO::PARAM_STR);
-    //     $searchClientsListByNameQuery->execute();
-    //     return $searchClientsListByNameQuery->fetchAll(PDO::FETCH_OBJ);
-        
-    // }
+    /*****************************************************VERIFE SI LE CLIENT EXISTE GRACE A L'ID ****************************************/
     public function checkClientExistById(){
         $checkClientExistQuery = $this->db->prepare(
             'SELECT COUNT(`id`) AS `isClientExist`
@@ -154,15 +197,65 @@ class client{
         //retourner l'attribut isAppointmentExist de type booléen (COUNT renvoie 0 ou 1 qui peut etre interpreté comme un booléen) 
         return $data->isClientExist;
     }
+/*********************************************************SUPPRIME UN COMPTE CLIENT****************************************************** */
     public function deleteClient() {
         $deleteClientQuery = $this->db->prepare(
-            'DELETE FROM `kgtp_userClients`
+            'DELETE FROM `kgtp_userclients`
             WHERE `id` = :id'
         );
         $deleteClientQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $deleteClientQuery->execute();
     }
+/******************************************************RECUPERE LE HASH DU MOT DE PASSE DU CLIENT*************************************** */
+    public function getClientPasswordHash(){
+        $getClientPasswordHash = $this->db->prepare(
+            'SELECT `password` 
+            FROM `kgtp_userclients`
+            WHERE `mail` = :mail'
+        );
+        $getClientPasswordHash->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $getClientPasswordHash->execute();
+        $response = $getClientPasswordHash->fetch(PDO::FETCH_OBJ);
+        if(is_object($response)){// on veut que la valeur de retour soit un string dans les 2 cas
+            return $response->password;
+        }else{
+            return '';
+        }
+    }
+
+    public function checkUserUnavailabilityByFieldName($field){
+        $whereArray = [];
+        foreach($field as $fieldName ){
+            $whereArray[] = '`' . $fieldName . '` = :' . $fieldName;
+        }
+        $where = ' WHERE ' . implode(' AND ', $whereArray);
+        $checkUserUnavailabilityByFieldName = $this->db->prepare('
+            SELECT COUNT(`id`) as `isUnavailable`
+            FROM `kgtp_userclients`'
+            . $where
+        ); 
+        foreach($field as $fieldName ){
+            $checkUserUnavailabilityByFieldName->bindValue(':'.$fieldName,$this->$fieldName,PDO::PARAM_STR);
+        }
+        $checkUserUnavailabilityByFieldName->execute();
+        return $checkUserUnavailabilityByFieldName->fetch(PDO::FETCH_OBJ)->isUnavailable;
+    }
+
 }
+
+    /*****************************************************RECHERCHE LES CLIENTS PAR NOM ***************************************************/
+    // public function searchClientsListByName() {
+    //     $searchClientsListByNameQuery = $this->db->prepare(
+    //         'SELECT `id`, `lastname`, `firstname`, `mail`
+    //         FROM `kgtp_userClients`
+    //         WHERE `lastname` LIKE :search
+    //         ORDER BY `lastname` AND `firstname`');
+    //     $searchClientsListByNameQuery->bindValue(':search', $this->search . '%', PDO::PARAM_STR);
+    //     $searchClientsListByNameQuery->execute();
+    //     return $searchClientsListByNameQuery->fetchAll(PDO::FETCH_OBJ);
+    // }
+
+
     // public function orderInfo(){/***************************************afficher une commande******* */
     //     $orderQuery = $this->db->query(
     //         'SELECT
@@ -176,50 +269,8 @@ class client{
     //         INNER JOIN `kgtp_users` AS `usr` ON `id_kgtp_users` = `usr`.`id`
     //         INNER JOIN `kgtp_carts` AS `car` ON `id_kgtp_carts` = `car`.`id`
     //         INNER JOIN `kgtp_products` AS `pro` ON `id_kgtp_products` = `pro`.`id`
-   
     //         WHERE `ord`.`id` = 1;
-          
     //         ');
     //         $data = $orderQuery->fetchall(PDO::FETCH_OBJ);
     //         return $data;
     //     }
-        
-        //  !!!!!! trouver le moyen de joindre plusieurs tables dans un insert into  !!!!!!
-    
-
-
-//faut il un onglet connexion et un onglet mon compte????
-//comment remettre id du client a zéro
-//pour que le client modifie son compte il faut que j'enregistre le code postal et ville  ds la bdd?
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public function addClient(){ //**************************************methode pour ajouter un client à la base************************************
-    //     //$db devient une instance de l'objet PDO
-    //    // on fait une requête préparée
-    //    $createClient = $this->db->prepare(
-    //        // Marqueur nominatif
-    //        //bindValue: vérifie le type et que ça ne génère pas de faille de sécurité.
-    //        //$this-> : permet d'acceder aux attributs de l'instance qui est en cours
-    //        'INSERT INTO 
-    //                 `kgtp_clients` (`lastname`,`firstname`,`phoneNumber`, `address`)
-    //         VALUES
-    //             (:lastName, :firstName, :phoneNumber, :address)'
-    //    );
-    //    $createClient->bindvalue(':lastname', $this->lastname, PDO::PARAM_STR);
-    //    $createClient->bindvalue(':firstname', $this->firstname, PDO::PARAM_STR);
-    //    $createClient->bindvalue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR);
-    //    $createClient->bindvalue(':address', $this->adress, PDO::PARAM_STR);
-    //    return $createClient->execute();
-    // }
-  

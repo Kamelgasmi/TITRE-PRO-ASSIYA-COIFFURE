@@ -20,10 +20,14 @@ class products
 
     }
 
-
+/***************************************************************RECUPERE LES INFOS DU PRODUITS POUR LES CARDS**************************** */
     public function getInfoProduct() {
         $getInfoProductQuery = $this->db->prepare(
-            'SELECT `name`, `photo`, `price`, `description`
+            'SELECT
+                `name`
+                , `photo`
+                , `price`
+                , `description`
             FROM `kgtp_products`
             WHERE `id` = :id'
         );
@@ -31,10 +35,17 @@ class products
         $getInfoProductQuery->execute();
         return $getInfoProductQuery->fetch(PDO::FETCH_OBJ);
     }
-
+/**************************************************************RECUPERE LES INFOS DU PRODUITS *********************************************/
     public function getProductInfo() {
         $getProductInfoQuery = $this->db->prepare(
-            'SELECT `name`, `photo`, `price`, `description`, `quantity`, `weight`, `id_kgtp_categories`
+            'SELECT 
+                `name`
+                , `photo`
+                , `price`
+                , `description`
+                , `quantity`
+                , `weight`
+                , `id_kgtp_categories`
             FROM `kgtp_products`
             WHERE `id` = :id'
         );
@@ -42,21 +53,24 @@ class products
         $getProductInfoQuery->execute();
         return $getProductInfoQuery->fetch(PDO::FETCH_OBJ);
     }
-
+/************************************************************RECUPERE LES CARDS PAR CATEGORIES******************************************* */
     function getProductCardsByCategorie(){
         $ProductCardsByCategorieQuery = $this->db->prepare(
-            'SELECT `prod`.`id`, `photo`, `prod`.`name` AS `productName`, `price`, `cat`.`name` AS `categorieName`
+            'SELECT 
+                `prod`.`id`
+                , `photo`
+                , `prod`.`name` AS `productName`
+                , `price`, `cat`.`name` AS `categorieName`
             FROM `kgtp_products` AS `prod`
                 INNER JOIN `kgtp_categories` AS `cat` ON `cat`.`id` = `id_kgtp_categories`
             WHERE `simplifiedName` = :categorie'
-
             );
         $ProductCardsByCategorieQuery->bindValue(':categorie', $this->categorie, PDO::PARAM_STR);
         $ProductCardsByCategorieQuery->execute();
         return $ProductCardsByCategorieQuery->fetchAll(PDO::FETCH_OBJ);
     }
-
-    public function checkProductExist(){/*************************************verifie si produit existe********* */
+/***********************************************************VERIFIE SI LE PRODUIT EXISTE************************************************** */
+    public function checkProductExist(){
         $checkProductExistQuery = $this->db->prepare(
             'SELECT COUNT(`id`) AS `isProductExist`
             FROM 
@@ -71,14 +85,13 @@ class products
         $data = $checkProductExistQuery->fetch(PDO::FETCH_OBJ);
         return $data->isProductExist; 
     } 
-
-    public function addProductsAdmin(){/****************************************ajoute un produit ds bdd************* */
+/*********************************************************AJOUTE UN PRODUIT DANS LA BDD************************************************* */
+    public function addProductsAdmin(){
         $addProductsAdminQuery = $this->db->prepare(
             'INSERT INTO 
                     `kgtp_products` (`name`,`price`, `photo`, `quantity`, `weight`, `description`, `id_kgtp_categories`)
             VALUES
                 (:name, :price, :photo, :quantity, :weight, :description, :id_kgtp_categories )
-            -- INNER JOIN `kgtp_categories` AS `cat` ON `cat`.`id` = `id_kgtp_categories`
                 ');
         $addProductsAdminQuery->bindvalue(':name', $this->name, PDO::PARAM_STR);
         $addProductsAdminQuery->bindvalue(':price', $this->price, PDO::PARAM_STR);
@@ -89,15 +102,23 @@ class products
         $addProductsAdminQuery->bindvalue(':id_kgtp_categories', $this->id_kgtp_categories, PDO::PARAM_STR);  
         return $addProductsAdminQuery->execute();
     }
-
+/***********************************************************RECUPERE LA LISTE DES PRODUITS********************************************** */
     public function getProductsList() {
         $getProductsListQuery = $this->db->query(
-            'SELECT `id`, `name`, `price`, `photo`, `weight`, `description`, `quantity`, `id_kgtp_categories`
+            'SELECT 
+                `id`
+                , `name`
+                , `price`
+                , `photo`
+                , `weight`
+                , `description`
+                , `quantity`
+                , `id_kgtp_categories`
             FROM `kgtp_products`
             ORDER BY `id_kgtp_categories`');
         return $getProductsListQuery->fetchAll(PDO::FETCH_OBJ);
     }
-
+/************************************************************VERIFIE QUE LE PRODUITS EXISTE GRACE A L'ID****************************** */
     public function checkProductExistById(){
         $checkProductExistQuery = $this->db->prepare(
             'SELECT COUNT(`id`) AS `isProductExist`
@@ -111,6 +132,7 @@ class products
         //retourner l'attribut isAppointmentExist de type booléen (COUNT renvoie 0 ou 1 qui peut etre interpreté comme un booléen) 
         return $data->isProductExist;
     }
+    /******************************************************SUPPRIME UN PRODUIT*********************************************************** */
     public function deleteProduct() {
         $deleteProductQuery = $this->db->prepare(
             'DELETE FROM `kgtp_products`
@@ -119,22 +141,47 @@ class products
         $deleteProductQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $deleteProductQuery->execute();
     }
-
+/***********************************************************MODIFIE LES INFOS DU PRODUIT************************************************ */
     public function modifyProductInfo(){
         $modifyProductInfoQuery = $this->db->prepare(
             'UPDATE `kgtp_products`
-            SET `name` = :name, `price` = :price, `weight` = :weight, `quantity` = :quantity, `description` = :description, `id_kgtp_categories` = :id_kgtp_categories
+            SET 
+            `name` = :name
+            , `price` = :price
+            , `weight` = :weight
+            , `quantity` = :quantity
+            , `description` = :description
+            , `id_kgtp_categories` = :id_kgtp_categories
             WHERE `id` = :id'
         );
         $modifyProductInfoQuery->bindValue(':id', $this->id, PDO::PARAM_INT);
         $modifyProductInfoQuery->bindvalue(':name', $this->name, PDO::PARAM_STR);
         $modifyProductInfoQuery->bindvalue(':price', $this->price, PDO::PARAM_STR);
-        // $modifyProductInfoQuery->bindvalue(':photo', $this->photo, PDO::PARAM_STR);
+        $modifyProductInfoQuery->bindvalue(':photo', $this->photo, PDO::PARAM_STR);
         $modifyProductInfoQuery->bindvalue(':weight', $this->weight, PDO::PARAM_STR);
         $modifyProductInfoQuery->bindvalue(':quantity', $this->quantity, PDO::PARAM_INT);
         $modifyProductInfoQuery->bindvalue(':description', $this->description, PDO::PARAM_STR);
         $modifyProductInfoQuery->bindvalue(':id_kgtp_categories', $this->id_kgtp_categories, PDO::PARAM_INT);
         return $modifyProductInfoQuery->execute();
+    }
+
+    public function searchProductsListByName() {
+        $searchProductsListByNameQuery = $this->db->prepare(
+            'SELECT `id`
+            , `name`
+            , `price`
+            , `photo`
+            , `weight`
+            , `description`
+            , `quantity`
+            , `id_kgtp_categories`
+            FROM `kgtp_products`
+            WHERE `name` LIKE :search
+            ORDER BY `name` ');
+        $searchProductsListByNameQuery->bindValue(':search', $this->search . '%', PDO::PARAM_STR);
+        $searchProductsListByNameQuery->execute();
+        return $searchProductsListByNameQuery->fetchAll(PDO::FETCH_OBJ);
+        
     }
 
 }

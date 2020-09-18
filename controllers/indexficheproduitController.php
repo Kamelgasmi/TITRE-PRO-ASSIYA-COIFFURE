@@ -3,6 +3,7 @@ $products = new products();
 $products->id = $_GET['id'];
 $product = $products->getInfoProduct();
 
+// var_dump($products->getInfoProduct());
 
 // if(isset($_GET['id'])){
 //     $produit = new produits();

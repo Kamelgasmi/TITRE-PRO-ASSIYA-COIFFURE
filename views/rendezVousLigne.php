@@ -1,5 +1,4 @@
 <?php 
-session_start();
 $title = 'Assiya Coiffure® - RDV en ligne';
 include_once '../models/database.php';
 include_once '../models/appointments.php';

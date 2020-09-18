@@ -1,26 +1,24 @@
 <?php
-session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=assiyacoiffure;charset=utf8', 'root', '');
 //$regexMail = '/^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/';
 $regexPassword = '/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/';
 $formErrors = array();
-
+$client = new client();
 
 if(isset($_POST['send'])){
     /*-----------------------------------------------------------verification mail*/
-        if(!empty($_POST['email'])){
-            if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){ 
-                $email = htmlspecialchars($_POST['email']);
+        if(!empty($_POST['mail'])){
+            if(filter_var($_POST['mail'],FILTER_VALIDATE_EMAIL)){ 
+                $client->mail = htmlspecialchars($_POST['mail']);
             }else{
-                $formErrors['email'] = 'Respectez le format suivant : jeandupont@hotmail.fr';
+                $formErrors['mail'] = 'Respectez le format suivant : jeandupont@hotmail.fr';
             }
         }else{
-            $formErrors['email'] = 'Veuillez entrer votre mail';
+            $formErrors['mail'] = 'Veuillez entrer votre mail';
         }
     /*-------------------------------------------------------verification mot de passe*/
         if(!empty($_POST['password'])){
             if(filter_var($_POST['password'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexPassword)))){ 
-                $password = htmlspecialchars($_POST['password']);
+                $password = $_POST['password'];
     
             }else{
                 $formErrors['password'] = 'Le mot de passe doit contenir: 8 caractéres minimum, au moins 1 majuscule et 1 chiffre';
@@ -28,35 +26,45 @@ if(isset($_POST['send'])){
         }else{
             $formErrors['password'] = 'Veuillez entrer votre mot de passe';
         }
+        // if(empty($_POST['password'])){
+        //     $formErrors['password'] = 'Le mot de passe ne doit pas être vide.';
+        //     $isPasswordOk = false;
+        
+        // if($isPasswordOk){
+        //         //On hash le mot de passe avec la méthode de PHP
+        //         $client->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        //     }else{
+        //         $formErrors['password'] = 'Le mot de passe n\'est pas bon';
+        //     }
+        // }
+    
+    //****************************************************************affiche du profil à la connexion sur le compte
+        if(empty($formErrors)){
+            //On récupère le hash de l'utilisateur
+            $hash = $client->getClientPasswordHash();
+        //Si le hash correspond au mot de passe saisi
+            if(password_verify($_POST['password'], $hash)){
+                //On récupère son profil
+                    $clientProfil = $client->getClientInfoSession();
+                    //On met en session ses informations
+                    $_SESSION['profile']['id'] = $clientProfil->id;
+                    $_SESSION['profile']['firstname'] = $clientProfil->firstname;
+                    $_SESSION['profile']['lastname'] = $clientProfil->lastname;
+                    $_SESSION['profile']['address'] = $clientProfil->address;
+                    $_SESSION['profile']['postalCode'] = $clientProfil->postalCode;
+                    $_SESSION['profile']['city'] = $clientProfil->city;
+                    $_SESSION['profile']['phoneNumber'] = $clientProfil->phoneNumber;
+                    $_SESSION['profile']['mail'] = $clientProfil->mail;
+                    $_SESSION['profile']['id_kgtp_roles'] = $clientProfil->id_kgtp_roles;
 
-    //****************************************************************affiche du profil a la connexion sur le compte
-        // if(isset($_POST['send'])){
-            $mailConnect = htmlspecialchars($_POST['email']);
-            $mdpConnect = htmlspecialchars($_POST['password']);
-            if(!empty($mailConnect) AND !empty($mdpConnect)){ //si les 2 champs ne sont pas vides
-                $reqUserClient = $bdd->prepare(//on fait une requete préparée
-                    'SELECT 
-                    * 
-                    FROM kgtp_userClients 
-                    WHERE  mail = ? AND password = ?
-                    ');// on selectionne ces 2 champs
-                $reqUserClient->execute(array($mailConnect, $mdpConnect ));//on éxécute la requete
-                $userExist = $reqUserClient->rowCount();//retourne le nombre de lignes affectées par la dernière requête
-                if($userExist == 1){//si le client existe  
-                    if(isset($_POST['rememberMe'])){
-                        setcookie('email',$mailConnect,time()+364*24*3600, null, null, false, true);//créer un cookie email
-                        setcookie('password',$mdpConnect,time()+364*24*3600, null, null, false, true);//créer un cookie password
-                    }
-                    $userInfo = $reqUserClient->fetch();//on affiche les données
-                    $_SESSION['id'] = $userInfo['id'];
-                    $_SESSION['mail'] = $userInfo['mail'];
-                    $_SESSION['password'] = $userInfo['password'];
-                    header('Location: profilClient.php?id='.$_SESSION['id']);
-
-                }else{
-                    $error = 'Erreur de saisie mail ou mot de passe';
-                }
+                    // // On redirige vers la page profil.
+                    header('Location:../views/profilClient.php?id='.$_SESSION['profile']['id']);
+                    exit();
             }else{
-                $error = 'Tous les champs doivent être renseignés';
-            }//********************************************sur l'id 2 il affiche info de l'id 1
-}
+                $formErrors['password'] = $formErrors['mail'] = 'Le mot de passe et/ou l\'adresse mail est incorrecte';
+            }
+            // var_dump(password_verify($_POST['password'], $hash));
+            // var_dump($formErrors);
+            // var_dump($hash);
+        }
+    }

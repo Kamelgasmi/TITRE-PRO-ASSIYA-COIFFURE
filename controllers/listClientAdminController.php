@@ -1,9 +1,14 @@
 <?php
+/*j'instancie un nouvel objet*/
 $client = new client();
+//on appelle la methode pour stocker la liste des client  dans une variable
 $clientsList = $client->getClientsList();
 
+//si je confirme la suppression
 if(isset($_POST['deleteClient'])){
+    //on recupere l'id du client
     $client->id = htmlspecialchars($_POST['recipient-name']);
+    //et on exécute la requéte de la methode
     $client->deleteClient();
     header('Location: listClientAdmin.php');
 

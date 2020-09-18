@@ -5,13 +5,23 @@ $regexCity = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
 $regexName = '/^[\p{L}]{1}[\' \-\p{L}]+$/';
 $regexPassword = '/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/';
 $regexMail = '/^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/';
-$formErrors = array();
-$client = new client();
-$showClientInfo = $client->getClientInfo();
+
 //$showOrderInfo =  $client->orderInfo();
+//Traitement de la demande AJAX
+    //On vérifie que l'on a bien envoyé des données en POST
+if(isset($_POST['fieldName'])){
+    //On inclut les bons fichiers car dans ce contexte ils ne sont pas connu.
+    include_once '../config.php';
+    include_once '../models/database.php';
+    include_once '../models/clients.php';
+}
+$formErrors = array();
 
 if(isset($_POST['addClient'])){
      //ajouté/////////
+     $client = new client();
+     $isPasswordOk = true;
+     $showClientInfo = $client->getClientInfo();
 /*-----------------------------------------------------------verification nom*/
     if(!empty($_POST['lastname'])){
         if(filter_var($_POST['lastname'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexName)))){ 
@@ -85,55 +95,49 @@ if(isset($_POST['addClient'])){
 
 /*-------------------------------------------------------verification mot de passe*/
     if(!empty($_POST['password'])){
-        if(filter_var($_POST['password'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexPassword)))){ 
-            $client->password = password_hash(htmlspecialchars($_POST['password']),PASSWORD_DEFAULT);
-        }else{
-            $formErrors['password'] = 'Le mot de passe doit contenir: 8 caractéres minimum, au moins 1 majuscule et 1 chiffre';
+        if(strlen($_POST['password']) < 8){ 
+        $formErrors['password'] = 'Le mot de passe doit avoir 8 caractéres minimum.';
         }
     }else{
-        $formErrors['password'] = 'Veuillez entrer votre mot de passe';
+        $formErrors['password'] = 'Le mot de passe ne doit pas être vide.';
+        $isPasswordOk = false;
     }
-/*-------------------------------------------------------verification mot de passe*/
-    if(!empty($_POST['passwordConfirm'])){
-        if($_POST['passwordConfirm'] == $_POST['password']){ 
-            $passwordConfirm = htmlspecialchars($_POST['passwordConfirm']);
+
+    if(empty($_POST['passwordConfirm'])){
+        $formErrors['passwordConfirm'] = 'Le mot de passe (confirmation) ne doit pas être vide.';
+        $isPasswordOk = false;
+    }
+
+/*-------------------------------------------------------verification mot de passe /*/
+    if($isPasswordOk){
+        if($_POST['passwordConfirm'] == $_POST['password']){
+            //On hash le mot de passe avec la méthode de PHP
+            $client->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }else{
-            $formErrors['passwordConfirm'] = 'Les mots de passe doivent être identiques';
+            $formErrors['password'] = $formErrors['passwordConfirm'] = 'Les mots de passe ne sont pas identiques';
         }
-    }else{
-        $formErrors['passwordConfirm'] = 'Veuillez confirmer votre mot de passe';
     }
-
-/*************************************************************verification si client existe */
-
-    //ajouté//////////
-    // var_dump($formErrors);
-
+/*************************************************************verification si client existe et création du compte */
+    //si il n'y a pas d'erreurs
     if(empty($formErrors)){
+        //si le client n'existe pas
         if (!$client->checkClientExist()){ //la méthode va être exécutée car le "if" est verifié au traitement 
-            if($client->addClientInfo()){ 
-            $addClientMessage = 'VOTRE COMPTE A ETE CREE AVEC SUCCES <a href="http://testprojetpro/views/connexion.php"> Me connecter </a>';// lien vers page connexion
-            } 
+            //il est ajouté à la base de données
+            $client->addClientInfo(); 
+            $addClientMessage = 'VOTRE COMPTE A ETE CREE AVEC SUCCES <a href="http://testprojetpro/views/connexion.php"> Me connecter </a>';// lien vers page connexion 
         }else {
              $addClientMessage = 'VOUS AVEZ DEJA UN COMPTE';
              }
-                var_dump($client);
-                var_dump($client->checkClientExist());
-                var_dump($formErrors);
+                // var_dump($client);
+                // var_dump($client->checkClientExist());
+                // var_dump($formErrors);
 
     }
-    
 }
 
-    
-// var_dump($client->getClientInfo());
-// }/* //on appelle la methode de notre addPatient pour creer un nouveau patient dans la base de données
-// if($client->checkClientExist(isClientExist)){ //la méthode va être exécutée car le "if" est verifié au traitement 
-//             if($client->addClientInfo()){
-//                 $addClientMessage = 'LE PATIENT A BIEN ETE ENREGISTE';
-//             }else {
-//                 $addClientMessage = 'UNE ERREUR EST SURVENUE PANDANT L\'ENREGISTREMENT. VEUILLEZ CONTACTER LE SERVICE INFORMATIQUE.';
-//             }
-//         }  */
-  
 
+if(isset($_POST['fieldName'])){
+    if(isset( $formErrors[$_POST['fieldName']])){ 
+        echo $formErrors[$_POST['fieldName']];
+    }
+}

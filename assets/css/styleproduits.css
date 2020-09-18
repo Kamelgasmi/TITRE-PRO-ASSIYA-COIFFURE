@@ -8,9 +8,11 @@ body{
 }
  .navbar-nav{
   margin-top: 0px;
+  margin-left: 70px;
 }
-ul .navbar-nav{
-  margin-top: 10px;
+#header ul .navbar-nav{
+  margin-top: 0px;
+  margin-left: auto;
 }
 .navbar-toggler{
   color:#2d2d2d;
@@ -56,7 +58,7 @@ ul .navbar-nav{
   display:inline-block;
   min-width:50px;
   color: black;
-  margin-left:25px;
+  margin-left:35px;
 }
 #header li a:after {/*css pour faire apparaitre animation sous les catégories du menu*/
   content: '';
@@ -77,6 +79,9 @@ ul .navbar-nav{
 }
 #header #logo {
   margin: 5px 0 0 10px;
+}
+#header #itemConnexion{
+ margin-left: 400px;
 }
 .conteneur #logo{/* taille logo assiya coiffure banniére*/
   width: 300px;
@@ -111,6 +116,10 @@ ul .navbar-nav{
 }
 #header .navbar-toggler-icon {
   margin: 5px 10px 0 0;
+}
+.navbar-nav{
+  margin-top: 0px;
+  margin-left: 0px;
 }
 }
 /***********************************************************************************************************CSS LIST CLIENT*/
@@ -335,6 +344,48 @@ div.productmenu{
   width: 85%;
 }
 /*********************************************************************************************************CSS PAGE FICHE PRODUIT----*/
+.comments{
+  width: 700px;
+  margin: 100px auto;
+  padding: 0px 10px 0px 50px;
+  border-left: 2px solid white;
+}
+#commentary {
+  padding: 20px;
+  background: white;
+  color: black;
+  font-family: tahoma;
+  line-height: 1.7;
+  position: relative;
+}
+#commentary:before{
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ceb19c;
+  top: -9px;
+  left: -61px;
+  position: absolute;
+}
+#commentary:after{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: #ceb19c #ceb19c transparent       transparent ;
+  border-width: 15px;
+  position: absolute;
+  top: 0px;
+  left: -29px;
+}
+#pageFicheProduct h1{
+  margin-top: 60px;
+  font-family: 'Times New Roman', Times, serif;
+  color:#ceb19c;
+}
 body#pageFicheProduct{
   background-color: #2d2d2d;
 }
@@ -442,7 +493,7 @@ height: 200px;
 }
 #pageFicheProduct label{
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 50px;
   color: white;
   padding-top: 50px;
 }
@@ -454,7 +505,7 @@ height: 200px;
 #pageFicheProduct #button{
   margin-top: 10px;
 }
-#pageFicheProduct textarea{
+#pageFicheProduct #textarea{
   width:100%;
   border-radius: 5px;
 }
@@ -465,29 +516,11 @@ body#pageProfilClient{
 /* li .clientInfo {
   color:#ceb19c;
 } */
-#pageProfilClient #button {
-  background-color: #ceb19c;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 0 5px 0 white;
-  color: black;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin: 5px 0;
-  padding: 15px 20px;
-  position: relative;
-  width: 10%;
-  margin-bottom: 100px;
-}
-#pageProfilClient h1{
-  color:black;
-  text-align: center;
-  font-weight: bold;
-}
 #pageProfilClient h2{
   color:#ceb19c;
   font-weight: bold;
-  padding-left: 20px;
+  background-color:white ;
+  margin: 0px;
 }
 #pageProfilClient #welcome{
   text-align: center;
@@ -497,15 +530,15 @@ body#pageProfilClient{
 }
 #pageProfilClient #infoClient{
   /* text-align: center; */
-  /* background-color: white; */
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: white;
   border: 1px solid #ceb19c;
+  margin: 0px;
 }
 #pageProfilClient .infoList{
   background-color: white;
   color: rgba(59, 58, 58, 0.979);
   font-size: 25px;
+  margin: 0px;
 }
 #pageProfilClient ul{
 padding-left: 20px;
@@ -519,8 +552,6 @@ margin-top: 20px;
 }
 #pageProfilClient #rdvList, #orderList{
   background-color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
   border: 1px solid #ceb19c;
   border-radius: 5px;
   margin-top: 50px;
@@ -541,6 +572,7 @@ margin-top: 20px;
 #pageSalon .presentation{
   height:auto;
 }
+
 #pageSalon #hairSalon  {/*taille photo dans la div*/
   width:100% ;
   height: 700px;
@@ -590,7 +622,7 @@ margin-top: 20px;
   font-family: 'Playfair Display', serif;
   color:white;
   font-size: 30px;
-  margin-top: 60px;
+  margin-top: 130px;
 }
 #pageSalon .shedule li, .adress li{
   font-family: 'Playfair Display', serif;
@@ -807,13 +839,25 @@ body#pagegalerie{
   padding-top: 20px;
 }
 #pageconnexion #button{
-  background-color: white;
-  border: none;
+  /* background-color: white; */
+  /* border: none;
   border-radius: 8px;
   color: black;
   font-size: 1.1rem;
   font-weight: bold;
   margin: 70px 0;
+  padding: 15px 20px;
+  position: relative;
+  width: 30%; */
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 white;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 90px ;
+  margin-bottom: 90px;
   padding: 15px 20px;
   position: relative;
   width: 30%;
@@ -901,7 +945,6 @@ text-align: center;
 }
 #pageInscription .inputform input {
   background: none;
-  border: none;
   border-bottom: 1px solid #a9a9a9;
   color: white;
   font-size: 1.1rem;
@@ -931,7 +974,7 @@ text-align: center;
   margin: 5px 0;
   padding: 15px 20px;
   position: relative;
-  width: 10%;
+  width: 12%;
   margin-bottom: 100px;
 }
 .buttonInscription{
@@ -1067,6 +1110,17 @@ img#savoirFaire7{
 }
 #textSavoirFaire{
   background-color: white;
+}
+#pageSavoirFaire .colorOne{
+  background-color:#ceb19c ;
+  font-family: 'Playfair Display', serif;
+
+}
+#pageSavoirFaire .colorTwo{
+  font-family: 'Playfair Display', serif;
+}
+.hairstyle{
+  border:3px solid black;
 }
 #pageSavoirFaire section{
   padding:0px;
@@ -1209,6 +1263,11 @@ margin-left: -5px;
   padding-top: 50px;
   color: #6D6666; 
   background-color: #2d2d2d;
+  border-top:2px solid white; 
+}
+#pageSavoirFaire .weddingBloc{
+  background-color: #cececd;
+  font-family: 'Playfair Display', serif;
 }
 /*section lissage*/
 #pageSavoirFaire #textSmoothing h3, #textWedding h3{
@@ -1219,18 +1278,19 @@ margin-left: -5px;
   color: #ceb19c;
 }
 #pageSavoirFaire #textSmoothingOne{
-  background-color: #696968;
+  background-color: #ceb19c;
 } 
 #pageSavoirFaire #textSmoothingTwo, #textTieTwo, #textOmbreTwo{
   background-color: #464544;
 } 
 #pageSavoirFaire #textSmoothingThree, #textTieThree, #textOmbreThree{
-  background-color: #0f0f0f;
+  background-color: #ceb19c;
 }
 #pageSavoirFaire #textSmoothingThree h3, #textSmoothingOne h3, #textLSmoothingTwo h3, #textTieThree h3, #textTieTwo h3, #textOmbreThree h3, #textOmbreTwo h3 {
   margin-top: 20px;
   padding-left:15px ;
   padding-right:15px ;
+  color:white;
 }
 #pageSavoirFaire #textSmoothingOne p, #textSmoothingTwo p, #textSmoothingThree p, #textTieOne p, #textTieTwo p, #textTieThree p, #textOmbreTwo p, #textOmbreThree p{
   text-align: center;
@@ -1677,6 +1737,9 @@ font-size: 15px;
   margin-left: 65px;
   margin-bottom: 50px;
 }
+#pageFicheProduct .imgProduct{
+padding-left:0px;
+}
 #pageFicheProduct .info{
   text-align: center;
   height: 320px;
@@ -1974,6 +2037,10 @@ img#savoirFaire7{
   font-size: 25px;
   padding-top: 0px;
 }
+ .hairstyle{
+  border: 2px solid #ceb19c;
+}
+
 /*section colorations*/
 #pageSavoirFaire #textColoring h3, #textSmoothing h3{
   margin-top: 30px;
@@ -2021,6 +2088,12 @@ img#savoirFaire7{
   margin-top: 30px;
   font-size: 30px;
 }
+#pageSavoirFaire .weddingBloc{
+  background-color: #cececd;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+}
+
 #pageSavoirFaire #textWedding h3, #textTie h3{
   font-size: 30px;
 }
@@ -2046,14 +2119,19 @@ img#savoirFaire7{
   background-color: #464544;
 }
 #pageSavoirFaire #textTieThree{
-  background-color: #0f0f0f;
+  background-color: #ceb19c;
 }
 #pageSavoirFaire #textTieThree h3, #textTieTwo h3, #textOmbreThree h3, #textOmbreTwo h3{
   font-size: 30px;
   margin-top: 15px;
-  padding-left:0px ;
-  padding-right:0px ;
+  padding-left:15px ;
+  padding-right:15px ;
 }
+#pageSavoirFaire #textTieThree p, #textTieTwo p, #textOmbreThree p, #textOmbreTwo p{
+  padding-left:15px ;
+  padding-right:15px ;
+}
+
 /* section ombré hair*/
 #pageSavoirFaire #tarifsOmbre h4{
   font-size: 25px;
@@ -2468,4 +2546,17 @@ padding-left: 5px;
     width: 40%;
   }
 }
+
+@media only screen and (max-width: 550px) {
+#commentary{
+  width:100%;
+}
+.comments{
+  width:90%;
+}
+#pageFicheProduct label{
+  font-size:20px;
+}
+}
+
 
