@@ -1,7 +1,11 @@
 <?php
 session_start();
-include_once '../models/database.php';
-include_once $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'controllers/menuController.php' : '../controllers/menuController.php' ;
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
+include_once $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'models/database.php' : '../models/database.php';
+// include_once '../models/database.php';
+include_once $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'controllers/menu_controller.php' : '../controllers/menu_controller.php' ;
 // include '../models/clients.php';
 
 ?>
@@ -74,7 +78,7 @@ include_once $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/inde
                             <?= isset($_SESSION['profile']) ? 'Bienvenue ' . strtoupper($_SESSION['profile']['firstname']): ''; ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>profil_client.php?id=<?= $_SESSION['profile']['id'] ?>">MON PROFIL</a>
+                                <a class="dropdown-item" href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>profil_client.php">MON PROFIL</a>
                                 <a class="dropdown-item " href="<?= $_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php' ? 'views/' : '../views/' ?>connexion.php?action=disconnect">DECONNEXION</a> 
                             </div>
                         </li>

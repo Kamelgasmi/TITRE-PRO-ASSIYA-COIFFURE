@@ -6,7 +6,8 @@ if(isset($_POST['deleteProduct'])){
     //j'hydrate
     $product->id = htmlspecialchars($_POST['recipient-name']);
     $product->deleteProduct();
-    header('Location: list_products_admin.php');
+    // header('Location: list_products_admin.php');
+    $deleteProductMessage = 'LA SUPPRESSION A BIEN ÉTÉ EFFECTUÉE';
 }
 
 if(isset($_GET['sendSearch'])){

@@ -55,7 +55,7 @@ $script = '../assets/js/pageProduits.js';
                     </div>
                     <div class="card-footer">
                     <!-- bouton qui dirige vers la page du produit selon l'id -->
-                        <a href="file_product?id=<?= $productsDetail->id ?>" class="details js-scrollTo" type="button">Détails</a>
+                        <a href="file_product.php?id=<?= $productsDetail->id ?>" class="details js-scrollTo" type="button">Détails</a>
                     </div>
             </div>
         <?php } ?>

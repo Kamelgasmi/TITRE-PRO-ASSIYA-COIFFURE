@@ -65,7 +65,7 @@ class appointments{
         $appointmentListQuery = $this->db->query(
             'SELECT `kgtp_appointments`.`id`,`firstname`, `lastname`, `id_kgtp_choicesname`, DATE_FORMAT(`dateHour`, \'%d-%m-%Y\') AS `dateFr`, DATE_FORMAT(`dateHour`, \'%kh%i\') AS `hour`, `choice`
             FROM `kgtp_appointments`
-            INNER JOIN `kgtp_userClients` ON `id_kgtp_userClients` = `kgtp_userClients`.`id`
+            INNER JOIN `kgtp_userclients` ON `id_kgtp_userClients` = `kgtp_userclients`.`id`
             INNER JOIN `kgtp_choicesname` ON `kgtp_choicesname`.`id` =  `id_kgtp_choicesname`'
 
         );
@@ -73,9 +73,9 @@ class appointments{
     }
     public function getAppointmentListByUserId(){
         $getAppointmentListByIdQuery = $this->db->prepare(
-            'SELECT `kgtp_appointments`.`id`, DATE_FORMAT(`dateHour`, \'%d-%m-%Y\') AS `dateFr`, DATE_FORMAT(`dateHour`, \'%kh%i\') AS `hour`, `choice` 
+            'SELECT `kgtp_appointments`.`id`, DATE_FORMAT(`dateHour`, \'%d-%m-%Y\') AS `dateFr`, DATE_FORMAT(`dateHour`, \'%kh%i\') AS `hour`, `choice`
             FROM `kgtp_appointments`
-            INNER JOIN `kgtp_userClients` ON `id_kgtp_userClients` = `kgtp_userClients`.`id`
+            INNER JOIN `kgtp_userclients` ON `id_kgtp_userClients` = `kgtp_userclients`.`id`
             INNER JOIN `kgtp_choicesname` ON `kgtp_choicesname`.`id` =  `id_kgtp_choicesname`
             WHERE `id_kgtp_userClients` = :id_kgtp_userClients
             ORDER BY `dateFr` ASC, `hour` ASC'
@@ -88,7 +88,7 @@ class appointments{
         $appointmentInfoQuery = $this->db->prepare(
             'SELECT `id_kgtp_userClients`,DATE_FORMAT(`dateHour`, \'%d-%m-%Y\') AS `dateFr`, DATE_FORMAT(`dateHour`, \'%Y-%m-%d\') AS `date`, DATE_FORMAT(`dateHour`, \'%kh%i\') AS `hour`
             FROM `kgtp_appointments`
-            INNER JOIN `kgtp_userClients` ON `id_kgtp_userClients` = `kgtp_userClients`.`id`
+            INNER JOIN `kgtp_userclients` ON `id_kgtp_userClients` = `kgtp_userclients`.`id`
             WHERE `kgtp_appointments`.`id` = :id'
          );
          $appointmentInfoQuery->bindValue(':id', $this->id, PDO::PARAM_INT);

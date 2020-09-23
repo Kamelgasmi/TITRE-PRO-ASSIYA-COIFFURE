@@ -133,7 +133,7 @@ class client{
 /***********************************************************MODIFIE LE PROFIL DU CLIENT****************************************************/
     public function modifyClientInfo(){
         $modifyclientInfoQuery = $this->db->prepare(
-            'UPDATE `kgtp_userClients` 
+            'UPDATE `kgtp_userclients` 
             SET 
                 `lastname` = :lastname
                 , `firstname` = :firstname
@@ -157,7 +157,7 @@ class client{
 /************************************************************MODIFIE LE MOT DE PASSE**************************************************** */
     public function modifyPassword(){
         $modifyPasswordQuery = $this->db->prepare(
-            'UPDATE `kgtp_userClients` 
+            'UPDATE `kgtp_userclients` 
             SET `password` = :password
             WHERE `id` = :id'
         );
@@ -177,9 +177,8 @@ class client{
                 , `postalCode`
                 , `city`
                 , `phoneNumber`
-                , `mail`
                 , `password`
-            FROM `kgtp_userClients`
+            FROM `kgtp_userclients`
             ORDER BY `lastname` AND `firstname`');
         return $getClientsListQuery->fetchAll(PDO::FETCH_OBJ);
     }
@@ -187,7 +186,7 @@ class client{
     public function checkClientExistById(){
         $checkClientExistQuery = $this->db->prepare(
             'SELECT COUNT(`id`) AS `isClientExist`
-            FROM `kgtp_userClients`
+            FROM `kgtp_userclients`
             WHERE `id` = :id'
         ); 
         $checkClientExistQuery->bindValue(':id', $this->id, PDO::PARAM_STR);
@@ -223,6 +222,7 @@ class client{
         }
     }
 
+    
     public function checkUserUnavailabilityByFieldName($field){
         $whereArray = [];
         foreach($field as $fieldName ){
@@ -239,6 +239,26 @@ class client{
         }
         $checkUserUnavailabilityByFieldName->execute();
         return $checkUserUnavailabilityByFieldName->fetch(PDO::FETCH_OBJ)->isUnavailable;
+    }
+
+    public function searchClientsListByName() {
+        $searchClientsListByNameQuery = $this->db->prepare(
+            'SELECT 
+            `id`
+            , `lastname`
+            , `firstname`
+            , `mail`
+            , `address`
+            , `postalCode`
+            , `city`
+            , `phoneNumber`
+            FROM `kgtp_userclients`
+            WHERE `lastname` LIKE :search
+            ORDER BY `lastname` ');
+        $searchClientsListByNameQuery->bindValue(':search', $this->search . '%', PDO::PARAM_STR);
+        $searchClientsListByNameQuery->execute();
+        return $searchClientsListByNameQuery->fetchAll(PDO::FETCH_OBJ);
+        
     }
 
 }

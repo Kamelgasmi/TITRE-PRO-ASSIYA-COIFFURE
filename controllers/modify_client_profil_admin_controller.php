@@ -97,15 +97,15 @@ if(isset($_POST['modifyClientProfilAdmin'])){
     }
 
 /*-------------------------------------------------------verification mot de passe*/
-    if(!empty($_POST['password'])){
-        if(filter_var($_POST['password'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexPassword)))){ 
-            $client->password = password_hash(htmlspecialchars($_POST['password']),PASSWORD_DEFAULT);
-        }else{
-            $formErrors['password'] = 'Le mot de passe doit contenir: 8 caractéres minimum, au moins 1 majuscule et 1 chiffre';
-        }
-    }else{
-        $formErrors['password'] = 'Veuillez entrer votre mot de passe';
-    }
+    // if(!empty($_POST['password'])){
+    //     if(filter_var($_POST['password'],FILTER_VALIDATE_REGEXP,array('options'=> array('regexp'=>$regexPassword)))){ 
+    //         $client->password = password_hash(htmlspecialchars($_POST['password']),PASSWORD_DEFAULT);
+    //     }else{
+    //         $formErrors['password'] = 'Le mot de passe doit contenir: 8 caractéres minimum, au moins 1 majuscule et 1 chiffre';
+    //     }
+    // }else{
+    //     $formErrors['password'] = 'Veuillez entrer votre mot de passe';
+    // }
 // /*-------------------------------------------------------verification mot de passe*/
 //     if(!empty($_POST['passwordConfirm'])){
 //         if($_POST['passwordConfirm'] == $_POST['password']){ 

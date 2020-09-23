@@ -1,7 +1,7 @@
 <?php 
 
 $title = 'Assiya Coiffure® - Mon profil';
-$idBdoy = 'pageEditionProfil';
+$idBody = 'pageEditionProfil';
 
 include 'menu.php';
 include '../models/clients.php';
@@ -9,8 +9,8 @@ include '../controllers/modify_client_profil_admin_controller.php';
 // include_once '../controllers/cookieConnexionController.php'; 
 ?>
     <div id="changeProfil" class="justify-content-center">
-        <h1>MODIFIER LE PROFIL</h1>
-        <p class="formOk" style="color: green;"><?= isset($modifyClientMessage) ? $modifyClientMessage : '' ?></p>
+        <h1 class="text-center text-white mt-5">MODIFIER LE PROFIL</h1>
+        <p class="formOk text-center" style="color: green;"><?= isset($modifyClientMessage) ? $modifyClientMessage : '' ?></p>
     </div>
     <div class="container-fluid">
             <div class="row no-gutter">
@@ -59,18 +59,18 @@ include '../controllers/modify_client_profil_admin_controller.php';
                             <p style="color: red;"><?= isset($formErrors['phoneNumber']) ? $formErrors['phoneNumber'] : '' ?></p>
                         </div>
                     </div>
-                    <div class="row col-md-12">
+                    <!-- <div class="row col-md-12">
                         <div class="inputForm boxPassword col-md-3 offset-md-3 col-sm-6<?= count($formErrors) > 0 ? (isset($formErrors['password']) ? 'has-danger' : 'has-success') : '' ?>" >
                             <li><label for="password">Mot de passe :</label></li>
                             <li><input id="password" name="password" type="password" placeholder="Entrez votre mot de passe" class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['password']) ? 'is-invalid' : 'is-valid') : '' ?>" value="<?= isset($_POST['password']) ? $_POST['password'] : $clientInfo->password ?>" /><button type="button" id="eye"><img src="../assets/img/eye1.png" alt="eye" id="eyeMDP"/></button></li>
                             <p style="color: red;"><?= isset($formErrors['password']) ? $formErrors['password'] : '' ?></p>
-                        </div>
+                        </div> -->
                         <!-- <div class="inputForm boxPasswordConfirm col-md-3 col-sm-6<?= count($formErrors) > 0 ? (isset($formErrors['passwordConfirm']) ? 'has-danger' : 'has-success') : '' ?>">
                             <li><label for="passwordConfirm">Confirmer le MDP :</label></li>
                             <li><input id="passwordConfirm" name="passwordConfirm" type="password" placeholder="Confirmez votre mot de passe" class="form-control <?= count($formErrors) > 0 ? (isset($formErrors['passwordConfirm']) ? 'is-invalid' : 'is-valid') : '' ?>" /><button type="button" id="eye1"><img src="../assets/img/eye1.png" alt="eye" id="eye1MDP"/></button></li>
                             <p style="color: red;"><?= isset($formErrors['passwordConfirm']) ? $formErrors['passwordConfirm'] : '' ?></p>
                         </div> -->
-                    </div>
+                    <!-- </div> -->
                     <div class="row col-md-12">
                         <div class="col-md-12 buttonInscription">
                         <input type="submit" class="btn btn-primary" id="button" name="modifyClientProfilAdmin" value="Enregistrer"></input>

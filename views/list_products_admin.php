@@ -9,13 +9,12 @@ include '../controllers/list_products_admin_controller.php'
 <?php if(isset($_SESSION['profile']) && $_SESSION['profile']['id_kgtp_roles'] == 1){ ?>     
     <div>
         <h1 class="text-center bg-light font-weight-bold mt-5 mb-5">LISTE DES PRODUITS</h1>
-        <p style="color: green;"><?= isset($deleteProductMessage) ? $deleteProductMessage : '' ?></p> 
-
+        <p class="text-center" style="color: green;"><?= isset($deleteProductMessage) ? $deleteProductMessage : '' ?></p> 
     </div>
     <div class="text-center btn-outline-dark rounded text-dark col-md-2 offset-md-5 mt-5 mb-5">
         <a class="text-danger font-weight-bold" href="add_products_admin.php">AJOUTER UN PRODUIT</a>
     </div>
-    <form method="GET" action="listProductsAdmin.php" class="form-inline justify-content-center">
+    <form method="GET" action="list_products_admin.php" class="form-inline justify-content-center">
     <div class="md-form">
     <input id="search" class="form-control" name="search" type="text" placeholder="Rechercher un produit" />
 </div>
@@ -48,22 +47,22 @@ include '../controllers/list_products_admin_controller.php'
                     <td><?= $productsList[$i]->weight ?></td>
                     <td><?= $productsList[$i]->quantity ?></td>
                     <td><?= $productsList[$i]->id_kgtp_categories ?></td>
-                    <!-- <td><?= $product->description ?></td> -->
                     <td>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $product->id ?>">Supprimer</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm"><a class="text-dark" href="modify_products_admin.php?&id=<?= $product->id ?>">Modifier le produit</a></button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $productsList[$i]->id ?>">Supprimer</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm"><a class="text-dark" href="modify_products_admin.php?&id=<?= $productsList[$i]->id ?>">Modifier le produit</a></button>
                     </td>
                 </tr>
             </tbody><?php }} ?>
         </table>
     </form>
+    <div class="text-center text-dark mb-5 justify-content-center h2">
         <?php
     for($i = 0; $i < $pageLimit; $i++){ ?>
-        <a href="<?= $link ?>&page=<?= $i ?>"><?= $i + 1 ?></a>
+        <a class="text-center text-dark mb-5 justify-content-center" href="<?= $link ?>&page=<?= $i ?>"><?= $i + 1 ?></a>
         <?php
     }
 }
- ?>
+ ?></div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

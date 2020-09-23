@@ -14,26 +14,34 @@ if(isset($_POST['deleteClient'])){
 
 }
 
-// }
 // if(isset($_GET['sendSearch'])){
-//     $clients->search = htmlspecialchars($_GET['search']);
-//     $clients->resultNumber = count($clients->searchClientsListByName());
-//     $link = 'listClientAdmin.php?search=' . $_GET['search'] . '&sendSearch=';
-//     if($clients->resultNumber == 0){
+//     $client->search = htmlspecialchars($_GET['search']);
+//     $client->resultNumber = count($client->searchClientsListByName());
+//     $link = 'list_client_admin.php?search=' . $_GET['search'] . '&sendSearch=';
+//     if($client->resultNumber == 0){
 //         $searchMessage = 'Aucun resultat ne correspond à votre recherche';
 //     }else{
-//         $searchMessage = 'Il y a ' . $clients->resultNumber . ' résultats';
-//         $clientsList = $clients->searchClientsListByName();
+//         $searchMessage = 'Il y a ' . $client->resultNumber . ' résultats';
+//         $clientsList = $client->searchClientsListByName();
 //     }
 // }else{
-//     $clientsList = $clients->getClientsList();
-//     $clients->resultNumber = count($clientsList);
-//     $searchMessage = 'Il y a ' . $clients->resultNumber . ' clients';
-//     $link = 'listClientAdmin.php?';
-//     }
+//     $clientsList = $client->getClientsList();
+//     $client->resultNumber = count($clientsList);
+//     $searchMessage = 'Il y a ' . $client->resultNumber . ' produits';
+//     $link = 'list_clients_admin.php?';
+// }
+
+// $resultLimit = 10;
+// $pageLimit = ceil($client->resultNumber / $resultLimit);
+// $page = 0;
+// if(isset($_GET['page'])){
+//     $page = $_GET['page'] * $resultLimit;
+//     $pageLink = $link . '&page=' . $_GET['page'];
+// }else {
+//     $pageLink = $link;
 
 
-
+// }
 
 // if(!empty($_GET['idDelete'])){
 //     $clients->id = htmlspecialchars($_GET['idDelete']);

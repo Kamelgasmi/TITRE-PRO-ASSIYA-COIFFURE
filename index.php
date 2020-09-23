@@ -90,7 +90,7 @@ include 'views/menu.php';
 
        <!--Footer-->
        <div class="modal-footer justify-content-center">
-         <a type="button" href="views/ajoutClientInscription.php" class="btn btn-light text-dark btn-outline-dark">Créer mon compte <i class="far fa-gem ml-1 text-dark"></i></a>
+         <a type="button" href="views/add_client_inscription.php" class="btn btn-light text-dark btn-outline-dark">Créer mon compte <i class="far fa-gem ml-1 text-dark"></i></a>
          <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">OK</a>
        </div>
      </div>

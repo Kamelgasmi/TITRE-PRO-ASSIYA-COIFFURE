@@ -111,6 +111,5 @@ if(isset($_POST['modifyProductAdmin'])){
         }
         
     }
-    var_dump($formErrors);
-    var_dump($productInfo);
+
 

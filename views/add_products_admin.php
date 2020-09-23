@@ -1,10 +1,10 @@
 <?php 
 $title = 'Assiya Coiffure® - Ajout Produit';
 $idBody ='pageAjoutProductsAdmin';
+include 'menu.php';
 include '../models/products.php';
 include '../models/categories.php';
 include '../controllers/add_product_admin_controller.php';
-include 'menu.php' 
 ?>
         <div class="container-fluid justify-content-center">
             <div class="row no-gutter justify-content-center ">

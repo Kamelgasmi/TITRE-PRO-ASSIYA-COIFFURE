@@ -1,12 +1,11 @@
 <?php 
 $title = 'Assiya Coiffure® - Mon profil';
 $idBody ='pageProfilClient';
-include 'menu.php' ;
+include 'menu.php';
 include '../models/clients.php';
 include '../models/appointments.php';
 include '../models/choices_name.php';
-
-include '../controllers/profil_client_controller.php'
+include '../controllers/profil_client_controller.php';
 ?>
 <?php if(isset($_SESSION['profile'])){ ?>     
     <div id="welcome" class="justify-content-center">
@@ -60,7 +59,7 @@ include '../controllers/profil_client_controller.php'
     </div>
     <div><?php 
         foreach($appointmentList as $appointments){ ?>
-        <p id="rdvDate" class="text-center mt-5"><i class="fas fa-arrow-circle-right text-danger"></i><ins>Vous avez rendez-vous dans notre salon le <?= $appointments->dateFr ?>  à <?= $appointments->hour ?> pour <?=  $appointments->choice ?></ins><i class="fas fa-arrow-circle-left text-danger"></i></p> 
+        <p id="rdvDate" class="text-center text-danger mt-5"><i class="fas fa-arrow-circle-right text-danger"></i><ins>Vous avez rendez-vous dans notre salon le <?= $appointments->dateFr ?>  à <?= $appointments->hour ?> pour <?=  $appointments->choice ?></ins><i class="fas fa-arrow-circle-left text-danger"></i></p> 
     </div><?php } ?>
     <div class="text-center col-sm-12 mb-5 mt-5">
         <p class="  h8">Vous pouvez prendre un rendez-vous en ligne pour les prestations proposées dans la <strong>liste déroulante</strong> ci-dessous.</p>

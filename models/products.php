@@ -150,6 +150,7 @@ class products
             , `price` = :price
             , `weight` = :weight
             , `quantity` = :quantity
+            ,`photo` = :photo
             , `description` = :description
             , `id_kgtp_categories` = :id_kgtp_categories
             WHERE `id` = :id'
@@ -164,8 +165,8 @@ class products
         $modifyProductInfoQuery->bindvalue(':id_kgtp_categories', $this->id_kgtp_categories, PDO::PARAM_INT);
         return $modifyProductInfoQuery->execute();
     }
-
-    public function searchProductsListByName() {
+/*********************************************************************************************************** */
+public function searchProductsListByName() {
         $searchProductsListByNameQuery = $this->db->prepare(
             'SELECT `id`
             , `name`
